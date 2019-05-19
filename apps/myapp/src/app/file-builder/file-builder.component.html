@@ -1,15 +1,36 @@
 <p>We are going to create <i>{{fileToCreate}}</i></p>
 
-Resource name: <input #resourceName (keyup)="onResourceNameKey(resourceName.value)" />
+Variable key: <input #variableKey (keyup)="onKey(variableKey.value, 'variableInputKey')"/>
 <br />
-Resource type: <input #resourceType (keyup)="onResourceTypeKey(resourceType.value)"/>
+Variable value: <input #variableValue (keyup)="onKey(variableValue.value, 'variableInputValue')"/>
 <br />
-<button (click)="addResource()">Add resource</button>
+<button (click)="addVariable()">Add variable</button>
+<br />
+<br />
 
+Resource type: <input #resourceType (keyup)="onKey(resourceType.value, 'resourceType')"/>
+<br />
+Resource name: <input #resourceName (keyup)="onKey(resourceName.value, 'resourceName')" />
+<br />
+<!-- TODO: specify variables and other resources -->
+<button (click)="addResource()">Add resource</button>
+<hr>
 <ul>
-  <li *ngFor="let resource of resources">
-    Resource name: {{resource.name}}
-    <br />
+    Variables: 
+    <li *ngFor="let variable of variablesTF">
+      Variable key: {{variable.key}}
+    </li>
+    {{variablesTF.length < 1 ? 'none': '' }}
+  </ul>
+  
+  
+<ul>
+  Resources: 
+  <li *ngFor="let resource of mainTF">
     Resource type: {{resource.type}}
+    <br />
+    Resource name: {{resource.name}}
   </li>
+  {{mainTF.length < 1 ? 'none': '' }}
 </ul>
+

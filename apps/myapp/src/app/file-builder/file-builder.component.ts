@@ -9,31 +9,49 @@ import { Component, OnInit } from '@angular/core';
 
 export class FileBuilderComponent implements OnInit {
 
-  fileToCreate = "main.tf";
-  resourceName=""
-  resourceType=""
-  resources = [];
+  fileToCreate = "main.tf, variables.tf, and terraform.tfvars";
+  resourceName = ""
+  resourceType = ""
+  variableInputKey = ""
+  //todo needs to allow object arrays
+  variableInputValue = ""
+  mainTF = [];
+  variablesTF = [];
+  terraformTFVars = [];
   constructor() { }
 
   ngOnInit() {
   }
 
-  onResourceNameKey(value: string){
-    this.resourceName = value;
+  onKey(value: string, varName: string) {
+    this[varName] = value;
+    console.log(this[varName], varName);
   }
-  onResourceTypeKey(value: string){
-    this.resourceType = value;
+
+  addVariable() {
+    console.log('this.variableInputKey', this.variableInputKey)
+    var newTFV = new TFVariable();
+    newTFV.key = this.variableInputKey;
+    newTFV.value = this.variableInputValue;
+    this.variablesTF.push({ "key": newTFV.key });
+    this.terraformTFVars.push(newTFV);
+    console.log(this.terraformTFVars);
   }
 
   addResource() {
     var newTFR = new TFResource();
     newTFR.name = this.resourceName;
     newTFR.type = this.resourceType;
-    this.resources.push(newTFR)
-    console.log(this.resources)
+    this.mainTF.push(newTFR)
+    console.log(this.mainTF)
   }
 
 
+}
+
+class TFVariable {
+  key = "";
+  value = "";
 }
 
 class TFResource {
