@@ -1,3 +1,15 @@
-<p>
-  file-builder works!
-</p>
+<p>We are going to create <i>{{fileToCreate}}</i></p>
+
+Resource name: <input #resourceName (keyup)="onResourceNameKey(resourceName.value)" />
+<br />
+Resource type: <input #resourceType (keyup)="onResourceTypeKey(resourceType.value)"/>
+<br />
+<button (click)="addResource()">Add resource</button>
+
+<ul>
+  <li *ngFor="let resource of resources">
+    Resource name: {{resource.name}}
+    <br />
+    Resource type: {{resource.type}}
+  </li>
+</ul>
