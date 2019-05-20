@@ -1,16 +1,16 @@
 <p>We are going to create <i>{{fileToCreate}}</i></p>
 
-Variable key: <input #variableKey (keyup)="onKey(variableKey.value, 'variableInputKey')"/>
+Variable key: <input [(ngModel)]="variableModel.key"/>
 <br />
-Variable value: <input #variableValue (keyup)="onKey(variableValue.value, 'variableInputValue')"/>
+Variable value: <input [(ngModel)]="variableModel.value"/>
 <br />
 <button (click)="addVariable()">Add variable</button>
 <br />
 <br />
 
-Resource type: <input #resourceType (keyup)="onKey(resourceType.value, 'resourceType')"/>
+Resource type: <input [(ngModel)]="resourceModel.type"/>
 <br />
-Resource name: <input #resourceName (keyup)="onKey(resourceName.value, 'resourceName')" />
+Resource name: <input [(ngModel)]="resourceModel.name"/>
 <br />
 <!-- TODO: specify variables and other resources -->
 <button (click)="addResource()">Add resource</button>
