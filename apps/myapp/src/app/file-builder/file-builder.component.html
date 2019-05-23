@@ -8,9 +8,12 @@ Variable value: <input [(ngModel)]="variableModel.value"/>
 <br />
 <br />
 
-Resource type: <input [(ngModel)]="resourceModel.type"/>
+Resource type:
+<select id="resourceType" [(ngModel)]="resourceModel.type" #resourceType>
+  <option *ngFor="let type of resourceTypesMeta" [value]="type.type">{{type.type}}</option>
+</select>
 <br />
-Resource name: <input [(ngModel)]="resourceModel.name"/>
+Resource id (you name it): <input [(ngModel)]="resourceModel.name"/>
 <br />
 <!-- TODO: specify variables and other resources -->
 <button (click)="addResource()">Add resource</button>

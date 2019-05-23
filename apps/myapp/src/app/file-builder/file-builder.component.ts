@@ -9,15 +9,24 @@ import { Component, OnInit } from '@angular/core';
 
 export class FileBuilderComponent implements OnInit {
 
-  fileToCreate = "main.tf, variables.tf, and terraform.tfvars";
+  fileToCreate = "main.tf, variables.tf, and terraform.tfvars.";
   resourceModel = new TFResource();
   variableModel = new TFVariable();
   //todo needs to allow object arrays
 
+
+  resourceTypesMeta = [{
+    "type":"aws_instance",
+    "properties": {
+      "instance_type": "string",
+      "ami": "string"
+    }
+  }]
+  model = {};
   mainTF = [];
   variablesTF = [];
   terraformTFVars = [];
-  
+
   constructor() { }
 
   ngOnInit() {
@@ -31,6 +40,7 @@ export class FileBuilderComponent implements OnInit {
   }
 
   addResource() {
+    console.log(this.resourceModel)
     this.mainTF.push(this.resourceModel)
     console.log(this.mainTF)
     this.resourceModel = new TFResource();
@@ -56,3 +66,4 @@ class TFResource {
 class TFProvider {
 
 }
+
