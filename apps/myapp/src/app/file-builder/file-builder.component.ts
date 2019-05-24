@@ -22,13 +22,13 @@ export class FileBuilderComponent implements OnInit {
       "key": "instance_type",
       "value": "",
       "dataType": "string"
-    },{
+    }, {
       "key": "ami",
       "value": "",
       "dataType": "string"
     }
-  ]
-  },{
+    ]
+  }, {
     "id": 2,
     "type": "aws_instance2",
     "properties": [{
@@ -36,12 +36,12 @@ export class FileBuilderComponent implements OnInit {
       "value": "",
       "dataType": "string"
     }
-    // ,{
-    //   "key": "ami",
-    //   "value": "",
-    //   "dataType": "string"
-    // }
-  ]
+      // ,{
+      //   "key": "ami",
+      //   "value": "",
+      //   "dataType": "string"
+      // }
+    ]
   }]
   model = {};
   mainTF = [];
@@ -61,6 +61,9 @@ export class FileBuilderComponent implements OnInit {
   }
 
   addResource() {
+    // cleanup
+    this.resourceModel.type = this.resourceTypesMeta[this.resourceModel.selectedIndex].type;
+
     console.log(this.resourceModel)
     this.mainTF.push(this.resourceModel)
     console.log(this.mainTF)
@@ -82,6 +85,8 @@ class TFResource {
   }
   name: string;
   resourceTypesMeta: ResourceTypesMeta;
+  type: string;
+  selectedIndex: number;
   // namePrefix  = "";
   // subType = "";
   // policy = "";
