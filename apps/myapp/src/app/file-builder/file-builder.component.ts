@@ -30,11 +30,20 @@ export class FileBuilderComponent implements OnInit {
     ]
   }, {
     "id": 2,
-    "type": "aws_instance2",
+    "type": "aws_vpc",
     "properties": [{
-      "key": "instance_type",
+      "key": "cidr_block",
       "value": "",
       "dataType": "string"
+    },
+    {
+      "key": "enable_dns_hostnames",
+      "value": "",
+      "dataType": "bool"
+    },{
+      "key": "enable_dns_support",
+      "value": "",
+      "dataType": "bool"
     }
       // ,{
       //   "key": "ami",
