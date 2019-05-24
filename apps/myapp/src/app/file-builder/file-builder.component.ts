@@ -16,11 +16,32 @@ export class FileBuilderComponent implements OnInit {
 
 
   resourceTypesMeta = [{
-    "type":"aws_instance",
-    "properties": {
-      "instance_type": "string",
-      "ami": "string"
+    "id": 1,
+    "type": "aws_instance",
+    "properties": [{
+      "key": "instance_type",
+      "value": "",
+      "dataType": "string"
+    },{
+      "key": "ami",
+      "value": "",
+      "dataType": "string"
     }
+  ]
+  },{
+    "id": 2,
+    "type": "aws_instance2",
+    "properties": [{
+      "key": "instance_type",
+      "value": "",
+      "dataType": "string"
+    }
+    // ,{
+    //   "key": "ami",
+    //   "value": "",
+    //   "dataType": "string"
+    // }
+  ]
   }]
   model = {};
   mainTF = [];
@@ -55,12 +76,20 @@ class TFVariable {
 }
 
 class TFResource {
+
+  constructor() {
+    // this.resourceTypesMeta = new ResourceTypesMeta()
+  }
   name: string;
-  type: string;
+  resourceTypesMeta: ResourceTypesMeta;
   // namePrefix  = "";
   // subType = "";
   // policy = "";
   // role = "";
+}
+
+class ResourceTypesMeta {
+  type: string
 }
 
 class TFProvider {
