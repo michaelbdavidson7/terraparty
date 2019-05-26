@@ -90,16 +90,22 @@ class TFVariable {
 class TFResource {
 
   constructor() {
+    this.properties = [];
     // this.resourceTypesMeta = new ResourceTypesMeta()
   }
   name: string;
   resourceTypesMeta: ResourceTypesMeta;
   type: string;
   selectedIndex: number;
+  properties : ResourceProperty;
   // namePrefix  = "";
   // subType = "";
   // policy = "";
   // role = "";
+}
+
+class ResourceProperty {
+
 }
 
 class ResourceTypesMeta {
