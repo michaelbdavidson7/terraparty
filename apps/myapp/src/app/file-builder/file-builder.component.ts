@@ -40,7 +40,7 @@ export class FileBuilderComponent implements OnInit {
       "key": "enable_dns_hostnames",
       "value": "",
       "dataType": "bool"
-    },{
+    }, {
       "key": "enable_dns_support",
       "value": "",
       "dataType": "bool"
@@ -73,6 +73,14 @@ export class FileBuilderComponent implements OnInit {
     // cleanup
     this.resourceModel.type = this.resourceTypesMeta[this.resourceModel.selectedIndex].type;
 
+    // reformat properties array
+    let newPropertiesModel = [];
+    newPropertiesModel = this.resourceTypesMeta[this.resourceModel.selectedIndex].properties;
+    this.resourceModel.properties.forEach(function(prop, i){
+      newPropertiesModel[i].value = prop;
+    });
+    this.resourceModel.properties = newPropertiesModel;
+
     console.log(this.resourceModel)
     this.mainTF.push(this.resourceModel)
     console.log(this.mainTF)
@@ -90,14 +98,14 @@ class TFVariable {
 class TFResource {
 
   constructor() {
-    this.properties = [];
+    // this.properties = new Array();
     // this.resourceTypesMeta = new ResourceTypesMeta()
   }
   name: string;
   resourceTypesMeta: ResourceTypesMeta;
   type: string;
   selectedIndex: number;
-  properties : ResourceProperty;
+  properties: ResourceProperty[] = [];
   // namePrefix  = "";
   // subType = "";
   // policy = "";
@@ -105,7 +113,9 @@ class TFResource {
 }
 
 class ResourceProperty {
-
+  key: string;
+  value: string;
+  type: string;
 }
 
 class ResourceTypesMeta {

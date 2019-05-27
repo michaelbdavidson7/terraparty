@@ -20,8 +20,8 @@ Resource id (you name it): <input [(ngModel)]="resourceModel.name" />
 <div>
   <!-- {{resourceModel | json}} -->
   <ul *ngIf="resourceModel.selectedIndex">
-    <li *ngFor="let resourceProperty of resourceTypesMeta[resourceModel.selectedIndex].properties">
-      {{resourceProperty.key}}: <input [(ngModel)]="resourceModel.properties[resourceProperty.key]"/> - {{resourceProperty.dataType}}</li>
+    <li *ngFor="let resourcePropertyMeta of resourceTypesMeta[resourceModel.selectedIndex].properties; index as resourcePropertyIndex;">
+      {{resourcePropertyMeta.key}}: <input [(ngModel)]="resourceModel.properties[resourcePropertyIndex]"/> - {{resourcePropertyMeta.dataType}}</li>
   </ul>
 </div>
 <!-- TODO: specify variables and other resources -->
