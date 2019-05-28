@@ -71,12 +71,12 @@ export class FileBuilderComponent implements OnInit {
 
   addResource() {
     // cleanup
+    // console.log('IT SHOULD BE EMPTY -- ', this.resourceModel)
     this.resourceModel.type = this.resourceTypesMeta[this.resourceModel.selectedIndex].type;
 
-    // reformat properties array
-    let newPropertiesModel = [];
-    newPropertiesModel = this.resourceTypesMeta[this.resourceModel.selectedIndex].properties;
-    this.resourceModel.properties.forEach(function(prop, i){
+    // reformat properties array, as a new deep copy
+    let newPropertiesModel = JSON.parse(JSON.stringify(this.resourceTypesMeta[this.resourceModel.selectedIndex].properties));
+    this.resourceModel.properties.forEach(function (prop, i) {
       newPropertiesModel[i].value = prop;
     });
     this.resourceModel.properties = newPropertiesModel;
@@ -85,8 +85,8 @@ export class FileBuilderComponent implements OnInit {
     this.mainTF.push(this.resourceModel)
     console.log(this.mainTF)
     this.resourceModel = new TFResource();
+    newPropertiesModel = [];
   }
-
 
 }
 
