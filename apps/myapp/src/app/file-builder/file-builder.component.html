@@ -1,5 +1,5 @@
 <div class="container padding-top-120">
-  <h3>We are going to create <i>{{fileToCreate}}</i></h3>
+  <h4>We are going to create <i>{{fileToCreate}}</i> This is the only file you need in a folder to run Terraform.</h4>
   <br />
   <div class="row">
     <div class="col-lg-6">
@@ -44,10 +44,14 @@
           <hr>
           <ul>
             Variables:
-            <li *ngFor="let variable of variablesTF">
+            <li *ngFor="let variable of terraformTFVars">
               Variable key: {{variable.key}}
+              <br/>
+              
+              <span><label for="variableValueDisplay">Variable Key: </label> <input class="form-control form-control-sm" id="variableValueDisplay"
+              [(ngModel)]="variable.value" /></span>
             </li>
-            {{variablesTF.length < 1 ? 'none': '' }}
+            {{terraformTFVars.length < 1 ? 'none': '' }}
           </ul>
 
 

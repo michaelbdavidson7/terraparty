@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class FileBuilderComponent implements OnInit {
 
-  fileToCreate = "main.tf, variables.tf, and terraform.tfvars.";
+  fileToCreate = "main.tf.json.";
   resourceModel = new TFResource();
   variableModel = new TFVariable();
   //todo needs to allow object arrays
