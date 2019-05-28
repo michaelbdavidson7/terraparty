@@ -3,35 +3,35 @@
   <br />
   <div class="col-lg-6">
     <div class="form-group">
-      <label for="variableModelKey">Variable key: </label> 
-      <input class="form-control" id="variableModelKey" [(ngModel)]="variableModel.key" />
-      <label for="variableModelValue">Variable value: </label> 
-      <input class="form-control" id="variableModelValue" [(ngModel)]="variableModel.value" />
+      <label for="variableModelKey">Variable key: </label>
+      <input class="form-control form-control-sm" id="variableModelKey" [(ngModel)]="variableModel.key" />
+      <label for="variableModelValue">Variable value: </label>
+      <input class="form-control form-control-sm" id="variableModelValue" [(ngModel)]="variableModel.value" />
       <br />
       <button class="btn btn-primary" (click)="addVariable()">Add variable</button>
       <br />
       <!-- <br /> -->
     </div>
     <div class="form-group">
-      
-      <label for="resourceType">Resource type: </label> 
-      <select class="form-control" id="resourceType" [(ngModel)]="resourceModel.selectedIndex" #resourceType>
+
+      <label for="resourceType">Resource type: </label>
+      <select class="form-control form-control-sm" id="resourceType" [(ngModel)]="resourceModel.selectedIndex" #resourceType>
         <option *ngFor="let typeSelection of resourceTypesMeta; index as i; trackBy: id;" [value]="i">
           {{typeSelection.type}}
         </option>
       </select>
       <!-- {{resourceTypesMeta | json}} -->
-      <label for="resourceModelName">Resource id (you name it): </label> 
-      <input class="form-control" id="resourceModelName" [(ngModel)]="resourceModel.name" />
+      <label for="resourceModelName">Resource id (you name it): </label>
+      <input class="form-control form-control-sm" id="resourceModelName" [(ngModel)]="resourceModel.name" />
       <div>
 
         <!-- {{resourceModel | json}} -->
         <ul *ngIf="resourceModel.selectedIndex">
           <li
             *ngFor="let resourcePropertyMeta of resourceTypesMeta[resourceModel.selectedIndex].properties; index as resourcePropertyIndex;">
-            {{resourcePropertyMeta.key}}: <input class="form-control"
-              [(ngModel)]="resourceModel.properties[resourcePropertyIndex]" /> -
-            {{resourcePropertyMeta.dataType}}</li>
+            {{resourcePropertyMeta.key}} ({{resourcePropertyMeta.dataType}}): <input class="form-control form-control-sm"
+              [(ngModel)]="resourceModel.properties[resourcePropertyIndex]" />
+            </li>
         </ul>
       </div>
       <div>
@@ -51,14 +51,20 @@
         <ul>
           Resources:
           <li *ngFor="let resource of mainTF">
-            {{resource | json}}
+            <!-- {{resource | json}} -->
             Resource type: {{resource.type}}
             <br />
             Resource name: {{resource.name}}
             <!-- TODO: list all properties -->
-            <ul>
-              <li *ngFor="let resourceProp of resource.properties">{{resourceProp | json}}</li>
-            </ul>
+            <div>
+              <ul>
+                <li *ngFor="let resourceProp of resource.properties">
+                  <span><label for="resourceProperty">{{resourceProp.key}} ({{resourceProp.dataType}}): </label>
+                  <input class="form-control form-control-sm" id="resourceProperty" [(ngModel)]="resourceProp.value" /></span>
+                  
+                </li>
+              </ul>
+            </div>
           </li>
           {{mainTF.length < 1 ? 'none': '' }}
         </ul>
