@@ -1,52 +1,66 @@
-<p>We are going to create <i>{{fileToCreate}}</i></p>
+<div class="container padding-top-120">
+  <h3>We are going to create <i>{{fileToCreate}}</i></h3>
+  <br />
+  <div class="col-lg-6">
+    <div class="form-group">
+      <label for="variableModelKey">Variable key: </label> 
+      <input class="form-control" id="variableModelKey" [(ngModel)]="variableModel.key" />
+      <label for="variableModelValue">Variable value: </label> 
+      <input class="form-control" id="variableModelValue" [(ngModel)]="variableModel.value" />
+      <br />
+      <button class="btn btn-primary" (click)="addVariable()">Add variable</button>
+      <br />
+      <!-- <br /> -->
+    </div>
+    <div class="form-group">
+      
+      <label for="resourceType">Resource type: </label> 
+      <select class="form-control" id="resourceType" [(ngModel)]="resourceModel.selectedIndex" #resourceType>
+        <option *ngFor="let typeSelection of resourceTypesMeta; index as i; trackBy: id;" [value]="i">
+          {{typeSelection.type}}
+        </option>
+      </select>
+      <!-- {{resourceTypesMeta | json}} -->
+      <label for="resourceModelName">Resource id (you name it): </label> 
+      <input class="form-control" id="resourceModelName" [(ngModel)]="resourceModel.name" />
+      <div>
 
-Variable key: <input [(ngModel)]="variableModel.key" />
-<br />
-Variable value: <input [(ngModel)]="variableModel.value" />
-<br />
-<button (click)="addVariable()">Add variable</button>
-<br />
-<br />
-
-Resource type:
-<select id="resourceType" [(ngModel)]="resourceModel.selectedIndex" #resourceType>
-  <option *ngFor="let typeSelection of resourceTypesMeta; index as i; trackBy: id;" [value]="i">{{typeSelection.type}}</option>
-</select>
-<!-- <br /> -->
-<!-- {{resourceTypesMeta | json}} -->
-<br />
-Resource id (you name it): <input [(ngModel)]="resourceModel.name" />
-<br />
-<div>
-  <!-- {{resourceModel | json}} -->
-  <ul *ngIf="resourceModel.selectedIndex">
-    <li *ngFor="let resourcePropertyMeta of resourceTypesMeta[resourceModel.selectedIndex].properties; index as resourcePropertyIndex;">
-      {{resourcePropertyMeta.key}}: <input [(ngModel)]="resourceModel.properties[resourcePropertyIndex]"/> - {{resourcePropertyMeta.dataType}}</li>
-  </ul>
-</div>
-<!-- TODO: specify variables and other resources -->
-<button (click)="addResource()">Add resource</button>
-<hr>
-<ul>
-  Variables:
-  <li *ngFor="let variable of variablesTF">
-    Variable key: {{variable.key}}
-  </li>
-  {{variablesTF.length < 1 ? 'none': '' }}
-</ul>
+        <!-- {{resourceModel | json}} -->
+        <ul *ngIf="resourceModel.selectedIndex">
+          <li
+            *ngFor="let resourcePropertyMeta of resourceTypesMeta[resourceModel.selectedIndex].properties; index as resourcePropertyIndex;">
+            {{resourcePropertyMeta.key}}: <input class="form-control"
+              [(ngModel)]="resourceModel.properties[resourcePropertyIndex]" /> -
+            {{resourcePropertyMeta.dataType}}</li>
+        </ul>
+      </div>
+      <div>
+        <br />
+        <!-- TODO: specify variables and other resources -->
+        <button class="btn btn-primary" (click)="addResource()">Add resource</button>
+        <hr>
+        <ul>
+          Variables:
+          <li *ngFor="let variable of variablesTF">
+            Variable key: {{variable.key}}
+          </li>
+          {{variablesTF.length < 1 ? 'none': '' }}
+        </ul>
 
 
-<ul>
-  Resources:
-  <li *ngFor="let resource of mainTF">
-    {{resource | json}}
-    Resource type: {{resource.type}}
-    <br />
-    Resource name: {{resource.name}}
-    <!-- TODO: list all properties -->
-    <ul>
-      <li *ngFor="let resourceProp of resource.properties">{{resourceProp | json}}</li>
-    </ul>
-  </li>
-  {{mainTF.length < 1 ? 'none': '' }}
-</ul>
+        <ul>
+          Resources:
+          <li *ngFor="let resource of mainTF">
+            {{resource | json}}
+            Resource type: {{resource.type}}
+            <br />
+            Resource name: {{resource.name}}
+            <!-- TODO: list all properties -->
+            <ul>
+              <li *ngFor="let resourceProp of resource.properties">{{resourceProp | json}}</li>
+            </ul>
+          </li>
+          {{mainTF.length < 1 ? 'none': '' }}
+        </ul>
+      </div>
+    </div>
