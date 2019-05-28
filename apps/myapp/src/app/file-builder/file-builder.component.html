@@ -1,72 +1,84 @@
 <div class="container padding-top-120">
   <h3>We are going to create <i>{{fileToCreate}}</i></h3>
   <br />
-  <div class="col-lg-6">
-    <div class="form-group">
-      <label for="variableModelKey">Variable key: </label>
-      <input class="form-control form-control-sm" id="variableModelKey" [(ngModel)]="variableModel.key" />
-      <label for="variableModelValue">Variable value: </label>
-      <input class="form-control form-control-sm" id="variableModelValue" [(ngModel)]="variableModel.value" />
-      <br />
-      <button class="btn btn-primary" (click)="addVariable()">Add variable</button>
-      <br />
-      <!-- <br /> -->
-    </div>
-    <div class="form-group">
-
-      <label for="resourceType">Resource type: </label>
-      <select class="form-control form-control-sm" id="resourceType" [(ngModel)]="resourceModel.selectedIndex" #resourceType>
-        <option *ngFor="let typeSelection of resourceTypesMeta; index as i; trackBy: id;" [value]="i">
-          {{typeSelection.type}}
-        </option>
-      </select>
-      <!-- {{resourceTypesMeta | json}} -->
-      <label for="resourceModelName">Resource id (you name it): </label>
-      <input class="form-control form-control-sm" id="resourceModelName" [(ngModel)]="resourceModel.name" />
-      <div>
-
-        <!-- {{resourceModel | json}} -->
-        <ul *ngIf="resourceModel.selectedIndex">
-          <li
-            *ngFor="let resourcePropertyMeta of resourceTypesMeta[resourceModel.selectedIndex].properties; index as resourcePropertyIndex;">
-            {{resourcePropertyMeta.key}} ({{resourcePropertyMeta.dataType}}): <input class="form-control form-control-sm"
-              [(ngModel)]="resourceModel.properties[resourcePropertyIndex]" />
-            </li>
-        </ul>
-      </div>
-      <div>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="form-group">
+        <label for="variableModelKey">Variable key: </label>
+        <input class="form-control form-control-sm" id="variableModelKey" [(ngModel)]="variableModel.key" />
+        <label for="variableModelValue">Variable value: </label>
+        <input class="form-control form-control-sm" id="variableModelValue" [(ngModel)]="variableModel.value" />
         <br />
-        <!-- TODO: specify variables and other resources -->
-        <button class="btn btn-primary" (click)="addResource()">Add resource</button>
-        <hr>
-        <ul>
-          Variables:
-          <li *ngFor="let variable of variablesTF">
-            Variable key: {{variable.key}}
-          </li>
-          {{variablesTF.length < 1 ? 'none': '' }}
-        </ul>
+        <button class="btn btn-primary" (click)="addVariable()">Add variable</button>
+        <br />
+        <!-- <br /> -->
+      </div>
+      <div class="form-group">
+
+        <label for="resourceType">Resource type: </label>
+        <select class="form-control form-control-sm" id="resourceType" [(ngModel)]="resourceModel.selectedIndex"
+          #resourceType>
+          <option *ngFor="let typeSelection of resourceTypesMeta; index as i; trackBy: id;" [value]="i">
+            {{typeSelection.type}}
+          </option>
+        </select>
+        <!-- {{resourceTypesMeta | json}} -->
+        <label for="resourceModelName">Resource id (you name it): </label>
+        <input class="form-control form-control-sm" id="resourceModelName" [(ngModel)]="resourceModel.name" />
+        <div>
+
+          <!-- {{resourceModel | json}} -->
+          <ul *ngIf="resourceModel.selectedIndex">
+            <li
+              *ngFor="let resourcePropertyMeta of resourceTypesMeta[resourceModel.selectedIndex].properties; index as resourcePropertyIndex;">
+              {{resourcePropertyMeta.key}} ({{resourcePropertyMeta.dataType}}): <input
+                class="form-control form-control-sm" [(ngModel)]="resourceModel.properties[resourcePropertyIndex]" />
+            </li>
+          </ul>
+        </div>
+        <div>
+          <br />
+          <!-- TODO: specify variables and other resources -->
+          <button class="btn btn-primary" (click)="addResource()">Add resource</button>&nbsp;
+          <button class="btn btn-info" (click)="exportTF()">Export </button>
+          <hr>
+          <ul>
+            Variables:
+            <li *ngFor="let variable of variablesTF">
+              Variable key: {{variable.key}}
+            </li>
+            {{variablesTF.length < 1 ? 'none': '' }}
+          </ul>
 
 
-        <ul>
-          Resources:
-          <li *ngFor="let resource of mainTF">
-            <!-- {{resource | json}} -->
-            Resource type: {{resource.type}}
-            <br />
-            Resource name: {{resource.name}}
-            <!-- TODO: list all properties -->
-            <div>
-              <ul>
-                <li *ngFor="let resourceProp of resource.properties">
-                  <span><label for="resourceProperty">{{resourceProp.key}} ({{resourceProp.dataType}}): </label>
-                  <input class="form-control form-control-sm" id="resourceProperty" [(ngModel)]="resourceProp.value" /></span>
-                  
-                </li>
-              </ul>
-            </div>
-          </li>
-          {{mainTF.length < 1 ? 'none': '' }}
-        </ul>
+          <ul>
+            Resources:
+            <li *ngFor="let resource of mainTF">
+              <!-- {{resource | json}} -->
+              Resource type: {{resource.type}}
+              <br />
+              Resource name: {{resource.name}}
+              <!-- TODO: list all properties -->
+              <div>
+                <ul>
+                  <li *ngFor="let resourceProp of resource.properties">
+                    <span><label for="resourceProperty">{{resourceProp.key}} ({{resourceProp.dataType}}): </label>
+                      <input class="form-control form-control-sm" id="resourceProperty"
+                        [(ngModel)]="resourceProp.value" /></span>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            {{mainTF.length < 1 ? 'none': '' }}
+          </ul>
+        </div>
       </div>
     </div>
+    <div class="offset-lg-2 col-lg-4">
+      <div *ngIf="showOutput">
+        TF output:
+        <br />
+        <code>{{finalOutput | json}}</code>
+      </div>
+    </div>
+  </div>

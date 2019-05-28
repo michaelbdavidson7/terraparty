@@ -13,6 +13,8 @@ export class FileBuilderComponent implements OnInit {
   resourceModel = new TFResource();
   variableModel = new TFVariable();
   //todo needs to allow object arrays
+  showOutput = false;
+  finalOutput = [];
 
 
   resourceTypesMeta = [{
@@ -86,6 +88,31 @@ export class FileBuilderComponent implements OnInit {
     console.log(this.mainTF)
     this.resourceModel = new TFResource();
     newPropertiesModel = [];
+  }
+
+  exportTF(){ 
+    this.showOutput = true;
+    this.finalOutput = [];
+    // cycle through variables
+    this.terraformTFVars.forEach((varr) => {
+      let newVar = {"variable" : {}};
+      newVar.variable[varr.key] = {"default": varr.value}
+
+      this.finalOutput.push(newVar)
+    });
+
+    // cycle through resources
+    this.mainTF.forEach((resource)=>{
+      let newResource = {"resource":{}};
+      newResource.resource[resource.type] = {};
+      newResource.resource[resource.type][resource.name] = {};
+      resource.properties.forEach((prop)=>{
+        newResource.resource[resource.type][resource.name][prop.key] = prop.value;
+      });
+
+      this.finalOutput.push(newResource);
+      
+    });
   }
 
 }
