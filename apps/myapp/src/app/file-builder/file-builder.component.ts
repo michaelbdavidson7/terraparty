@@ -14,7 +14,7 @@ export class FileBuilderComponent implements OnInit {
   //todo needs to allow object arrays
   showOutput = false;
   tempOutputString = "Your output will go here";
-  output = { "resource": [] }
+  output = { "resource": [], "variable":[] }
 
 
   resourceTypesMeta = [{
@@ -93,21 +93,22 @@ export class FileBuilderComponent implements OnInit {
   exportTF() {
     this.showOutput = true;
     // this.finalOutput = {};
-    this.output = { "resource": [] }
+    this.output = { "resource": [], "variable":[] }
+    let variablesHash = {};
     let resourcesHash = {};
 
     // cycle through variables
-    this.terraformTFVars.forEach((varr) => {
-      let newVar = { "variable": {} };
-      newVar.variable[varr.key] = { "default": varr.value }
+    if(this.terraformTFVars.length > 0){
+      this.terraformTFVars.forEach((varr) => {
+        let newVar = {};
+        newVar[varr.key] = { "default": varr.value }
+  
+        this.output.variable.push(newVar);
+      });  
+    }
 
-      // this.finalOutput.push(newVar)
-    });
-
+    // cycle through resources
     if (this.mainTF.length > 0) {
-      // let allResources = { "resource": [] };
-
-      // cycle through resources
       this.mainTF.forEach((resource) => {
         if (!resourcesHash[resource.type]) {
           resourcesHash[resource.type] = {};
