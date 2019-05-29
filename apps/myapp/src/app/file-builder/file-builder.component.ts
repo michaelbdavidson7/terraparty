@@ -9,12 +9,12 @@ import { Component, OnInit } from '@angular/core';
 
 export class FileBuilderComponent implements OnInit {
 
-  fileToCreate = "main.tf.json.";
   resourceModel = new TFResource();
   variableModel = new TFVariable();
   //todo needs to allow object arrays
   showOutput = false;
-  finalOutput = [];
+  tempOutputString = "Your output will go here";
+  output = { "resource": [] }
 
 
   resourceTypesMeta = [{
@@ -90,31 +90,47 @@ export class FileBuilderComponent implements OnInit {
     newPropertiesModel = [];
   }
 
-  exportTF(){ 
+  exportTF() {
     this.showOutput = true;
-    this.finalOutput = [];
+    // this.finalOutput = {};
+    this.output = { "resource": [] }
+    let resourcesHash = {};
+
     // cycle through variables
     this.terraformTFVars.forEach((varr) => {
-      let newVar = {"variable" : {}};
-      newVar.variable[varr.key] = {"default": varr.value}
+      let newVar = { "variable": {} };
+      newVar.variable[varr.key] = { "default": varr.value }
 
-      this.finalOutput.push(newVar)
+      // this.finalOutput.push(newVar)
     });
 
-    // cycle through resources
-    this.mainTF.forEach((resource)=>{
-      let newResource = {"resource":{}};
-      newResource.resource[resource.type] = {};
-      newResource.resource[resource.type][resource.name] = {};
-      resource.properties.forEach((prop)=>{
-        newResource.resource[resource.type][resource.name][prop.key] = prop.value;
-      });
+    if (this.mainTF.length > 0) {
+      // let allResources = { "resource": [] };
 
-      this.finalOutput.push(newResource);
-      
-    });
+      // cycle through resources
+      this.mainTF.forEach((resource) => {
+        if (!resourcesHash[resource.type]) {
+          resourcesHash[resource.type] = {};
+        }
+        resourcesHash[resource.type][resource.name] = {};
+        resource.properties.forEach((property) => {
+          resourcesHash[resource.type][resource.name][property.key] = property.value;
+        });
+      })
+
+      console.log('resourcesHash', resourcesHash)
+      Object.keys(resourcesHash).forEach((typeKey) => {
+        let obj = {};
+        obj[typeKey] = {};
+        Object.keys(resourcesHash[typeKey]).forEach((nameKey) => {
+          obj[typeKey][nameKey] = resourcesHash[typeKey][nameKey];
+          console.log(obj)
+        });
+
+        this.output.resource.push(obj);
+      })
+    }
   }
-
 }
 
 class TFVariable {

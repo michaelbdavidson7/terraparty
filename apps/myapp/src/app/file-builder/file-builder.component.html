@@ -1,5 +1,5 @@
 <div class="container padding-top-120">
-  <h4>We are going to create <i>{{fileToCreate}}</i> This is the only file you need in a folder to run Terraform.</h4>
+  <h4>We are going to create <i>main.tf.json.</i> This is the only file you need in a folder to run preinstalled Terraform.</h4>
   <br />
   <div class="row">
     <div class="col-lg-6">
@@ -42,6 +42,7 @@
           <button class="btn btn-primary" (click)="addResource()">Add resource</button>&nbsp;
           <button class="btn btn-info" (click)="exportTF()">Export </button>
           <hr>
+          <h3>Your Terraform model: </h3>
           <ul>
             Variables:
             <li *ngFor="let variable of terraformTFVars">
@@ -82,7 +83,10 @@
       <div *ngIf="showOutput">
         TF output:
         <br />
-        <code>{{finalOutput | json}}</code>
+        <code>{{output | json}}</code>
+      </div>
+      <div *ngIf="!showOutput">
+        <code>Exported code will go here.</code>
       </div>
     </div>
   </div>
