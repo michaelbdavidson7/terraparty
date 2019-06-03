@@ -1,0 +1,50 @@
+/*
+ * The Typekit service used to deliver this font or fonts for use on websites
+ * is provided by Adobe and is subject to these Terms of Use
+ * http://www.adobe.com/products/eulas/tou_typekit. For font license
+ * information, see the list below.
+ *
+ * klavika-web:
+ *   - http://typekit.com/eulas/00000000000000003b9acdf4
+ *   - http://typekit.com/eulas/00000000000000003b9acdf5
+ *   - http://typekit.com/eulas/00000000000000003b9acdf9
+ *   - http://typekit.com/eulas/00000000000000003b9acdf2
+ *   - http://typekit.com/eulas/00000000000000003b9acdf6
+ *
+ * © 2009-2019 Adobe Systems Incorporated. All Rights Reserved.
+ */
+/*{"last_published":"2018-10-15 21:11:22 UTC"}*/
+
+@import url("https://p.typekit.net/p.css?s=1&k=wxf7mfi&ht=tk&f=7077.7078.7079.7081.7083&a=662726&app=typekit&e=css");
+
+@font-face {
+font-family:"klavika-web";
+src:url("https://use.typekit.net/af/0920ab/00000000000000003b9acdf4/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/0920ab/00000000000000003b9acdf4/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/0920ab/00000000000000003b9acdf4/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+font-style:normal;font-weight:400;
+}
+
+@font-face {
+font-family:"klavika-web";
+src:url("https://use.typekit.net/af/699a12/00000000000000003b9acdf5/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff2"),url("https://use.typekit.net/af/699a12/00000000000000003b9acdf5/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff"),url("https://use.typekit.net/af/699a12/00000000000000003b9acdf5/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("opentype");
+font-style:italic;font-weight:400;
+}
+
+@font-face {
+font-family:"klavika-web";
+src:url("https://use.typekit.net/af/f3ac97/00000000000000003b9acdf9/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"),url("https://use.typekit.net/af/f3ac97/00000000000000003b9acdf9/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"),url("https://use.typekit.net/af/f3ac97/00000000000000003b9acdf9/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
+font-style:normal;font-weight:700;
+}
+
+@font-face {
+font-family:"klavika-web";
+src:url("https://use.typekit.net/af/5427ac/00000000000000003b9acdf2/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("woff2"),url("https://use.typekit.net/af/5427ac/00000000000000003b9acdf2/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("woff"),url("https://use.typekit.net/af/5427ac/00000000000000003b9acdf2/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3") format("opentype");
+font-style:normal;font-weight:300;
+}
+
+@font-face {
+font-family:"klavika-web";
+src:url("https://use.typekit.net/af/bcd70d/00000000000000003b9acdf6/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("woff2"),url("https://use.typekit.net/af/bcd70d/00000000000000003b9acdf6/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("woff"),url("https://use.typekit.net/af/bcd70d/00000000000000003b9acdf6/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("opentype");
+font-style:normal;font-weight:600;
+}
+
+.tk-klavika-web { font-family: "klavika-web",sans-serif; }

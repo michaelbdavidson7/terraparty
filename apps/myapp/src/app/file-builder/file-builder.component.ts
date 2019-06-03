@@ -150,6 +150,7 @@ class TFResource {
   type: string;
   selectedIndex: number;
   properties: ResourceProperty[] = [];
+  docsUrl: string;
   // namePrefix  = "";
   // subType = "";
   // policy = "";
