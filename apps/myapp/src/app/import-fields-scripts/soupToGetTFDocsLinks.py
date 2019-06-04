@@ -3,13 +3,14 @@ import urllib.request
 from bs4 import BeautifulSoup
 import os
 import json
+import time
 print("hellow world")
 
 # import urllib2
 
 docsLinksFileName = "tfDocsLinks.txt"
 docsLinksFileNameParsed = "tfDocsLinksParsed.txt"
-resourcesOutput = "resourcesOutput.json"
+resourcesOutputFile = "resourcesOutputFile.json"
 objectToExport = []
 
 
@@ -24,10 +25,8 @@ def getAllLinks():
     SymbolExcludeArray = ["/", "#", "None"]
     tfPageAllLinks = soup.find_all("a")
 
-    
     if os.path.isfile(docsLinksFileName):
         os.remove(docsLinksFileName)
-
 
     with open(docsLinksFileName, "a") as f:
         for link in tfPageAllLinks:
@@ -48,14 +47,13 @@ def improveLinks():
         data = f.read()
         lines = data.split('\n')
 
-            
         if os.path.isfile(docsLinksFileNameParsed):
             os.remove(docsLinksFileNameParsed)
 
-
         with open(docsLinksFileNameParsed, "a") as parsedListFile:
             for line in lines:
-                if line.startswith('/docs/providers/aws/r/'): #data resources: line.startswith('/docs/providers/aws/d/') 
+                # data resources: line.startswith('/docs/providers/aws/d/')
+                if line.startswith('/docs/providers/aws/r/'):
                     validLinks.append(line)
                     print(line, file=parsedListFile)
 
@@ -63,70 +61,76 @@ def improveLinks():
 
 
 def getResourceWebpages():
-    with open(docsLinksFileNameParsed) as f:
-        data = f.read()
-        lines = data.split('\n')
-        for lineno, line in enumerate(lines):
-            
-            url = "https://www.terraform.io" + line
-            if '/docs/providers/aws/r/' in url:
-                docType = 'awsResource'
-            elif '/docs/providers/aws/d/' in url:
-                docType = 'awsDataSource'
-            print('url: ', url)
-            resourceObj = {'id': lineno + 1, 'type':'', 'properties': [], 'docsUrl':url, 'docType': docType}
+    jsonOutput = []
 
-            content = urllib.request.urlopen(url).read()
+    if os.path.isfile(resourcesOutputFile):
+        os.remove(resourcesOutputFile)
+    with open(resourcesOutputFile, 'a') as jsonOutputFile:
+        with open(docsLinksFileNameParsed) as f:
+            data = f.read()
+            lines = data.split('\n')
+            for lineno, line in enumerate(lines):
+                print('#' + str(lineno + 1) + " of " + str(len(lines)))
 
-            soup = BeautifulSoup(content, features="html.parser")
-            
-            
-            # get resource name (type)
-            resourceNameBaseContentList = soup.find(id='inner').h1.contents
-            lastResourceIndex = len(resourceNameBaseContentList) - 1
-            resourceName = str(resourceNameBaseContentList[lastResourceIndex].split('\n')[1]).split(': ')[1] # there's two \ns
-            resourceObj['type'] = resourceName
-            print('resourceName', resourceName)
+                if line:
+                    url = "https://www.terraform.io" + line
+                    if '/docs/providers/aws/r/' in url:
+                        docType = 'awsResource'
+                    elif '/docs/providers/aws/d/' in url:
+                        docType = 'awsDataSource'
+                    else:
+                        docType = ''
+                    print('url: ', url)
+                    resourceObj = {'id': lineno + 1, 'type': '',
+                                   'properties': [], 'docsUrl': url, 'docType': docType}
 
-            # get all the properties
-            ul = soup.find(id='inner').ul.find_all('li')
-            for li in ul:
-                # print(li)
-                strLi = str(li)
-                propertyObject = {'name':"", 'required': False, 'default': ''}
-                propertyObject['name'] = li.code.contents[0]
-                if '(Required)' in strLi:
-                    print(propertyObject['name'] + ' is required' )
-                    propertyObject['required'] = True
-                if '(Default: ' in strLi:
-                    propertyObject['default'] = strLi.split('(Default')[1]
-                propertyObject['description'] = strLi.split(')')[1].split('</li>')[0]
-                resourceObj['properties'].append(propertyObject)
-                # propertyObjectJson = json.dumps(propertyObject)#
-                # print(propertyObjectJson)
-            print(json.dumps(resourceObj))
-            # print(ul)
-            # for u in ul:
-            #     print(u)
-            return soup
+                    # http request get the website
+                    content = urllib.request.urlopen(url).read()
+                    soup = BeautifulSoup(content, features="html.parser")
 
+                    # get resource name (which is the resource type)
+                    resourceNameBaseContentList = soup.find(
+                        id='inner').h1.contents
+                    lastResourceIndex = len(resourceNameBaseContentList) - 1
+                    resourceName = resourceNameBaseContentList[lastResourceIndex]
+                    if '\n' in resourceName:
+                        resourceName = resourceName.split(
+                            '\n')[1]  # there's two \ns
+                        if ': ' in resourceName:
+                            resourceName = resourceName.split(': ')[1]
+                    resourceObj['type'] = resourceName
+                    print('resourceName', resourceName)
 
-def parseContent(content):
-    newProperty = {
-        "key": '',
-        "value": '',
-        "dataType": "",
-        "required": False,
-        "docsUrl": ""
-    }
-
-
-class TFResource:
-    type = ""
-    docsUrl = ""
-    Properties = []
-
-# class TFProperty:
+                    # get all the properties
+                    ul = soup.find(id='inner').ul.find_all('li')
+                    for li in ul:
+                        # print(li)
+                        strLi = str(li)
+                        propertyObject = {'name': "",
+                                          'required': False, 'default': ''}
+                        if li.code:
+                            propertyObject['name'] = li.code
+                            if li.code.contents:
+                                propertyObject['name'] = li.code.contents[0]
+                        else:
+                            propertyObject['name'] = li
+                        if '(Required)' in strLi:
+                            print(propertyObject['name'] + ' is required')
+                            propertyObject['required'] = True
+                        if '(Default: ' in strLi:
+                            propertyObject['default'] = strLi.split(
+                                '(Default')[1]
+                        if ')' in strLi:
+                            propertyObject['description'] = strLi.split(')')[1]
+                            if '</li>' in propertyObject['description']:
+                                propertyObject['description'] = propertyObject['description'].split(
+                                    '</li>')[0]
+                        resourceObj['properties'].append(propertyObject)
+                        # propertyObjectJson = json.dumps(propertyObject)#
+                        # print(propertyObjectJson)
+                    resourceObjJson = json.dumps(str(resourceObj)) + ','
+                    print(resourceObjJson, file=jsonOutputFile)
+                    time.sleep(2)
 
 
 getResourceWebpages()

@@ -1,0 +1,128 @@
+[
+    {
+        "id": 1,
+        "type": "aws_acm_certificate",
+        "properties": [
+            {
+                "name": "domain_name",
+                "required": true,
+                "default": "",
+                "description": " A domain name for which the certificate should be issued\n"
+            },
+            {
+                "name": "domain_name",
+                "required": true,
+                "default": "",
+                "description": " A domain name for which the certificate should be issued\n"
+            },
+            {
+                "name": "subject_alternative_names",
+                "required": false,
+                "default": "",
+                "description": " A list of domains that should be SANs in the issued certificate\n"
+            },
+            {
+                "name": "validation_method",
+                "required": true,
+                "default": "",
+                "description": " Which method to use for validation. <code>DNS</code> or <code>EMAIL</code> are valid, <code>NONE</code> can be used for certificates that were imported into ACM and then into Terraform.\n"
+            },
+            {
+                "name": "private_key",
+                "required": true,
+                "default": "",
+                "description": " The certificate's PEM-formatted private key\n"
+            },
+            {
+                "name": "private_key",
+                "required": true,
+                "default": "",
+                "description": " The certificate's PEM-formatted private key\n"
+            },
+            {
+                "name": "certificate_body",
+                "required": true,
+                "default": "",
+                "description": " The certificate's PEM-formatted public key\n"
+            },
+            {
+                "name": "certificate_chain",
+                "required": false,
+                "default": "",
+                "description": " The certificate's PEM-formatted chain\n"
+            },
+            {
+                "name": "tags",
+                "required": false,
+                "default": "",
+                "description": " A mapping of tags to assign to the resource.\n"
+            }
+        ],
+        "docsUrl": "https://www.terraform.io/docs/providers/aws/r/acm_certificate.html",
+        "docType": "awsResource"
+    },
+    {
+        "id": 2,
+        "type": "aws_acm_certificate_validation",
+        "properties": [
+            {
+                "name": "certificate_arn",
+                "required": true,
+                "default": "",
+                "description": " The ARN of the certificate that is being validated.\n"
+            },
+            {
+                "name": "validation_record_fqdns",
+                "required": false,
+                "default": "",
+                "description": " List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation\n"
+            }
+        ],
+        "docsUrl": "https://www.terraform.io/docs/providers/aws/r/acm_certificate_validation.html",
+        "docType": "awsResource"
+    },
+    {
+        "id": 3,
+        "type": "aws_acmpca_certificate_authority",
+        "properties": [
+            {
+                "name": "certificate_authority_configuration",
+                "required": true,
+                "default": "",
+                "description": " Nested argument containing algorithms and certificate subject information. Defined below.\n"
+            },
+            {
+                "name": "enabled",
+                "required": false,
+                "default": "",
+                "description": " Whether the certificate authority is enabled or disabled. Defaults to <code>true</code>.\n"
+            },
+            {
+                "name": "revocation_configuration",
+                "required": false,
+                "default": "",
+                "description": " Nested argument containing revocation configuration. Defined below.\n"
+            },
+            {
+                "name": "tags",
+                "required": false,
+                "default": "",
+                "description": " Specifies a key-value map of user-defined tags that are attached to the certificate authority.\n"
+            },
+            {
+                "name": "type",
+                "required": false,
+                "default": "",
+                "description": " The type of the certificate authority. Currently, this must be <code>SUBORDINATE</code>.\n"
+            },
+            {
+                "name": "permanent_deletion_time_in_days",
+                "required": false,
+                "default": "",
+                "description": " The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.\n"
+            }
+        ],
+        "docsUrl": "https://www.terraform.io/docs/providers/aws/r/acmpca_certificate_authority.html",
+        "docType": "awsResource"
+    }
+]

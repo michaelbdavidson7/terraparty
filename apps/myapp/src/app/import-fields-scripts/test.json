@@ -1,0 +1,60 @@
+{
+    "id": 1,
+    "type": "  Resource: aws_acm_certificate",
+    "properties": [
+        {
+            "name": "domain_name",
+            "required": true,
+            "default": "",
+            "description": " A domain name for which the certificate should be issued\n"
+        },
+        {
+            "name": "domain_name",
+            "required": true,
+            "default": "",
+            "description": " A domain name for which the certificate should be issued\n"
+        },
+        {
+            "name": "subject_alternative_names",
+            "required": false,
+            "default": "",
+            "description": " A list of domains that should be SANs in the issued certificate\n"
+        },
+        {
+            "name": "validation_method",
+            "required": true,
+            "default": "",
+            "description": " Which method to use for validation. <code>DNS</code> or <code>EMAIL</code> are valid, <code>NONE</code> can be used for certificates that were imported into ACM and then into Terraform.\n"
+        },
+        {
+            "name": "private_key",
+            "required": true,
+            "default": "",
+            "description": " The certificate's PEM-formatted private key\n"
+        },
+        {
+            "name": "private_key",
+            "required": true,
+            "default": "",
+            "description": " The certificate's PEM-formatted private key\n"
+        },
+        {
+            "name": "certificate_body",
+            "required": true,
+            "default": "",
+            "description": " The certificate's PEM-formatted public key\n"
+        },
+        {
+            "name": "certificate_chain",
+            "required": false,
+            "default": "",
+            "description": " The certificate's PEM-formatted chain\n"
+        },
+        {
+            "name": "tags",
+            "required": false,
+            "default": "",
+            "description": " A mapping of tags to assign to the resource.\n"
+        }
+    ]
+}
