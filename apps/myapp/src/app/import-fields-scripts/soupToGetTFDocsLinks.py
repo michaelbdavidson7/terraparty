@@ -98,6 +98,11 @@ def getResourceWebpages():
                             '\n')[1]  # there's two \ns
                         if ': ' in resourceName:
                             resourceName = resourceName.split(': ')[1]
+                    
+                    resourceNameType = str(type(resourceName))
+                    if 'Tag' in resourceNameType:
+                        resourceName = resourceName.text
+
                     resourceObj['type'] = resourceName
                     print('resourceName', resourceName)
 
@@ -125,10 +130,13 @@ def getResourceWebpages():
                             if '</li>' in propertyObject['description']:
                                 propertyObject['description'] = propertyObject['description'].split(
                                     '</li>')[0]
+                        for prop in propertyObject:
+                            propType = str(type(prop))
+                            if 'Tag' in propType:
+                                propertyObject[prop] = prop.text
                         resourceObj['properties'].append(propertyObject)
-                        # propertyObjectJson = json.dumps(propertyObject)#
-                        # print(propertyObjectJson)
-                    resourceObjJson = json.dumps(str(resourceObj)) + ','
+                        
+                    resourceObjJson = json.dumps(resourceObj) + ','
                     print(resourceObjJson, file=jsonOutputFile)
                     time.sleep(2)
 
