@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import json from  '../import-fields-scripts/resourcesOutputFile.json';
+console.log(json.length)
 
-@Component({
+@Component({   
   selector: 'myworkspace-file-builder',
   templateUrl: './file-builder.component.html',
   styleUrls: ['./file-builder.component.css']
@@ -13,7 +15,7 @@ export class FileBuilderComponent implements OnInit {
   variableModel = new TFVariable();
   //todo needs to allow object arrays
   showOutput = false;
-  tempOutputString = "Your output will go here";
+  tempOutputString = "Your output will go here"; 
   output = { "resource": [], "variable":[] }
 
 

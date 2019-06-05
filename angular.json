@@ -22,8 +22,13 @@
             "main": "apps/myapp/src/main.ts",
             "polyfills": "apps/myapp/src/polyfills.ts",
             "tsConfig": "apps/myapp/tsconfig.app.json",
-            "assets": ["apps/myapp/src/favicon.ico", "apps/myapp/src/assets"],
-            "styles": ["apps/myapp/src/styles.scss"],
+            "assets": [
+              "apps/myapp/src/favicon.ico",
+              "apps/myapp/src/assets"
+            ],
+            "styles": [
+              "apps/myapp/src/styles.scss"
+            ],
             "scripts": [],
             "es5BrowserSupport": true
           },
@@ -78,7 +83,10 @@
               "apps/myapp/tsconfig.app.json",
               "apps/myapp/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "**/*.json"
+            ]
           }
         },
         "test": {
@@ -113,7 +121,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/myapp-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }

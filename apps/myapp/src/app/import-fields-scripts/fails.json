@@ -1,0 +1,16 @@
+{
+    "resource": [
+        {
+            "aws_instance": {
+                "test": {
+                    "instance_type": "1",
+                    "ami": "2"
+                },
+                "test2": {
+                    "instance_type": "3",
+                    "ami": "4"
+                }
+            }
+        }
+    ]
+}
