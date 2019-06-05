@@ -62,6 +62,7 @@ def improveLinks():
 
 def getResourceWebpages():
     jsonOutput = []
+    failureList = []
 
     if os.path.isfile(resourcesOutputFile):
         os.remove(resourcesOutputFile)
@@ -111,8 +112,7 @@ def getResourceWebpages():
                     for li in ul:
                         # print(li)
                         strLi = str(li)
-                        propertyObject = {'name': "",
-                                          'required': False, 'default': ''}
+                        propertyObject = {'name': "", 'required': False, 'default': '', 'description':''}
                         if li.code:
                             propertyObject['name'] = li.code
                             if li.code.contents:
@@ -130,15 +130,24 @@ def getResourceWebpages():
                             if '</li>' in propertyObject['description']:
                                 propertyObject['description'] = propertyObject['description'].split(
                                     '</li>')[0]
+
                         for prop in propertyObject:
                             propType = str(type(prop))
                             if 'Tag' in propType:
-                                propertyObject[prop] = prop.text
+                                propertyObject[prop] = str(prop.text)
+                                print('Converted ' + propertyObject[prop] + ' to a string')
                         resourceObj['properties'].append(propertyObject)
                         
-                    resourceObjJson = json.dumps(resourceObj) + ','
+                    try:
+                        resourceObjJson = json.dumps(resourceObj) + ','
+                    except Exception:
+                        with open('resourceOutputFailures.txt', 'a') as resourceOutputFailuresFile:
+                            failMsg = 'Failed on ' + resourceObj['type'] + ' - full resource: ' + str(resourceObj)
+                            print(failMsg, file=resourceOutputFailuresFile) 
+                            failureList.append(failMsg)
                     print(resourceObjJson, file=jsonOutputFile)
                     time.sleep(2)
+        print('failure list: ' + str(failureList))
 
 
 getResourceWebpages()
