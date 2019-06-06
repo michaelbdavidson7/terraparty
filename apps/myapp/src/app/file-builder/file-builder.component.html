@@ -1,6 +1,6 @@
 <div class="container padding-top-120">
-  <h4>We are going to create <i>main.tf.json.</i> This is the only file you need in a folder to run preinstalled
-    Terraform.</h4>
+  <h4>We are going to create <i>main.tf.json.</i> Learn how to use it 
+    <a routerLink="/howto" routerLinkActive="active">here!</a></h4>
   <br />
   <div class="row">
     <div class="col-lg-6">
@@ -88,7 +88,7 @@
     </div>
     <div class="offset-lg-2 col-lg-4">
       <div *ngIf="showOutput">
-        TF output:
+        Terraform json output:
         <br />
         <code>{{output | json}}</code>
       </div>
