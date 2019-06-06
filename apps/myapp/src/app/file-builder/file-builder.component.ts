@@ -23,11 +23,11 @@ export class FileBuilderComponent implements OnInit {
     "id": 1,
     "type": "aws_instance",
     "properties": [{
-      "key": "instance_type",
+      "name": "instance_type",
       "value": "",
       "dataType": "string"
     }, {
-      "key": "ami",
+      "name": "ami",
       "value": "",
       "dataType": "string"
     }
@@ -36,21 +36,21 @@ export class FileBuilderComponent implements OnInit {
     "id": 2,
     "type": "aws_vpc",
     "properties": [{
-      "key": "cidr_block",
+      "name": "cidr_block",
       "value": "",
       "dataType": "string"
     },
     {
-      "key": "enable_dns_hostnames",
+      "name": "enable_dns_hostnames",
       "value": "",
       "dataType": "bool"
     }, {
-      "key": "enable_dns_support",
+      "name": "enable_dns_support",
       "value": "",
       "dataType": "bool"
     }
       // ,{
-      //   "key": "ami",
+      //   "name": "ami",
       //   "value": "",
       //   "dataType": "string"
       // }
@@ -61,13 +61,15 @@ export class FileBuilderComponent implements OnInit {
   variablesTF = [];
   terraformTFVars = [];
 
-  constructor() { }
+  constructor() { 
+  this.resourceTypesMeta = json;
+}
 
   ngOnInit() {
   }
 
   addVariable() {
-    this.variablesTF.push({ "key": this.variableModel.key });
+    this.variablesTF.push({ "name": this.variableModel.name });
     this.terraformTFVars.push(this.variableModel);
     console.log(this.terraformTFVars);
     this.variableModel = new TFVariable();
@@ -103,7 +105,7 @@ export class FileBuilderComponent implements OnInit {
     if(this.terraformTFVars.length > 0){
       this.terraformTFVars.forEach((varr) => {
         let newVar = {};
-        newVar[varr.key] = { "default": varr.value }
+        newVar[varr.name] = { "default": varr.value }
   
         this.output.variable.push(newVar);
       });  
@@ -117,7 +119,7 @@ export class FileBuilderComponent implements OnInit {
         }
         resourcesHash[resource.type][resource.name] = {};
         resource.properties.forEach((property) => {
-          resourcesHash[resource.type][resource.name][property.key] = property.value;
+          resourcesHash[resource.type][resource.name][property.name] = property.value;
         });
       })
 
@@ -137,7 +139,7 @@ export class FileBuilderComponent implements OnInit {
 }
 
 class TFVariable {
-  key = "";
+  name = "";
   value = "";
 }
 
@@ -160,7 +162,7 @@ class TFResource {
 }
 
 class ResourceProperty {
-  key: string;
+  name: string;
   value: string;
   type: string;
 }

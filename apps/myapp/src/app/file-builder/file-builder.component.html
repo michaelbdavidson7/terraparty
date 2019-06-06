@@ -1,11 +1,12 @@
 <div class="container padding-top-120">
-  <h4>We are going to create <i>main.tf.json.</i> This is the only file you need in a folder to run preinstalled Terraform.</h4>
+  <h4>We are going to create <i>main.tf.json.</i> This is the only file you need in a folder to run preinstalled
+    Terraform.</h4>
   <br />
   <div class="row">
     <div class="col-lg-6">
       <div class="form-group">
-        <label for="variableModelKey">Variable key: </label>
-        <input class="form-control form-control-sm" id="variableModelKey" [(ngModel)]="variableModel.key" />
+        <label for="variableModelname">Variable name: </label>
+        <input class="form-control form-control-sm" id="variableModelname" [(ngModel)]="variableModel.name" />
         <label for="variableModelValue">Variable value: </label>
         <input class="form-control form-control-sm" id="variableModelValue" [(ngModel)]="variableModel.value" />
         <br />
@@ -23,18 +24,23 @@
           </option>
         </select>
         <!-- {{resourceTypesMeta | json}} -->
-        <label for="resourceModelName">Resource id (you name it): </label>
-        <input class="form-control form-control-sm" id="resourceModelName" [(ngModel)]="resourceModel.name" />
         <div>
 
           <!-- {{resourceModel | json}} -->
-          <ul *ngIf="resourceModel.selectedIndex">
-            <li
-              *ngFor="let resourcePropertyMeta of resourceTypesMeta[resourceModel.selectedIndex].properties; index as resourcePropertyIndex;">
-              {{resourcePropertyMeta.key}} ({{resourcePropertyMeta.dataType}}): <input
-                class="form-control form-control-sm" [(ngModel)]="resourceModel.properties[resourcePropertyIndex]" />
-            </li>
-          </ul>
+          <div *ngIf="resourceModel.selectedIndex">
+            <div *ngIf="resourceTypesMeta[resourceModel.selectedIndex].docsUrl">
+              <a [href]="resourceTypesMeta[resourceModel.selectedIndex].docsUrl" target="_blank">Documentation link</a>
+            </div>
+            <label for="resourceModelName">Resource id (you name it): </label>
+            <input class="form-control form-control-sm" id="resourceModelName" [(ngModel)]="resourceModel.name" />
+            <ul>
+              <li
+                *ngFor="let resourcePropertyMeta of resourceTypesMeta[resourceModel.selectedIndex].properties; index as resourcePropertyIndex;">
+                {{resourcePropertyMeta.name}} ({{resourcePropertyMeta.required ? 'Required' : 'Optional'}}): <input
+                  class="form-control form-control-sm" [(ngModel)]="resourceModel.properties[resourcePropertyIndex]" />
+              </li>
+            </ul>
+          </div>
         </div>
         <div>
           <br />
@@ -46,11 +52,11 @@
           <ul>
             Variables:
             <li *ngFor="let variable of terraformTFVars">
-              Variable key: {{variable.key}}
-              <br/>
-              
-              <span><label for="variableValueDisplay">Variable Key: </label> <input class="form-control form-control-sm" id="variableValueDisplay"
-              [(ngModel)]="variable.value" /></span>
+              Variable name: {{variable.name}}
+              <br />
+
+              <span><label for="variableValueDisplay">Variable name: </label> <input
+                  class="form-control form-control-sm" id="variableValueDisplay" [(ngModel)]="variable.value" /></span>
             </li>
             {{terraformTFVars.length < 1 ? 'none': '' }}
           </ul>
@@ -67,7 +73,8 @@
               <div>
                 <ul>
                   <li *ngFor="let resourceProp of resource.properties">
-                    <span><label for="resourceProperty">{{resourceProp.key}} ({{resourceProp.dataType}}): </label>
+                    <span><label for="resourceProperty">{{resourceProp.name}}
+                        ({{resourceProp.required ? 'Required' : 'Optional'}}): </label>
                       <input class="form-control form-control-sm" id="resourceProperty"
                         [(ngModel)]="resourceProp.value" /></span>
                   </li>
