@@ -10,7 +10,7 @@ print("hellow world")
 
 docsLinksFileName = "tfDocsLinks.txt"
 docsLinksFileNameParsed = "tfDocsLinksParsed.txt"
-resourcesOutputFile = "resourcesOutputFile.json"
+resourcesOutputFile = "resourcesOutputFile3.json"
 objectToExport = []
 
 
@@ -71,9 +71,15 @@ def getResourceWebpages():
             data = f.read()
             lines = data.split('\n')
             for lineno, line in enumerate(lines):
-                print('#' + str(lineno + 1) + " of " + str(len(lines)))
+                if lineno > 10 and lineno < 20:
+                    return
 
-                if line:
+                try:
+                    print('#' + str(lineno + 1) + " of " + str(len(lines)))
+
+                    if not line:
+                        raise ValueError("Line doesn't exist")
+
                     url = "https://www.terraform.io" + line
                     if '/docs/providers/aws/r/' in url:
                         docType = 'awsResource'
@@ -92,14 +98,15 @@ def getResourceWebpages():
                     # get resource name (which is the resource type)
                     resourceNameBaseContentList = soup.find(
                         id='inner').h1.contents
-                    lastResourceIndex = len(resourceNameBaseContentList) - 1
+                    lastResourceIndex = len(
+                        resourceNameBaseContentList) - 1
                     resourceName = resourceNameBaseContentList[lastResourceIndex]
                     if '\n' in resourceName:
                         resourceName = resourceName.split(
                             '\n')[1]  # there's two \ns
                         if ': ' in resourceName:
                             resourceName = resourceName.split(': ')[1]
-                    
+
                     resourceNameType = str(type(resourceName))
                     if 'Tag' in resourceNameType:
                         resourceName = resourceName.text
@@ -108,46 +115,102 @@ def getResourceWebpages():
                     print('resourceName', resourceName)
 
                     # get all the properties
-                    ul = soup.find(id='inner').ul.find_all('li')
-                    for li in ul:
-                        # print(li)
-                        strLi = str(li)
-                        propertyObject = {'name': "", 'required': False, 'default': '', 'description':''}
-                        if li.code:
-                            propertyObject['name'] = li.code
-                            if li.code.contents:
-                                propertyObject['name'] = li.code.contents[0]
-                        else:
-                            propertyObject['name'] = li
-                        if '(Required)' in strLi:
-                            print(propertyObject['name'] + ' is required')
-                            propertyObject['required'] = True
-                        if '(Default: ' in strLi:
-                            propertyObject['default'] = strLi.split(
-                                '(Default')[1]
-                        if ')' in strLi:
-                            propertyObject['description'] = strLi.split(')')[1]
-                            if '</li>' in propertyObject['description']:
-                                propertyObject['description'] = propertyObject['description'].split(
-                                    '</li>')[0]
+                    innerElements = soup.find(id='inner').find(
+                        id='argument-reference').find_next_siblings()
+                    for el in innerElements:
 
-                        for prop in propertyObject:
-                            propType = str(type(prop))
-                            if 'Tag' in propType:
-                                propertyObject[prop] = str(prop.text)
-                                print('Converted ' + propertyObject[prop] + ' to a string')
-                        resourceObj['properties'].append(propertyObject)
-                        
-                    try:
-                        resourceObjJson = json.dumps(resourceObj) + ','
-                    except Exception:
-                        with open('resourceOutputFailures.txt', 'a') as resourceOutputFailuresFile:
-                            failMsg = 'Failed on ' + resourceObj['type'] + ' - full resource: ' + str(resourceObj)
-                            print(failMsg, file=resourceOutputFailuresFile) 
-                            failureList.append(failMsg)
+                        propertyObject = {'name': "", 'required': False,
+                                          'default': '', 'description': '', 'specialNotes': '', 'elementType': ''}
+
+                        print(el, type(el), el.name, el.attrs)
+                        # start at argument reference id and end at attribute reference or import
+                        if 'id' in el.attrs and (el.attrs['id'] == 'attribute-reference' or el.attrs['id'] == 'import'):
+                            print('FOUND IT - ' + el.attrs['id'])
+                        if 'id' in el.attrs:
+                            print('id: ' + el.attrs['id'])
+                        # grab the next div or hx element to see if it has notes for a li
+                        if el.name.startswith('h') or el.name == 'div':
+                            propertyObject = parseDisplayElements(el, propertyObject)
+                            resourceObj['properties'].append(propertyObject)
+                            continue
+                        if el.name == 'ul':
+                            for li in el.find_all('li'):
+                                if li.name == 'ul':
+                                    print('UL WITHIN A UL')
+                                    for li2 in li.find_all('li'):
+                                        propertyObject = parseLIElements(li2, propertyObject)
+                                        resourceObj['properties'].append(propertyObject)
+                                else:
+                                    propertyObject = parseLIElements(li, propertyObject)
+                                    resourceObj['properties'].append(propertyObject)
+
+                        # go through li elements and add them to the properties array
+                        # add next div if it has notes for this one
+
+                        #     print('ul: ' + el.text)
+                        # if el.name == 'li':
+                            # skip since we just went thru it
+                        # if el.name == ''
+                        # end at attribute
+                        # if el.name == 'ul':
+                        # if el.Tag == 'ul':
+                        #     print(el, el.Tag)
+                        # .find_all('ul').find_all('li')
+
+                    resourceObjJson = json.dumps(resourceObj) + ','
                     print(resourceObjJson, file=jsonOutputFile)
                     time.sleep(2)
+                except Exception as e:
+                    print(e)
+                    with open('resourceOutputFailures.txt', 'a') as resourceOutputFailuresFile:
+                        print(e, file=resourceOutputFailuresFile)
+                        failMsg = 'Failed on ' + \
+                            resourceObj['type'] + \
+                            ' - full resource: ' + str(resourceObj)
+                        print(failMsg, file=resourceOutputFailuresFile)
+                        failureList.append(failMsg)
         print('failure list: ' + str(failureList))
+
+
+def parseDisplayElements(el, propertyObject):
+    propertyObject['elementType'] = el.name
+    propertyObject['name'] = el.attrs['id'] if 'id' in el.attrs else ''
+    propertyObject['description'] = el.string if type(el) != 'string' else el
+    return propertyObject
+
+
+def parseLIElements(li, propertyObject):
+
+    strLi = str(li)
+    # if type(strLi) is not 'string':
+
+    propertyObject['elementType'] = 'li'
+
+    if li.code:
+        propertyObject['name'] = li.code
+        if li.code.contents:
+            propertyObject['name'] = li.code.contents[0]
+    else:
+        propertyObject['name'] = li.string
+    if '(Required)' in strLi:
+        # print(propertyObject['name'] + ' is required')
+        propertyObject['required'] = True
+    if '(Default: ' in strLi:
+        propertyObject['default'] = strLi.split(
+            '(Default')[1]
+    if ')' in strLi:
+        propertyObject['description'] = strLi.split(')')[1]
+        if '</li>' in propertyObject['description']:
+            propertyObject['description'] = propertyObject['description'].split(
+                '</li>')[0]
+
+    for prop in propertyObject:
+        propType = str(type(prop))
+        if 'Tag' in propType:
+            propertyObject[prop] = str(prop.text)
+            print('Converted ' + propertyObject[prop] + ' to a string')
+
+    return propertyObject
 
 
 getResourceWebpages()

@@ -64,3 +64,83 @@ Failed on aws_s3_account_public_access_block - full resource: {'id': 527, 'type'
 </li>, 'required': False, 'default': '', 'description': ''}, {'name': 'ignore_public_acls', 'required': False, 'default': '', 'description': " Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to <code>false</code>. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to <code>true</code> causes Amazon S3 to:\n\n<ul>\n<li>Ignore all public ACLs on buckets in this account and any objects that they contain.\n"}, {'name': <li>Ignore all public ACLs on buckets in this account and any objects that they contain.
 </li>, 'required': False, 'default': '', 'description': ''}, {'name': 'restrict_public_buckets', 'required': False, 'default': '', 'description': ' Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to <code>false</code>. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to <code>true</code>:\n\n<ul>\n<li>Only the bucket owner and AWS Services can access buckets with public policies.\n'}, {'name': <li>Only the bucket owner and AWS Services can access buckets with public policies.
 </li>, 'required': False, 'default': '', 'description': ''}], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/s3_account_public_access_block.html', 'docType': 'awsResource'}
+Failed on aws_acm_certificate - full resource: {'id': 1, 'type': 'aws_acm_certificate', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acm_certificate.html', 'docType': 'awsResource'}
+Failed on aws_acm_certificate - full resource: {'id': 1, 'type': 'aws_acm_certificate', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acm_certificate.html', 'docType': 'awsResource'}
+Failed on aws_acm_certificate_validation - full resource: {'id': 2, 'type': 'aws_acm_certificate_validation', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acm_certificate_validation.html', 'docType': 'awsResource'}
+Failed on aws_acmpca_certificate_authority - full resource: {'id': 3, 'type': 'aws_acmpca_certificate_authority', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acmpca_certificate_authority.html', 'docType': 'awsResource'}
+Failed on aws_api_gateway_account - full resource: {'id': 4, 'type': 'aws_api_gateway_account', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_account.html', 'docType': 'awsResource'}
+Failed on aws_api_gateway_api_key - full resource: {'id': 5, 'type': 'aws_api_gateway_api_key', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_api_key.html', 'docType': 'awsResource'}
+Failed on aws_acm_certificate - full resource: {'id': 1, 'type': 'aws_acm_certificate', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acm_certificate.html', 'docType': 'awsResource'}
+Failed on aws_acm_certificate_validation - full resource: {'id': 2, 'type': 'aws_acm_certificate_validation', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acm_certificate_validation.html', 'docType': 'awsResource'}
+Failed on aws_acm_certificate - full resource: {'id': 1, 'type': 'aws_acm_certificate', 'properties': [{'name': <li>Creating an amazon issued certificate
+
+<ul>
+<li><a name="domain_name"></a><a href="#domain_name"><code>domain_name</code></a> - (Required) A domain name for which the certificate should be issued
+</li>
+<li><a name="subject_alternative_names"></a><a href="#subject_alternative_names"><code>subject_alternative_names</code></a> - (Optional) A list of domains that should be SANs in the issued certificate
+</li>
+<li><a name="validation_method"></a><a href="#validation_method"><code>validation_method</code></a> - (Required) Which method to use for validation. <code>DNS</code> or <code>EMAIL</code> are valid, <code>NONE</code> can be used for certificates that were imported into ACM and then into Terraform.
+</li>
+</ul>
+</li>, 'required': False, 'default': '', 'description': '', 'specialNotes': '', 'elementType': 'li'}], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acm_certificate.html', 'docType': 'awsResource'}
+Failed on aws_acm_certificate_validation - full resource: {'id': 2, 'type': 'aws_acm_certificate_validation', 'properties': [{'name': <li><a name="certificate_arn"></a><a href="#certificate_arn"><code>certificate_arn</code></a> - (Required) The ARN of the certificate that is being validated.
+</li>, 'required': False, 'default': '', 'description': '', 'specialNotes': '', 'elementType': 'li'}], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acm_certificate_validation.html', 'docType': 'awsResource'}
+Failed on aws_acmpca_certificate_authority - full resource: {'id': 3, 'type': 'aws_acmpca_certificate_authority', 'properties': [{'name': <li><a name="certificate_authority_configuration"></a><a href="#certificate_authority_configuration"><code>certificate_authority_configuration</code></a> - (Required) Nested argument containing algorithms and certificate subject information. Defined below.
+</li>, 'required': False, 'default': '', 'description': '', 'specialNotes': '', 'elementType': 'li'}], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acmpca_certificate_authority.html', 'docType': 'awsResource'}
+Failed on aws_api_gateway_api_key - full resource: {'id': 5, 'type': 'aws_api_gateway_api_key', 'properties': [{'name': <li><a name="name"></a><a href="#name"><code>name</code></a> - (Required) The name of the API key
+</li>, 'required': False, 'default': '', 'description': '', 'specialNotes': '', 'elementType': 'li'}], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_api_key.html', 'docType': 'awsResource'}
+Failed on aws_acm_certificate - full resource: {'id': 1, 'type': 'aws_acm_certificate', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acm_certificate.html', 'docType': 'awsResource'}
+Failed on aws_acm_certificate_validation - full resource: {'id': 2, 'type': 'aws_acm_certificate_validation', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acm_certificate_validation.html', 'docType': 'awsResource'}
+Failed on aws_acmpca_certificate_authority - full resource: {'id': 3, 'type': 'aws_acmpca_certificate_authority', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acmpca_certificate_authority.html', 'docType': 'awsResource'}
+Failed on aws_api_gateway_account - full resource: {'id': 4, 'type': 'aws_api_gateway_account', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_account.html', 'docType': 'awsResource'}
+Failed on aws_api_gateway_api_key - full resource: {'id': 5, 'type': 'aws_api_gateway_api_key', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_api_key.html', 'docType': 'awsResource'}
+Failed on aws_api_gateway_authorizer - full resource: {'id': 6, 'type': 'aws_api_gateway_authorizer', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer.html', 'docType': 'awsResource'}
+Failed on aws_api_gateway_base_path_mapping - full resource: {'id': 7, 'type': 'aws_api_gateway_base_path_mapping', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_base_path_mapping.html', 'docType': 'awsResource'}
+Failed on aws_api_gateway_client_certificate - full resource: {'id': 8, 'type': 'aws_api_gateway_client_certificate', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_client_certificate.html', 'docType': 'awsResource'}
+Failed on aws_api_gateway_deployment - full resource: {'id': 9, 'type': 'aws_api_gateway_deployment', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_deployment.html', 'docType': 'awsResource'}
+Failed on aws_api_gateway_documentation_part - full resource: {'id': 10, 'type': 'aws_api_gateway_documentation_part', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part.html', 'docType': 'awsResource'}
+Failed on aws_api_gateway_documentation_version - full resource: {'id': 11, 'type': 'aws_api_gateway_documentation_version', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_version.html', 'docType': 'awsResource'}
+string indices must be integers
+Failed on aws_acm_certificate - full resource: {'id': 1, 'type': 'aws_acm_certificate', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acm_certificate.html', 'docType': 'awsResource'}
+string indices must be integers
+Failed on aws_acm_certificate_validation - full resource: {'id': 2, 'type': 'aws_acm_certificate_validation', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acm_certificate_validation.html', 'docType': 'awsResource'}
+string indices must be integers
+Failed on aws_acmpca_certificate_authority - full resource: {'id': 3, 'type': 'aws_acmpca_certificate_authority', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acmpca_certificate_authority.html', 'docType': 'awsResource'}
+string indices must be integers
+Failed on aws_api_gateway_account - full resource: {'id': 4, 'type': 'aws_api_gateway_account', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_account.html', 'docType': 'awsResource'}
+string indices must be integers
+Failed on aws_api_gateway_api_key - full resource: {'id': 5, 'type': 'aws_api_gateway_api_key', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_api_key.html', 'docType': 'awsResource'}
+string indices must be integers
+Failed on aws_api_gateway_authorizer - full resource: {'id': 6, 'type': 'aws_api_gateway_authorizer', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer.html', 'docType': 'awsResource'}
+string indices must be integers
+Failed on aws_api_gateway_base_path_mapping - full resource: {'id': 7, 'type': 'aws_api_gateway_base_path_mapping', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_base_path_mapping.html', 'docType': 'awsResource'}
+string indices must be integers
+Failed on aws_api_gateway_client_certificate - full resource: {'id': 8, 'type': 'aws_api_gateway_client_certificate', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_client_certificate.html', 'docType': 'awsResource'}
+string indices must be integers
+Failed on aws_api_gateway_deployment - full resource: {'id': 9, 'type': 'aws_api_gateway_deployment', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_deployment.html', 'docType': 'awsResource'}
+string indices must be integers
+Failed on aws_api_gateway_documentation_part - full resource: {'id': 10, 'type': 'aws_api_gateway_documentation_part', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part.html', 'docType': 'awsResource'}
+string indices must be integers
+Failed on aws_api_gateway_documentation_version - full resource: {'id': 11, 'type': 'aws_api_gateway_documentation_version', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_version.html', 'docType': 'awsResource'}
+'NavigableString' object has no attribute 'code'
+Failed on aws_acm_certificate - full resource: {'id': 1, 'type': 'aws_acm_certificate', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acm_certificate.html', 'docType': 'awsResource'}
+'NavigableString' object has no attribute 'code'
+Failed on aws_acm_certificate_validation - full resource: {'id': 2, 'type': 'aws_acm_certificate_validation', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acm_certificate_validation.html', 'docType': 'awsResource'}
+'NavigableString' object has no attribute 'code'
+Failed on aws_acmpca_certificate_authority - full resource: {'id': 3, 'type': 'aws_acmpca_certificate_authority', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acmpca_certificate_authority.html', 'docType': 'awsResource'}
+'NavigableString' object has no attribute 'code'
+Failed on aws_api_gateway_account - full resource: {'id': 4, 'type': 'aws_api_gateway_account', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_account.html', 'docType': 'awsResource'}
+'NavigableString' object has no attribute 'code'
+Failed on aws_api_gateway_api_key - full resource: {'id': 5, 'type': 'aws_api_gateway_api_key', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_api_key.html', 'docType': 'awsResource'}
+'NavigableString' object has no attribute 'code'
+Failed on aws_api_gateway_authorizer - full resource: {'id': 6, 'type': 'aws_api_gateway_authorizer', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer.html', 'docType': 'awsResource'}
+'NavigableString' object has no attribute 'code'
+Failed on aws_api_gateway_base_path_mapping - full resource: {'id': 7, 'type': 'aws_api_gateway_base_path_mapping', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_base_path_mapping.html', 'docType': 'awsResource'}
+'NavigableString' object has no attribute 'code'
+Failed on aws_api_gateway_client_certificate - full resource: {'id': 8, 'type': 'aws_api_gateway_client_certificate', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_client_certificate.html', 'docType': 'awsResource'}
+'NavigableString' object has no attribute 'code'
+Failed on aws_api_gateway_deployment - full resource: {'id': 9, 'type': 'aws_api_gateway_deployment', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_deployment.html', 'docType': 'awsResource'}
+'NavigableString' object has no attribute 'code'
+Failed on aws_api_gateway_documentation_part - full resource: {'id': 10, 'type': 'aws_api_gateway_documentation_part', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part.html', 'docType': 'awsResource'}
+'NavigableString' object has no attribute 'code'
+Failed on aws_api_gateway_documentation_version - full resource: {'id': 11, 'type': 'aws_api_gateway_documentation_version', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_version.html', 'docType': 'awsResource'}
