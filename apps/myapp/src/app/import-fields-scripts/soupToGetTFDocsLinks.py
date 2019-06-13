@@ -145,7 +145,14 @@ def getResourceWebpages():
                             for li in el.find_all('li'):
                                 if len(li.find_all('ul')) > 0:
                                     print('UL WITHIN A UL')
-                                    # TODO: get the text of the li and add it as a property
+                                    # Get the text of the li and add it as a property
+                                    print('li.contents[0]', li.contents[0])
+                                    if type(li.contents[0].name) != 'ul':
+                                        liDescriptiveStr = str(li.contents[0])
+                                        propertyObject = {'name': 'list description', 'required': False, 'default': '', 'description': liDescriptiveStr, 'specialNotes': '', 'elementType': 'p'}
+                                        resourceObj['properties'].append(propertyObject)
+                                        propertyObject = {'name': "", 'required': False, 'default': '', 'description': '', 'specialNotes': '', 'elementType': ''}
+                                    
                                     innerUls = li.find_all('ul')
                                     for innerUl in innerUls:
                                         for li2 in innerUl.find_all('li'):
