@@ -78,9 +78,6 @@ def getResourceWebpages():
             data = f.read()
             lines = data.split('\n')
             for lineno, line in enumerate(lines):
-                if lineno > 10 and lineno < 20:
-                    return
-
                 try:
                     print('#' + str(lineno + 1) + " of " + str(len(lines)))
 
@@ -142,11 +139,11 @@ def getResourceWebpages():
                             resourceObj['properties'].append(propertyObject)
                             continue
                         if el.name == 'ul':
-                            for li in el.find_all('li'):
+                            for li in el.find_all('li', recursive=False):
                                 if len(li.find_all('ul')) > 0:
                                     print('UL WITHIN A UL')
                                     # Get the text of the li and add it as a property
-                                    print('li.contents[0]', li.contents[0])
+                                    print('list description - li.contents[0]', li.contents[0])
                                     if type(li.contents[0].name) != 'ul':
                                         liDescriptiveStr = str(li.contents[0])
                                         propertyObject = {'name': 'list description', 'required': False, 'default': '', 'description': liDescriptiveStr, 'specialNotes': '', 'elementType': 'p'}
@@ -155,6 +152,7 @@ def getResourceWebpages():
                                     
                                     innerUls = li.find_all('ul')
                                     for innerUl in innerUls:
+                                        # print(str(innerUl))
                                         for li2 in innerUl.find_all('li'):
                                             propertyObject = parseLIElements(li2, propertyObject)
                                             resourceObj['properties'].append(propertyObject)
