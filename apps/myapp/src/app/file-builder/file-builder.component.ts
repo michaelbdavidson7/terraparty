@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import json from  '../import-fields-scripts/resourcesOutputFile.json';
+import json from  '../import-fields-scripts/resourcesOutputFile3.json';
 console.log(json.length)
 
 @Component({   
