@@ -144,3 +144,18 @@ Failed on aws_api_gateway_deployment - full resource: {'id': 9, 'type': 'aws_api
 Failed on aws_api_gateway_documentation_part - full resource: {'id': 10, 'type': 'aws_api_gateway_documentation_part', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part.html', 'docType': 'awsResource'}
 'NavigableString' object has no attribute 'code'
 Failed on aws_api_gateway_documentation_version - full resource: {'id': 11, 'type': 'aws_api_gateway_documentation_version', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_version.html', 'docType': 'awsResource'}
+'PropertyObject' object does not support item assignment
+Failed on aws_acm_certificate - full resource: {'id': 1, 'type': 'aws_acm_certificate', 'properties': [{'name': 'domain_name', 'required': True, 'default': '', 'description': ' A domain name for which the certificate should be issued\n', 'specialNotes': '', 'elementType': 'li'}], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acm_certificate.html', 'docType': 'awsResource'}
+'PropertyObject' object does not support item assignment
+Failed on aws_acm_certificate_validation - full resource: {'id': 2, 'type': 'aws_acm_certificate_validation', 'properties': [{'name': 'certificate_arn', 'required': True, 'default': '', 'description': ' The ARN of the certificate that is being validated.\n', 'specialNotes': '', 'elementType': 'li'}], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acm_certificate_validation.html', 'docType': 'awsResource'}
+'PropertyObject' object does not support item assignment
+Failed on aws_acmpca_certificate_authority - full resource: {'id': 3, 'type': 'aws_acmpca_certificate_authority', 'properties': [{'name': 'certificate_authority_configuration', 'required': True, 'default': '', 'description': ' Nested argument containing algorithms and certificate subject information. Defined below.\n', 'specialNotes': '', 'elementType': 'li'}], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acmpca_certificate_authority.html', 'docType': 'awsResource'}
+'PropertyObject' object does not support item assignment
+Failed on aws_api_gateway_api_key - full resource: {'id': 5, 'type': 'aws_api_gateway_api_key', 'properties': [{'name': 'name', 'required': True, 'default': '', 'description': ' The name of the API key\n', 'specialNotes': '', 'elementType': 'li'}], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/api_gateway_api_key.html', 'docType': 'awsResource'}
+'PropertyObject' object does not support item assignment
+Failed on aws_acm_certificate - full resource: {'id': 1, 'type': 'aws_acm_certificate', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acm_certificate.html', 'docType': 'awsResource'}
+'PropertyObject' object does not support item assignment
+Failed on aws_acm_certificate_validation - full resource: {'id': 2, 'type': 'aws_acm_certificate_validation', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acm_certificate_validation.html', 'docType': 'awsResource'}
+'PropertyObject' object does not support item assignment
+Failed on aws_acmpca_certificate_authority - full resource: {'id': 3, 'type': 'aws_acmpca_certificate_authority', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acmpca_certificate_authority.html', 'docType': 'awsResource'}
+'PropertyObject' object does not support item assignment

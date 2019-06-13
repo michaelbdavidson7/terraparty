@@ -59,6 +59,13 @@ def improveLinks():
 
     # print(validLinks)
 
+class PropertyObject:
+    name= ""
+    required= False
+    default= ''
+    description= ''
+    specialNotes= ''
+    elementType= ''
 
 def getResourceWebpages():
     jsonOutput = []
@@ -126,24 +133,29 @@ def getResourceWebpages():
                         # start at argument reference id and end at attribute reference or import
                         if 'id' in el.attrs and (el.attrs['id'] == 'attribute-reference' or el.attrs['id'] == 'import'):
                             print('FOUND IT - ' + el.attrs['id'])
+                            break
                         if 'id' in el.attrs:
                             print('id: ' + el.attrs['id'])
                         # grab the next div or hx element to see if it has notes for a li
-                        if el.name.startswith('h') or el.name == 'div':
+                        if el.name.startswith('h') or el.name == 'div' or el.name == 'p':
                             propertyObject = parseDisplayElements(el, propertyObject)
                             resourceObj['properties'].append(propertyObject)
                             continue
                         if el.name == 'ul':
                             for li in el.find_all('li'):
-                                if li.name == 'ul':
+                                if len(li.find_all('ul')) > 0:
                                     print('UL WITHIN A UL')
-                                    for li2 in li.find_all('li'):
-                                        propertyObject = parseLIElements(li2, propertyObject)
-                                        resourceObj['properties'].append(propertyObject)
+                                    # TODO: get the text of the li and add it as a property
+                                    innerUls = li.find_all('ul')
+                                    for innerUl in innerUls:
+                                        for li2 in innerUl.find_all('li'):
+                                            propertyObject = parseLIElements(li2, propertyObject)
+                                            resourceObj['properties'].append(propertyObject)
                                 else:
                                     propertyObject = parseLIElements(li, propertyObject)
                                     resourceObj['properties'].append(propertyObject)
-
+                                    print('li: ', li)
+                                    print(json.dumps(propertyObject))
                         # go through li elements and add them to the properties array
                         # add next div if it has notes for this one
 
@@ -173,14 +185,16 @@ def getResourceWebpages():
 
 
 def parseDisplayElements(el, propertyObject):
+    propertyObject = {'name': "", 'required': False, 'default': '', 'description': '', 'specialNotes': '', 'elementType': ''}
     propertyObject['elementType'] = el.name
     propertyObject['name'] = el.attrs['id'] if 'id' in el.attrs else ''
     propertyObject['description'] = el.string if type(el) != 'string' else el
     return propertyObject
 
-
 def parseLIElements(li, propertyObject):
 
+    # new up prop object again because it only gets newed up on on the next item
+    propertyObject = {'name': "", 'required': False, 'default': '', 'description': '', 'specialNotes': '', 'elementType': ''}
     strLi = str(li)
     # if type(strLi) is not 'string':
 

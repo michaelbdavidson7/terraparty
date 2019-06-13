@@ -1,11 +1,504 @@
-{"id": 1, "type": "aws_acm_certificate", "properties": [{"name": "tags", "required": true, "default": "", "description": " A mapping of tags to assign to the resource.\n", "specialNotes": "", "elementType": "li"}, {"name": "tags", "required": true, "default": "", "description": " A mapping of tags to assign to the resource.\n", "specialNotes": "", "elementType": "li"}, {"name": "tags", "required": true, "default": "", "description": " A mapping of tags to assign to the resource.\n", "specialNotes": "", "elementType": "li"}, {"name": "tags", "required": true, "default": "", "description": " A mapping of tags to assign to the resource.\n", "specialNotes": "", "elementType": "li"}, {"name": "tags", "required": true, "default": "", "description": " A mapping of tags to assign to the resource.\n", "specialNotes": "", "elementType": "li"}, {"name": "tags", "required": true, "default": "", "description": " A mapping of tags to assign to the resource.\n", "specialNotes": "", "elementType": "li"}, {"name": "tags", "required": true, "default": "", "description": " A mapping of tags to assign to the resource.\n", "specialNotes": "", "elementType": "li"}, {"name": "tags", "required": true, "default": "", "description": " A mapping of tags to assign to the resource.\n", "specialNotes": "", "elementType": "li"}, {"name": "tags", "required": true, "default": "", "description": " A mapping of tags to assign to the resource.\n", "specialNotes": "", "elementType": "li"}, {"name": "attributes-reference", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h2"}, {"name": "validation_emails", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}, {"name": "validation_emails", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}, {"name": "validation_emails", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}, {"name": "validation_emails", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}, {"name": "validation_emails", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}, {"name": "resource_record_value", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}, {"name": "resource_record_value", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}, {"name": "resource_record_value", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}, {"name": "resource_record_value", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}, {"name": "import", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h2"}, {"name": "", "required": false, "default": "", "description": "$ terraform import aws_acm_certificate.cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a\n", "specialNotes": "", "elementType": "div"}], "docsUrl": "https://www.terraform.io/docs/providers/aws/r/acm_certificate.html", "docType": "awsResource"},
-{"id": 2, "type": "aws_acm_certificate_validation", "properties": [{"name": "validation_record_fqdns", "required": true, "default": "", "description": " List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation\n", "specialNotes": "", "elementType": "li"}, {"name": "validation_record_fqdns", "required": true, "default": "", "description": " List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation\n", "specialNotes": "", "elementType": "li"}, {"name": "timeouts", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h2"}, {"name": "create", "required": false, "default": "", "description": " How long to wait for a certificate to be issued.\n", "specialNotes": "", "elementType": "li"}], "docsUrl": "https://www.terraform.io/docs/providers/aws/r/acm_certificate_validation.html", "docType": "awsResource"},
-{"id": 3, "type": "aws_acmpca_certificate_authority", "properties": [{"name": "permanent_deletion_time_in_days", "required": true, "default": "", "description": " The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.\n", "specialNotes": "", "elementType": "li"}, {"name": "permanent_deletion_time_in_days", "required": true, "default": "", "description": " The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.\n", "specialNotes": "", "elementType": "li"}, {"name": "permanent_deletion_time_in_days", "required": true, "default": "", "description": " The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.\n", "specialNotes": "", "elementType": "li"}, {"name": "permanent_deletion_time_in_days", "required": true, "default": "", "description": " The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.\n", "specialNotes": "", "elementType": "li"}, {"name": "permanent_deletion_time_in_days", "required": true, "default": "", "description": " The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.\n", "specialNotes": "", "elementType": "li"}, {"name": "permanent_deletion_time_in_days", "required": true, "default": "", "description": " The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.\n", "specialNotes": "", "elementType": "li"}, {"name": "certificate_authority_configuration-1", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h3"}, {"name": "subject", "required": true, "default": "", "description": " Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.\n", "specialNotes": "", "elementType": "li"}, {"name": "subject", "required": true, "default": "", "description": " Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.\n", "specialNotes": "", "elementType": "li"}, {"name": "subject", "required": true, "default": "", "description": " Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.\n", "specialNotes": "", "elementType": "li"}, {"name": "subject-1", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h4"}, {"name": "title", "required": false, "default": "", "description": " A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.\n", "specialNotes": "", "elementType": "li"}, {"name": "title", "required": false, "default": "", "description": " A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.\n", "specialNotes": "", "elementType": "li"}, {"name": "title", "required": false, "default": "", "description": " A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.\n", "specialNotes": "", "elementType": "li"}, {"name": "title", "required": false, "default": "", "description": " A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.\n", "specialNotes": "", "elementType": "li"}, {"name": "title", "required": false, "default": "", "description": " A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.\n", "specialNotes": "", "elementType": "li"}, {"name": "title", "required": false, "default": "", "description": " A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.\n", "specialNotes": "", "elementType": "li"}, {"name": "title", "required": false, "default": "", "description": " A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.\n", "specialNotes": "", "elementType": "li"}, {"name": "title", "required": false, "default": "", "description": " A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.\n", "specialNotes": "", "elementType": "li"}, {"name": "title", "required": false, "default": "", "description": " A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.\n", "specialNotes": "", "elementType": "li"}, {"name": "title", "required": false, "default": "", "description": " A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.\n", "specialNotes": "", "elementType": "li"}, {"name": "title", "required": false, "default": "", "description": " A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.\n", "specialNotes": "", "elementType": "li"}, {"name": "title", "required": false, "default": "", "description": " A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.\n", "specialNotes": "", "elementType": "li"}, {"name": "title", "required": false, "default": "", "description": " A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.\n", "specialNotes": "", "elementType": "li"}, {"name": "revocation_configuration-1", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h3"}, {"name": "crl_configuration", "required": false, "default": "", "description": " Nested argument containing configuration of the certificate revocation list (CRL", "specialNotes": "", "elementType": "li"}, {"name": "crl_configuration-1", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h4"}, {"name": "s3_bucket_name", "required": true, "default": "", "description": " Name of the S3 bucket that contains the CRL. If you do not provide a value for the <code>custom_cname</code> argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.\n", "specialNotes": "", "elementType": "li"}, {"name": "s3_bucket_name", "required": true, "default": "", "description": " Name of the S3 bucket that contains the CRL. If you do not provide a value for the <code>custom_cname</code> argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.\n", "specialNotes": "", "elementType": "li"}, {"name": "s3_bucket_name", "required": true, "default": "", "description": " Name of the S3 bucket that contains the CRL. If you do not provide a value for the <code>custom_cname</code> argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.\n", "specialNotes": "", "elementType": "li"}, {"name": "s3_bucket_name", "required": true, "default": "", "description": " Name of the S3 bucket that contains the CRL. If you do not provide a value for the <code>custom_cname</code> argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.\n", "specialNotes": "", "elementType": "li"}, {"name": "attribute-reference", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h2"}, {"name": "status", "required": false, "default": "", "description": " for your private CA certificate.\n", "specialNotes": "", "elementType": "li"}, {"name": "status", "required": false, "default": "", "description": " for your private CA certificate.\n", "specialNotes": "", "elementType": "li"}, {"name": "status", "required": false, "default": "", "description": " for your private CA certificate.\n", "specialNotes": "", "elementType": "li"}, {"name": "status", "required": false, "default": "", "description": " for your private CA certificate.\n", "specialNotes": "", "elementType": "li"}, {"name": "status", "required": false, "default": "", "description": " for your private CA certificate.\n", "specialNotes": "", "elementType": "li"}, {"name": "status", "required": false, "default": "", "description": " for your private CA certificate.\n", "specialNotes": "", "elementType": "li"}, {"name": "status", "required": false, "default": "", "description": " for your private CA certificate.\n", "specialNotes": "", "elementType": "li"}, {"name": "status", "required": false, "default": "", "description": " for your private CA certificate.\n", "specialNotes": "", "elementType": "li"}, {"name": "status", "required": false, "default": "", "description": " for your private CA certificate.\n", "specialNotes": "", "elementType": "li"}, {"name": "timeouts", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h2"}, {"name": "create", "required": false, "default": "", "description": " How long to wait for a certificate authority to be created.\n", "specialNotes": "", "elementType": "li"}, {"name": "import", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h2"}, {"name": "", "required": false, "default": "", "description": "$ terraform import aws_acmpca_certificate_authority.example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012\n", "specialNotes": "", "elementType": "div"}], "docsUrl": "https://www.terraform.io/docs/providers/aws/r/acmpca_certificate_authority.html", "docType": "awsResource"},
-{"id": 4, "type": "aws_api_gateway_account", "properties": [{"name": "cloudwatch_role_arn", "required": false, "default": "", "description": " The ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring", "specialNotes": "", "elementType": "li"}, {"name": "attribute-reference", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h2"}, {"name": "throttle_settings", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}, {"name": "rate_limit", "required": false, "default": "", "description": ".\n", "specialNotes": "", "elementType": "li"}, {"name": "rate_limit", "required": false, "default": "", "description": ".\n", "specialNotes": "", "elementType": "li"}, {"name": "import", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h2"}, {"name": "", "required": false, "default": "", "description": "$ terraform import aws_api_gateway_account.demo api-gateway-account\n", "specialNotes": "", "elementType": "div"}], "docsUrl": "https://www.terraform.io/docs/providers/aws/r/api_gateway_account.html", "docType": "awsResource"},
-{"id": 5, "type": "aws_api_gateway_api_key", "properties": [{"name": "value", "required": true, "default": "", "description": " The value of the API key. If not specified, it will be automatically generated by AWS on creation.\n", "specialNotes": "", "elementType": "li"}, {"name": "value", "required": true, "default": "", "description": " The value of the API key. If not specified, it will be automatically generated by AWS on creation.\n", "specialNotes": "", "elementType": "li"}, {"name": "value", "required": true, "default": "", "description": " The value of the API key. If not specified, it will be automatically generated by AWS on creation.\n", "specialNotes": "", "elementType": "li"}, {"name": "value", "required": true, "default": "", "description": " The value of the API key. If not specified, it will be automatically generated by AWS on creation.\n", "specialNotes": "", "elementType": "li"}, {"name": "attribute-reference", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h2"}, {"name": "value", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}, {"name": "value", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}, {"name": "value", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}, {"name": "value", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}, {"name": "import", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h2"}, {"name": "", "required": false, "default": "", "description": "$ terraform import aws_api_gateway_api_key.my_demo_key 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk\n", "specialNotes": "", "elementType": "div"}], "docsUrl": "https://www.terraform.io/docs/providers/aws/r/api_gateway_api_key.html", "docType": "awsResource"},
-{"id": 6, "type": "aws_api_gateway_authorizer", "properties": [{"name": "provider_arns", "required": true, "default": "", "description": " A list of the Amazon Cognito user pool ARNs.\nEach element is of this format: <code>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</code>.\n", "specialNotes": "", "elementType": "li"}, {"name": "provider_arns", "required": true, "default": "", "description": " A list of the Amazon Cognito user pool ARNs.\nEach element is of this format: <code>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</code>.\n", "specialNotes": "", "elementType": "li"}, {"name": "provider_arns", "required": true, "default": "", "description": " A list of the Amazon Cognito user pool ARNs.\nEach element is of this format: <code>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</code>.\n", "specialNotes": "", "elementType": "li"}, {"name": "provider_arns", "required": true, "default": "", "description": " A list of the Amazon Cognito user pool ARNs.\nEach element is of this format: <code>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</code>.\n", "specialNotes": "", "elementType": "li"}, {"name": "provider_arns", "required": true, "default": "", "description": " A list of the Amazon Cognito user pool ARNs.\nEach element is of this format: <code>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</code>.\n", "specialNotes": "", "elementType": "li"}, {"name": "provider_arns", "required": true, "default": "", "description": " A list of the Amazon Cognito user pool ARNs.\nEach element is of this format: <code>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</code>.\n", "specialNotes": "", "elementType": "li"}, {"name": "provider_arns", "required": true, "default": "", "description": " A list of the Amazon Cognito user pool ARNs.\nEach element is of this format: <code>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</code>.\n", "specialNotes": "", "elementType": "li"}, {"name": "provider_arns", "required": true, "default": "", "description": " A list of the Amazon Cognito user pool ARNs.\nEach element is of this format: <code>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</code>.\n", "specialNotes": "", "elementType": "li"}, {"name": "provider_arns", "required": true, "default": "", "description": " A list of the Amazon Cognito user pool ARNs.\nEach element is of this format: <code>arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}</code>.\n", "specialNotes": "", "elementType": "li"}], "docsUrl": "https://www.terraform.io/docs/providers/aws/r/api_gateway_authorizer.html", "docType": "awsResource"},
-{"id": 7, "type": "aws_api_gateway_base_path_mapping", "properties": [{"name": "base_path", "required": true, "default": "", "description": " Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.\n", "specialNotes": "", "elementType": "li"}, {"name": "base_path", "required": true, "default": "", "description": " Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.\n", "specialNotes": "", "elementType": "li"}, {"name": "base_path", "required": true, "default": "", "description": " Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.\n", "specialNotes": "", "elementType": "li"}, {"name": "base_path", "required": true, "default": "", "description": " Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.\n", "specialNotes": "", "elementType": "li"}, {"name": "import", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h2"}, {"name": "", "required": false, "default": "", "description": "$ terraform import aws_api_gateway_base_path_mapping.example example.com/\n", "specialNotes": "", "elementType": "div"}, {"name": "", "required": false, "default": "", "description": "$ terraform import aws_api_gateway_base_path_mapping.example example.com/base-path\n", "specialNotes": "", "elementType": "div"}], "docsUrl": "https://www.terraform.io/docs/providers/aws/r/api_gateway_base_path_mapping.html", "docType": "awsResource"},
-{"id": 8, "type": "aws_api_gateway_client_certificate", "properties": [{"name": "description", "required": false, "default": "", "description": " The description of the client certificate.\n", "specialNotes": "", "elementType": "li"}, {"name": "attribute-reference", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h2"}, {"name": "pem_encoded_certificate", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}, {"name": "pem_encoded_certificate", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}, {"name": "pem_encoded_certificate", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}, {"name": "pem_encoded_certificate", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}, {"name": "import", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h2"}, {"name": "", "required": false, "default": "", "description": "$ terraform import aws_api_gateway_client_certificate.demo ab1cqe\n", "specialNotes": "", "elementType": "div"}], "docsUrl": "https://www.terraform.io/docs/providers/aws/r/api_gateway_client_certificate.html", "docType": "awsResource"},
-{"id": 9, "type": "aws_api_gateway_deployment", "properties": [{"name": "variables", "required": true, "default": "", "description": " A map that defines variables for the stage\n", "specialNotes": "", "elementType": "li"}, {"name": "variables", "required": true, "default": "", "description": " A map that defines variables for the stage\n", "specialNotes": "", "elementType": "li"}, {"name": "variables", "required": true, "default": "", "description": " A map that defines variables for the stage\n", "specialNotes": "", "elementType": "li"}, {"name": "variables", "required": true, "default": "", "description": " A map that defines variables for the stage\n", "specialNotes": "", "elementType": "li"}, {"name": "variables", "required": true, "default": "", "description": " A map that defines variables for the stage\n", "specialNotes": "", "elementType": "li"}, {"name": "attribute-reference", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h2"}, {"name": "created_date", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}, {"name": "created_date", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}, {"name": "created_date", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}, {"name": "created_date", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}], "docsUrl": "https://www.terraform.io/docs/providers/aws/r/api_gateway_deployment.html", "docType": "awsResource"},
-{"id": 10, "type": "aws_api_gateway_documentation_part", "properties": [{"name": "rest_api_id", "required": true, "default": "", "description": " The ID of the associated Rest API\n", "specialNotes": "", "elementType": "li"}, {"name": "rest_api_id", "required": true, "default": "", "description": " The ID of the associated Rest API\n", "specialNotes": "", "elementType": "li"}, {"name": "rest_api_id", "required": true, "default": "", "description": " The ID of the associated Rest API\n", "specialNotes": "", "elementType": "li"}, {"name": "nested-fields", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h3"}, {"name": "location-1", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h4"}, {"name": "type", "required": true, "default": "", "description": " The type of API entity to which the documentation content applies. e.g. <code>API</code>, <code>METHOD</code> or <code>REQUEST_BODY</code>\n", "specialNotes": "", "elementType": "li"}, {"name": "type", "required": true, "default": "", "description": " The type of API entity to which the documentation content applies. e.g. <code>API</code>, <code>METHOD</code> or <code>REQUEST_BODY</code>\n", "specialNotes": "", "elementType": "li"}, {"name": "type", "required": true, "default": "", "description": " The type of API entity to which the documentation content applies. e.g. <code>API</code>, <code>METHOD</code> or <code>REQUEST_BODY</code>\n", "specialNotes": "", "elementType": "li"}, {"name": "type", "required": true, "default": "", "description": " The type of API entity to which the documentation content applies. e.g. <code>API</code>, <code>METHOD</code> or <code>REQUEST_BODY</code>\n", "specialNotes": "", "elementType": "li"}, {"name": "type", "required": true, "default": "", "description": " The type of API entity to which the documentation content applies. e.g. <code>API</code>, <code>METHOD</code> or <code>REQUEST_BODY</code>\n", "specialNotes": "", "elementType": "li"}, {"name": "attribute-reference", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h2"}, {"name": "id", "required": false, "default": "", "description": "", "specialNotes": "", "elementType": "li"}, {"name": "import", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h2"}, {"name": "", "required": false, "default": "", "description": "$ terraform import aws_api_gateway_documentation_part.example 5i4e1ko720/3oyy3t\n", "specialNotes": "", "elementType": "div"}], "docsUrl": "https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_part.html", "docType": "awsResource"},
-{"id": 11, "type": "aws_api_gateway_documentation_version", "properties": [{"name": "description", "required": true, "default": "", "description": " The description of the API documentation version.\n", "specialNotes": "", "elementType": "li"}, {"name": "description", "required": true, "default": "", "description": " The description of the API documentation version.\n", "specialNotes": "", "elementType": "li"}, {"name": "description", "required": true, "default": "", "description": " The description of the API documentation version.\n", "specialNotes": "", "elementType": "li"}, {"name": "attribute-reference", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h2"}, {"name": "import", "required": false, "default": "", "description": null, "specialNotes": "", "elementType": "h2"}, {"name": "", "required": false, "default": "", "description": "$ terraform import aws_api_gateway_documentation_version.example 5i4e1ko720/example-version\n", "specialNotes": "", "elementType": "div"}], "docsUrl": "https://www.terraform.io/docs/providers/aws/r/api_gateway_documentation_version.html", "docType": "awsResource"},
+{
+    "id": 1,
+    "type": "aws_acm_certificate",
+    "properties": [
+        {
+            "name": "domain_name",
+            "required": true,
+            "default": "",
+            "description": " A domain name for which the certificate should be issued\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "subject_alternative_names",
+            "required": false,
+            "default": "",
+            "description": " A list of domains that should be SANs in the issued certificate\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "validation_method",
+            "required": true,
+            "default": "",
+            "description": " Which method to use for validation. <code>DNS</code> or <code>EMAIL</code> are valid, <code>NONE</code> can be used for certificates that were imported into ACM and then into Terraform.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "domain_name",
+            "required": true,
+            "default": "",
+            "description": " A domain name for which the certificate should be issued\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "subject_alternative_names",
+            "required": false,
+            "default": "",
+            "description": " A list of domains that should be SANs in the issued certificate\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "validation_method",
+            "required": true,
+            "default": "",
+            "description": " Which method to use for validation. <code>DNS</code> or <code>EMAIL</code> are valid, <code>NONE</code> can be used for certificates that were imported into ACM and then into Terraform.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "private_key",
+            "required": true,
+            "default": "",
+            "description": " The certificate's PEM-formatted private key\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "certificate_body",
+            "required": true,
+            "default": "",
+            "description": " The certificate's PEM-formatted public key\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "certificate_chain",
+            "required": false,
+            "default": "",
+            "description": " The certificate's PEM-formatted chain\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "private_key",
+            "required": true,
+            "default": "",
+            "description": " The certificate's PEM-formatted private key\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "certificate_body",
+            "required": true,
+            "default": "",
+            "description": " The certificate's PEM-formatted public key\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "certificate_chain",
+            "required": false,
+            "default": "",
+            "description": " The certificate's PEM-formatted chain\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "tags",
+            "required": false,
+            "default": "",
+            "description": " A mapping of tags to assign to the resource.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "attributes-reference",
+            "required": false,
+            "default": "",
+            "description": null,
+            "specialNotes": "",
+            "elementType": "h2"
+        },
+        {
+            "name": "id",
+            "required": false,
+            "default": "",
+            "description": "",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "arn",
+            "required": false,
+            "default": "",
+            "description": "",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "domain_name",
+            "required": false,
+            "default": "",
+            "description": "",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "domain_validation_options",
+            "required": false,
+            "default": "",
+            "description": "",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "validation_emails",
+            "required": false,
+            "default": "",
+            "description": "",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "domain_name",
+            "required": false,
+            "default": "",
+            "description": "",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "resource_record_name",
+            "required": false,
+            "default": "",
+            "description": "",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "resource_record_type",
+            "required": false,
+            "default": "",
+            "description": "",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "resource_record_value",
+            "required": false,
+            "default": "",
+            "description": "",
+            "specialNotes": "",
+            "elementType": "li"
+        }
+    ],
+    "docsUrl": "https://www.terraform.io/docs/providers/aws/r/acm_certificate.html",
+    "docType": "awsResource"
+},
+{
+    "id": 2,
+    "type": "aws_acm_certificate_validation",
+    "properties": [
+        {
+            "name": "certificate_arn",
+            "required": true,
+            "default": "",
+            "description": " The ARN of the certificate that is being validated.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "validation_record_fqdns",
+            "required": false,
+            "default": "",
+            "description": " List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "timeouts",
+            "required": false,
+            "default": "",
+            "description": null,
+            "specialNotes": "",
+            "elementType": "h2"
+        },
+        {
+            "name": "create",
+            "required": false,
+            "default": "",
+            "description": " How long to wait for a certificate to be issued.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        }
+    ],
+    "docsUrl": "https://www.terraform.io/docs/providers/aws/r/acm_certificate_validation.html",
+    "docType": "awsResource"
+},
+{
+    "id": 3,
+    "type": "aws_acmpca_certificate_authority",
+    "properties": [
+        {
+            "name": "certificate_authority_configuration",
+            "required": true,
+            "default": "",
+            "description": " Nested argument containing algorithms and certificate subject information. Defined below.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "enabled",
+            "required": false,
+            "default": "",
+            "description": " Whether the certificate authority is enabled or disabled. Defaults to <code>true</code>.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "revocation_configuration",
+            "required": false,
+            "default": "",
+            "description": " Nested argument containing revocation configuration. Defined below.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "tags",
+            "required": false,
+            "default": "",
+            "description": " Specifies a key-value map of user-defined tags that are attached to the certificate authority.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "type",
+            "required": false,
+            "default": "",
+            "description": " The type of the certificate authority. Currently, this must be <code>SUBORDINATE</code>.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "permanent_deletion_time_in_days",
+            "required": false,
+            "default": "",
+            "description": " The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "certificate_authority_configuration-1",
+            "required": false,
+            "default": "",
+            "description": null,
+            "specialNotes": "",
+            "elementType": "h3"
+        },
+        {
+            "name": "key_algorithm",
+            "required": true,
+            "default": "",
+            "description": " Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the <a href=\"https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html\">ACM PCA Documentation</a>.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "signing_algorithm",
+            "required": true,
+            "default": "",
+            "description": " Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the <a href=\"https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthorityConfiguration.html\">ACM PCA Documentation</a>.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "subject",
+            "required": true,
+            "default": "",
+            "description": " Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "subject-1",
+            "required": false,
+            "default": "",
+            "description": null,
+            "specialNotes": "",
+            "elementType": "h4"
+        },
+        {
+            "name": "common_name",
+            "required": false,
+            "default": "",
+            "description": " Fully qualified domain name (FQDN",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "country",
+            "required": false,
+            "default": "",
+            "description": " Two digit code that specifies the country in which the certificate subject located.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "distinguished_name_qualifier",
+            "required": false,
+            "default": "",
+            "description": " Disambiguating information for the certificate subject.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "generation_qualifier",
+            "required": false,
+            "default": "",
+            "description": " Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "given_name",
+            "required": false,
+            "default": "",
+            "description": " First name.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "initials",
+            "required": false,
+            "default": "",
+            "description": " Concatenation that typically contains the first letter of the <code>given_name</code>, the first letter of the middle name if one exists, and the first letter of the <code>surname</code>.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "locality",
+            "required": false,
+            "default": "",
+            "description": " The locality (such as a city or town",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "organization",
+            "required": false,
+            "default": "",
+            "description": " Legal name of the organization with which the certificate subject is affiliated.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "organizational_unit",
+            "required": false,
+            "default": "",
+            "description": " A subdivision or unit of the organization (such as sales or finance",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "pseudonym",
+            "required": false,
+            "default": "",
+            "description": " Typically a shortened version of a longer <code>given_name</code>. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "state",
+            "required": false,
+            "default": "",
+            "description": " State in which the subject of the certificate is located.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "surname",
+            "required": false,
+            "default": "",
+            "description": " Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "title",
+            "required": false,
+            "default": "",
+            "description": " A title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "revocation_configuration-1",
+            "required": false,
+            "default": "",
+            "description": null,
+            "specialNotes": "",
+            "elementType": "h3"
+        },
+        {
+            "name": "crl_configuration",
+            "required": false,
+            "default": "",
+            "description": " Nested argument containing configuration of the certificate revocation list (CRL",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "crl_configuration-1",
+            "required": false,
+            "default": "",
+            "description": null,
+            "specialNotes": "",
+            "elementType": "h4"
+        },
+        {
+            "name": "custom_cname",
+            "required": false,
+            "default": "",
+            "description": " Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "enabled",
+            "required": false,
+            "default": "",
+            "description": " Boolean value that specifies whether certificate revocation lists (CRLs",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "expiration_in_days",
+            "required": true,
+            "default": "",
+            "description": " Number of days until a certificate expires. Must be between 1 and 5000.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        },
+        {
+            "name": "s3_bucket_name",
+            "required": false,
+            "default": "",
+            "description": " Name of the S3 bucket that contains the CRL. If you do not provide a value for the <code>custom_cname</code> argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket.\n",
+            "specialNotes": "",
+            "elementType": "li"
+        }
+    ],
+    "docsUrl": "https://www.terraform.io/docs/providers/aws/r/acmpca_certificate_authority.html",
+    "docType": "awsResource"
+},
+{
+    "id": 4,
+    "type": "aws_api_gateway_account",
+    "properties": [
+        {
+            "name": "cloudwatch_role_arn",
+            "required": false,
+            "default": "",
+            "description": " The ARN of an IAM role for CloudWatch (to allow logging &amp; monitoring",
+            "specialNotes": "",
+            "elementType": "li"
+        }
+    ],
+    "docsUrl": "https://www.terraform.io/docs/providers/aws/r/api_gateway_account.html",
+    "docType": "awsResource"
+},
