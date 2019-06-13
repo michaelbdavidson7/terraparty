@@ -1,4 +1,0 @@
-'NoneType' object is not subscriptable
-Failed on aws_acm_certificate - full resource: {'id': 1, 'type': 'aws_acm_certificate', 'properties': [{'name': '', 'required': False, 'default': '', 'description': '<p>The following arguments are supported:</p>', 'specialNotes': '', 'elementType': 'p'}], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acm_certificate.html', 'docType': 'awsResource'}
-'NoneType' object is not subscriptable
-Failed on aws_acm_certificate - full resource: {'id': 1, 'type': 'aws_acm_certificate', 'properties': [{'name': '', 'required': False, 'default': '', 'description': '<p>The following arguments are supported:</p>', 'specialNotes': '', 'elementType': 'p'}], 'docsUrl': 'https://www.terraform.io/docs/providers/aws/r/acm_certificate.html', 'docType': 'awsResource'}

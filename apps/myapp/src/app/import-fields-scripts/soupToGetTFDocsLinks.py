@@ -167,7 +167,7 @@ def getResourceWebpages():
 
                     resourceObjJson = json.dumps(resourceObj) + ','
                     print(resourceObjJson, file=jsonOutputFile)
-                    time.sleep(2)
+                    time.sleep(1)
                 except Exception as e:
                     print(e)
                     with open('resourceOutputFailures.txt', 'a') as resourceOutputFailuresFile:
