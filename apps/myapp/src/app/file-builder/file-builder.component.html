@@ -1,5 +1,5 @@
 <div class="container padding-top-120">
-  <h4>We are going to create <i>main.tf.json.</i> Learn how to use it 
+  <h4>We are going to create <i>main.tf.json.</i> Learn how to use it
     <a routerLink="/howto" routerLinkActive="active">here!</a></h4>
   <br />
   <div class="row">
@@ -33,11 +33,21 @@
             </div>
             <label for="resourceModelName">Resource id (you name it): </label>
             <input class="form-control form-control-sm" id="resourceModelName" [(ngModel)]="resourceModel.name" />
-            <ul>
+            <ul class="no-li-dots">
               <li
                 *ngFor="let resourcePropertyMeta of resourceTypesMeta[resourceModel.selectedIndex].properties; index as resourcePropertyIndex;">
-                {{resourcePropertyMeta.name}} ({{resourcePropertyMeta.required ? 'Required' : 'Optional'}}): <input
-                  class="form-control form-control-sm" [(ngModel)]="resourceModel.properties[resourcePropertyIndex]" />
+                <!-- {{resourcePropertyMeta.elementType}} -->
+                <div *ngIf="resourcePropertyMeta.elementType != 'li'">
+                  <br />
+                  <h5 [innerHTML]="resourcePropertyMeta.description"></h5>
+                  <br />
+                </div>
+
+                <div *ngIf="resourcePropertyMeta.elementType == 'li'">
+                  {{resourcePropertyMeta.name}} <i [innerHTML]="resourcePropertyMeta.description"></i>:
+                  <input class="form-control form-control-sm"
+                    [(ngModel)]="resourceModel.properties[resourcePropertyIndex]" />
+                </div>
               </li>
             </ul>
           </div>
@@ -68,15 +78,17 @@
               <!-- {{resource | json}} -->
               Resource type: {{resource.type}}
               <br />
-              Resource name: {{resource.name}}
+              Resource name:<input class="form-control form-control-sm" id="resourceNameOutput" [(ngModel)]="resource.name" />
               <!-- TODO: list all properties -->
               <div>
-                <ul>
+                <ul class="no-li-dots">
                   <li *ngFor="let resourceProp of resource.properties">
-                    <span><label for="resourceProperty">{{resourceProp.name}}
-                        ({{resourceProp.required ? 'Required' : 'Optional'}}): </label>
-                      <input class="form-control form-control-sm" id="resourceProperty"
-                        [(ngModel)]="resourceProp.value" /></span>
+                    <div *ngIf="resourceProp.elementType == 'li'">
+                      <span><label for="resourceProperty">{{resourceProp.name}}
+                          <i [innerHTML]="resourceProp.description"></i></label>
+                        <input class="form-control form-control-sm" id="resourceProperty"
+                          [(ngModel)]="resourceProp.value" /></span>
+                    </div>
                   </li>
                 </ul>
               </div>

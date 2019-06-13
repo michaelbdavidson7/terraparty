@@ -229,6 +229,9 @@ def parseLIElements(li, propertyObject):
     # format description string a bit
     if descStr.startswith(' - '):
         descStr = descStr.split(' - ')[1]
+
+    descStr = descStr.replace("(Required)", "<strong>(Required)</strong>")
+    descStr = descStr.replace("(Optional)", "<strong>(Optional)</strong>")
     propertyObject['description'] = descStr
 
     for prop in propertyObject:

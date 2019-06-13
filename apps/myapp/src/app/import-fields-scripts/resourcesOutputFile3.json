@@ -1,4 +1,4 @@
-{
+[{
     "id": 1,
     "type": "aws_acm_certificate",
     "properties": [
@@ -40829,4 +40829,4 @@
     ],
     "docsUrl": "https://www.terraform.io/docs/providers/aws/r/wafregional_ipset.html",
     "docType": "awsResource"
-},
+}]
