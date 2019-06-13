@@ -129,9 +129,9 @@ def getResourceWebpages():
                         propertyObject = {'name': "", 'required': False,
                                           'default': '', 'description': '', 'specialNotes': '', 'elementType': ''}
 
-                        print(el, type(el), el.name, el.attrs)
+                        # print(el, type(el), el.name, el.attrs)
                         # start at argument reference id and end at attribute reference or import
-                        if 'id' in el.attrs and (el.attrs['id'] == 'attribute-reference' or el.attrs['id'] == 'import'):
+                        if 'id' in el.attrs and (el.attrs['id'] == 'attribute-reference' or el.attrs['id'] == 'attributes-reference' or el.attrs['id'] == 'import'):
                             print('FOUND IT - ' + el.attrs['id'])
                             break
                         if 'id' in el.attrs:
@@ -154,8 +154,8 @@ def getResourceWebpages():
                                 else:
                                     propertyObject = parseLIElements(li, propertyObject)
                                     resourceObj['properties'].append(propertyObject)
-                                    print('li: ', li)
-                                    print(json.dumps(propertyObject))
+                                    # print('li: ', li)
+                                    # print(json.dumps(propertyObject))
                         # go through li elements and add them to the properties array
                         # add next div if it has notes for this one
 
@@ -188,7 +188,7 @@ def parseDisplayElements(el, propertyObject):
     propertyObject = {'name': "", 'required': False, 'default': '', 'description': '', 'specialNotes': '', 'elementType': ''}
     propertyObject['elementType'] = el.name
     propertyObject['name'] = el.attrs['id'] if 'id' in el.attrs else ''
-    propertyObject['description'] = el.string if type(el) != 'string' else el
+    propertyObject['description'] = el.contents[len(el.contents) - 1]
     return propertyObject
 
 def parseLIElements(li, propertyObject):
@@ -209,14 +209,26 @@ def parseLIElements(li, propertyObject):
     if '(Required)' in strLi:
         # print(propertyObject['name'] + ' is required')
         propertyObject['required'] = True
-    if '(Default: ' in strLi:
-        propertyObject['default'] = strLi.split(
-            '(Default')[1]
-    if ')' in strLi:
-        propertyObject['description'] = strLi.split(')')[1]
-        if '</li>' in propertyObject['description']:
-            propertyObject['description'] = propertyObject['description'].split(
-                '</li>')[0]
+
+    # print('type li', type(li), 'li name', li.name)
+    # print(strLi)
+    # liWithoutTitles = li
+    # del liWithoutTitles.contents[0]
+    # del liWithoutTitles.contents[0]
+    descStr = ""
+    if li.contents[0].name == 'a':
+        for index, c in enumerate(li.contents):
+            if index > 1:
+                descStr = descStr + str(c)
+        print('yes its A', len(li.contents))
+    else:
+        print('no', str(li))
+        descStr = strLi
+    
+    # format description string a bit
+    if descStr.startswith(' - '):
+        descStr = descStr.split(' - ')[1]
+    propertyObject['description'] = descStr
 
     for prop in propertyObject:
         propType = str(type(prop))
