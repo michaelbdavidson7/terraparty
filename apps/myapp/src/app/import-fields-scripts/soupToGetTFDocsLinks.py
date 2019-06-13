@@ -188,7 +188,12 @@ def parseDisplayElements(el, propertyObject):
     propertyObject = {'name': "", 'required': False, 'default': '', 'description': '', 'specialNotes': '', 'elementType': ''}
     propertyObject['elementType'] = el.name
     propertyObject['name'] = el.attrs['id'] if 'id' in el.attrs else ''
-    propertyObject['description'] = el.contents[len(el.contents) - 1]
+    # if el.name == 'p':
+    #     propertyObject['description'] = str(el)
+    # else:
+    #     propertyObject['description'] = el.contents[len(el.contents) - 1]
+    propertyObject['description'] = str(el)
+
     return propertyObject
 
 def parseLIElements(li, propertyObject):
