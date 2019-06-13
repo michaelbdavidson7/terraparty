@@ -59,14 +59,6 @@ def improveLinks():
 
     # print(validLinks)
 
-class PropertyObject:
-    name= ""
-    required= False
-    default= ''
-    description= ''
-    specialNotes= ''
-    elementType= ''
-
 def getResourceWebpages():
     jsonOutput = []
     failureList = []
@@ -123,8 +115,7 @@ def getResourceWebpages():
                         id='argument-reference').find_next_siblings()
                     for el in innerElements:
 
-                        propertyObject = {'name': "", 'required': False,
-                                          'default': '', 'description': '', 'specialNotes': '', 'elementType': ''}
+                        propertyObject = {'name': "", 'description': '', 'elementType': ''}
 
                         # print(el, type(el), el.name, el.attrs)
                         # start at argument reference id and end at attribute reference or import
@@ -146,9 +137,9 @@ def getResourceWebpages():
                                     print('list description - li.contents[0]', li.contents[0])
                                     if type(li.contents[0].name) != 'ul':
                                         liDescriptiveStr = str(li.contents[0])
-                                        propertyObject = {'name': 'list description', 'required': False, 'default': '', 'description': liDescriptiveStr, 'specialNotes': '', 'elementType': 'p'}
+                                        propertyObject = {'name': 'list description', 'description': liDescriptiveStr, 'elementType': 'p'}
                                         resourceObj['properties'].append(propertyObject)
-                                        propertyObject = {'name': "", 'required': False, 'default': '', 'description': '', 'specialNotes': '', 'elementType': ''}
+                                        propertyObject = {'name': "", 'description': '',  'elementType': ''}
                                     
                                     innerUls = li.find_all('ul')
                                     for innerUl in innerUls:
@@ -190,7 +181,7 @@ def getResourceWebpages():
 
 
 def parseDisplayElements(el, propertyObject):
-    propertyObject = {'name': "", 'required': False, 'default': '', 'description': '', 'specialNotes': '', 'elementType': ''}
+    propertyObject = {'name': "", 'description': '', 'elementType': ''}
     propertyObject['elementType'] = el.name
     propertyObject['name'] = el.attrs['id'] if 'id' in el.attrs else ''
     # if el.name == 'p':
@@ -204,7 +195,7 @@ def parseDisplayElements(el, propertyObject):
 def parseLIElements(li, propertyObject):
 
     # new up prop object again because it only gets newed up on on the next item
-    propertyObject = {'name': "", 'required': False, 'default': '', 'description': '', 'specialNotes': '', 'elementType': ''}
+    propertyObject = {'name': "", 'description': '', 'elementType': ''}
     strLi = str(li)
     # if type(strLi) is not 'string':
 
@@ -216,9 +207,9 @@ def parseLIElements(li, propertyObject):
             propertyObject['name'] = li.code.contents[0]
     else:
         propertyObject['name'] = li.string
-    if '(Required)' in strLi:
-        # print(propertyObject['name'] + ' is required')
-        propertyObject['required'] = True
+    # if '(Required)' in strLi:
+    #     # print(propertyObject['name'] + ' is required')
+    #     propertyObject['required'] = True
 
     # print('type li', type(li), 'li name', li.name)
     # print(strLi)
