@@ -18,51 +18,54 @@ export class FileBuilderComponent implements OnInit {
   tempOutputString = "Your output will go here"; 
   output = { "resource": [], "variable":[] }
 
-
-  resourceTypesMeta = [{
-    "id": 1,
-    "type": "aws_instance",
-    "properties": [{
-      "name": "instance_type",
-      "value": "",
-      "dataType": "string"
-    }, {
-      "name": "ami",
-      "value": "",
-      "dataType": "string"
-    }
-    ]
-  }, {
-    "id": 2,
-    "type": "aws_vpc",
-    "properties": [{
-      "name": "cidr_block",
-      "value": "",
-      "dataType": "string"
-    },
-    {
-      "name": "enable_dns_hostnames",
-      "value": "",
-      "dataType": "bool"
-    }, {
-      "name": "enable_dns_support",
-      "value": "",
-      "dataType": "bool"
-    }
+  resourceTypesMeta = []
+  // resourceTypesMeta = [{
+  //   "id": 1,
+  //   "type": "aws_instance",
+  //   "properties": [{
+  //     "name": "instance_type",
+  //     "value": "",
+  //     "dataType": "string"
+  //   }, {
+  //     "name": "ami",
+  //     "value": "",
+  //     "dataType": "string"
+  //   }
+  //   ]
+  // }, {
+  //   "id": 2,
+  //   "type": "aws_vpc",
+  //   "properties": [{
+  //     "name": "cidr_block",
+  //     "value": "",
+  //     "dataType": "string"
+  //   },
+  //   {
+  //     "name": "enable_dns_hostnames",
+  //     "value": "",
+  //     "dataType": "bool"
+  //   }, {
+  //     "name": "enable_dns_support",
+  //     "value": "",
+  //     "dataType": "bool"
+  //   }
       // ,{
       //   "name": "ami",
       //   "value": "",
       //   "dataType": "string"
       // }
-    ]
-  }]
+  //   ]
+  // }]
   model = {};
   mainTF = [];
   variablesTF = [];
   terraformTFVars = [];
 
   constructor() { 
-  this.resourceTypesMeta = json;
+  // let myjson = json.sort((a,b) => (a.type > b.type) ? 1 : ((b.type > a.type) ? -1 : 0)); 
+  let myjson = json.sort((a,b)=>a.type.localeCompare(b.type))
+  // let formattedJson = json.sort(function(a, b){return a.type > b.type;})
+  this.resourceTypesMeta = myjson;
 }
 
   ngOnInit() {
