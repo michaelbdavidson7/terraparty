@@ -31,7 +31,7 @@
             <div *ngIf="resourceTypesMeta[resourceModel.selectedIndex].docsUrl">
               <a [href]="resourceTypesMeta[resourceModel.selectedIndex].docsUrl" target="_blank">Documentation link</a>
             </div>
-            <label for="resourceModelName">Resource id (you name it): </label>
+            <label for="resourceModelName">Custom Resource Name <strong>(Required)</strong>: </label>
             <input class="form-control form-control-sm" id="resourceModelName" [(ngModel)]="resourceModel.name" />
             <ul class="no-li-dots">
               <li
@@ -44,7 +44,7 @@
                 </div>
 
                 <div *ngIf="resourcePropertyMeta.elementType == 'li'">
-                  {{resourcePropertyMeta.name}} <i [innerHTML]="resourcePropertyMeta.description"></i>:
+                  <strong>{{resourcePropertyMeta.name}} </strong> <i class="text-muted" [innerHTML]="resourcePropertyMeta.description"></i>:
                   <input class="form-control form-control-sm"
                     [(ngModel)]="resourceModel.properties[resourcePropertyIndex]" />
                 </div>
@@ -78,14 +78,15 @@
               <!-- {{resource | json}} -->
               Resource type: {{resource.type}}
               <br />
-              Resource name:<input class="form-control form-control-sm" id="resourceNameOutput" [(ngModel)]="resource.name" />
+              Custom Resource Name  <i><strong>(Required)</strong></i>:
+              <input class="form-control form-control-sm" id="resourceNameOutput" [(ngModel)]="resource.name" />
               <!-- TODO: list all properties -->
               <div>
                 <ul class="no-li-dots">
                   <li *ngFor="let resourceProp of resource.properties">
                     <div *ngIf="resourceProp.elementType == 'li'">
                       <span><label for="resourceProperty">{{resourceProp.name}}
-                          <i [innerHTML]="resourceProp.description"></i></label>
+                          <i  class="text-muted" [innerHTML]="resourceProp.description"></i></label>
                         <input class="form-control form-control-sm" id="resourceProperty"
                           [(ngModel)]="resourceProp.value" /></span>
                     </div>
