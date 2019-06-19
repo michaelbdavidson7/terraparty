@@ -9,6 +9,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { FileBuilderComponent } from './file-builder/file-builder.component';
 import { HowToComponent } from './how-to/how-to.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 const appRoutes: Routes = [
   { path: 'filebuilder', component: FileBuilderComponent },
@@ -23,6 +25,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [AppComponent, HomepageComponent, PagenotfoundComponent, FileBuilderComponent, HowToComponent],
   imports: [
+    NgbModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
