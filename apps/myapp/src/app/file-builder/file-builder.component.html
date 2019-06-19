@@ -1,4 +1,4 @@
-<div class="container padding-top-120">
+<div class="container padding-top-60">
   <ng-template #content let-modal>
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">Your Terraform script</h4>
@@ -17,8 +17,6 @@
       </div>
     </div>
   </ng-template>
-  
-  <!-- <button class="btn btn-lg btn-outline-primary" (click)=" open(content)">Launch demo modal</button> -->
 
   <h4>We are going to create <i>main.tf.json.</i> Learn how to use it
     <a routerLink="/howto" routerLinkActive="active">here!</a></h4>
@@ -79,46 +77,49 @@
           <!-- TODO: specify variables and other resources -->
           <button class="btn btn-primary" (click)="addResource()">Add resource</button>&nbsp;
           <button class="btn btn-info" (click)="openOutputModal(content)">Show output </button>
-          <hr>
-          <h3>Your Terraform model: </h3>
-          <ul>
-            Variables:
-            <li *ngFor="let variable of terraformTFVars">
-              Variable name: {{variable.name}}
-              <br />
-
-              <span><label for="variableValueDisplay">Variable name: </label> <input
-                  class="form-control form-control-sm" id="variableValueDisplay" [(ngModel)]="variable.value" /></span>
-            </li>
-            {{terraformTFVars.length < 1 ? 'none': '' }}
-          </ul>
-
-
-          <ul>
-            Resources:
-            <li *ngFor="let resource of mainTF">
-              <!-- {{resource | json}} -->
-              Resource type: {{resource.type}}
-              <br />
-              Custom Resource Name <i><strong>(Required)</strong></i>:
-              <input class="form-control form-control-sm" id="resourceNameOutput" [(ngModel)]="resource.name" />
-              <!-- TODO: list all properties -->
-              <div>
-                <ul class="no-li-dots">
-                  <li *ngFor="let resourceProp of resource.properties">
-                    <div *ngIf="resourceProp.elementType == 'li'">
-                      <span><label for="resourceProperty">{{resourceProp.name}}
-                          <i class="text-muted" [innerHTML]="resourceProp.description"></i></label>
-                        <input class="form-control form-control-sm" id="resourceProperty"
-                          [(ngModel)]="resourceProp.value" /></span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            {{mainTF.length < 1 ? 'none': '' }}
-          </ul>
         </div>
       </div>
     </div>
+    
+    <div class="col-lg-6">
+        <h3>Your Terraform model: </h3>
+        <ul>
+          <h5>Variables:</h5>
+          <li *ngFor="let variable of terraformTFVars">
+            Variable name: {{variable.name}}
+            <br />
+
+            <span><label for="variableValueDisplay">Variable name: </label> <input
+                class="form-control form-control-sm" id="variableValueDisplay"
+                [(ngModel)]="variable.value" /></span>
+          </li>
+          {{terraformTFVars.length < 1 ? 'none': '' }}
+        </ul>
+
+
+        <ul>
+          <h5>Resources:</h5>
+          <li *ngFor="let resource of mainTF">
+            <!-- {{resource | json}} -->
+            Resource type: {{resource.type}}
+            <br />
+            Custom Resource Name <i><strong>(Required)</strong></i>:
+            <input class="form-control form-control-sm" id="resourceNameOutput" [(ngModel)]="resource.name" />
+            <!-- TODO: list all properties -->
+            <div>
+              <ul class="no-li-dots">
+                <li *ngFor="let resourceProp of resource.properties">
+                  <div *ngIf="resourceProp.elementType == 'li'">
+                    <span><label for="resourceProperty">{{resourceProp.name}}
+                        <i class="text-muted" [innerHTML]="resourceProp.description"></i></label>
+                      <input class="form-control form-control-sm" id="resourceProperty"
+                        [(ngModel)]="resourceProp.value" /></span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          {{mainTF.length < 1 ? 'none': '' }}
+        </ul>
+      </div>
   </div>
