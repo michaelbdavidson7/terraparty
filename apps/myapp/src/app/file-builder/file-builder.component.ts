@@ -147,7 +147,7 @@ export class FileBuilderComponent implements OnInit {
   //   modalRef.componentInstance.name = 'World';
   // }
 
-  open(content) {
+  openOutputModal(content) {
     this.exportTF()
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       // this.closeResult = `Closed with: ${result}`;
