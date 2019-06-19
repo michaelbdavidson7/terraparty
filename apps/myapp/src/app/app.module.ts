@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { FileBuilderComponent } from './file-builder/file-builder.component';
+import { FileBuilderComponent, NgbdModalContent } from './file-builder/file-builder.component';
 import { HowToComponent } from './how-to/how-to.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -23,7 +23,7 @@ const appRoutes: Routes = [
 ]
 
 @NgModule({
-  declarations: [AppComponent, HomepageComponent, PagenotfoundComponent, FileBuilderComponent, HowToComponent],
+  declarations: [AppComponent, HomepageComponent, PagenotfoundComponent, FileBuilderComponent, HowToComponent, NgbdModalContent],
   imports: [
     NgbModule,
     RouterModule.forRoot(

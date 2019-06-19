@@ -1,4 +1,9 @@
 <div class="container padding-top-120">
+  <ng-template #content let-modal>
+    <div>hi</div>
+  </ng-template>
+    <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+
   <h4>We are going to create <i>main.tf.json.</i> Learn how to use it
     <a routerLink="/howto" routerLinkActive="active">here!</a></h4>
   <br />
