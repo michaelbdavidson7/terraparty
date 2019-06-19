@@ -22,7 +22,7 @@
     <a routerLink="/howto" routerLinkActive="active">here!</a></h4>
   <br />
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-5">
       <div class="form-group">
         <label for="variableModelname">Variable name: </label>
         <input class="form-control form-control-sm" id="variableModelname" [(ngModel)]="variableModel.name" />
@@ -80,46 +80,49 @@
         </div>
       </div>
     </div>
-    
-    <div class="col-lg-6">
-        <h3>Your Terraform model: </h3>
-        <ul>
-          <h5>Variables:</h5>
-          <li *ngFor="let variable of terraformTFVars">
-            Variable name: {{variable.name}}
-            <br />
 
-            <span><label for="variableValueDisplay">Variable name: </label> <input
-                class="form-control form-control-sm" id="variableValueDisplay"
-                [(ngModel)]="variable.value" /></span>
-          </li>
-          {{terraformTFVars.length < 1 ? 'none': '' }}
-        </ul>
+    <div class="offset-lg-2 col-lg-5">
+      <h3>Your Terraform model: </h3>
+      <ul>
+        <h5>Variables:</h5>
+        <li *ngFor="let variable of terraformTFVars">
+          Variable name: {{variable.name}}
+          <br />
+
+          <span><label for="variableValueDisplay">Variable name: </label> <input class="form-control form-control-sm"
+              id="variableValueDisplay" [(ngModel)]="variable.value" /></span>
+        </li>
+        {{terraformTFVars.length < 1 ? 'none': '' }}
+      </ul>
 
 
-        <ul>
-          <h5>Resources:</h5>
-          <li *ngFor="let resource of mainTF">
-            <!-- {{resource | json}} -->
-            Resource type: {{resource.type}}
-            <br />
-            Custom Resource Name <i><strong>(Required)</strong></i>:
-            <input class="form-control form-control-sm" id="resourceNameOutput" [(ngModel)]="resource.name" />
-            <!-- TODO: list all properties -->
-            <div>
-              <ul class="no-li-dots">
-                <li *ngFor="let resourceProp of resource.properties">
-                  <div *ngIf="resourceProp.elementType == 'li'">
-                    <span><label for="resourceProperty">{{resourceProp.name}}
-                        <i class="text-muted" [innerHTML]="resourceProp.description"></i></label>
-                      <input class="form-control form-control-sm" id="resourceProperty"
-                        [(ngModel)]="resourceProp.value" /></span>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </li>
-          {{mainTF.length < 1 ? 'none': '' }}
-        </ul>
-      </div>
+      <ul>
+        <h5>Resources:</h5>
+        <li *ngFor="let resource of mainTF">
+          <!-- {{resource | json}} -->
+          Custom Resource Name <i><strong>(Required)</strong></i>:
+          <input class="form-control form-control-sm" id="resourceNameOutput" [(ngModel)]="resource.name" />
+          <div>Resource type: {{resource.type}} </div>
+          <div class="pull-right"><label class="form-check-label">
+              <input type="checkbox" class="btn btn-sm btn-info" [(ngModel)]="resource.showDetails" />
+              Show details
+            </label>
+          </div>
+          <br />
+          <div *ngIf="resource.showDetails">
+            <ul class="no-li-dots">
+              <li *ngFor="let resourceProp of resource.properties">
+                <div *ngIf="resourceProp.elementType == 'li'">
+                  <span><label for="resourceProperty">{{resourceProp.name}}
+                      <i class="text-muted" [innerHTML]="resourceProp.description"></i></label>
+                    <input class="form-control form-control-sm" id="resourceProperty"
+                      [(ngModel)]="resourceProp.value" /></span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        {{mainTF.length < 1 ? 'none': '' }}
+      </ul>
+    </div>
   </div>
