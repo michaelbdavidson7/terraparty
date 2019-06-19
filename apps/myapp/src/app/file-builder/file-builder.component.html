@@ -1,8 +1,24 @@
 <div class="container padding-top-120">
   <ng-template #content let-modal>
-    <div>hi</div>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Your Terraform script</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div *ngIf="showOutput">
+        Terraform json output:
+        <br />
+        <code>{{output | json}}</code>
+      </div>
+      <div *ngIf="!showOutput">
+        <code>Exported code will go here.</code>
+      </div>
+    </div>
   </ng-template>
-    <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+  
+  <!-- <button class="btn btn-lg btn-outline-primary" (click)=" open(content)">Launch demo modal</button> -->
 
   <h4>We are going to create <i>main.tf.json.</i> Learn how to use it
     <a routerLink="/howto" routerLinkActive="active">here!</a></h4>
@@ -49,7 +65,8 @@
                 </div>
 
                 <div *ngIf="resourcePropertyMeta.elementType == 'li'">
-                  <strong>{{resourcePropertyMeta.name}} </strong> <i class="text-muted" [innerHTML]="resourcePropertyMeta.description"></i>:
+                  <strong>{{resourcePropertyMeta.name}} </strong> <i class="text-muted"
+                    [innerHTML]="resourcePropertyMeta.description"></i>:
                   <input class="form-control form-control-sm"
                     [(ngModel)]="resourceModel.properties[resourcePropertyIndex]" />
                 </div>
@@ -61,7 +78,7 @@
           <br />
           <!-- TODO: specify variables and other resources -->
           <button class="btn btn-primary" (click)="addResource()">Add resource</button>&nbsp;
-          <button class="btn btn-info" (click)="exportTF()">Export </button>
+          <button class="btn btn-info" (click)="open(content)">Export </button>
           <hr>
           <h3>Your Terraform model: </h3>
           <ul>
@@ -83,7 +100,7 @@
               <!-- {{resource | json}} -->
               Resource type: {{resource.type}}
               <br />
-              Custom Resource Name  <i><strong>(Required)</strong></i>:
+              Custom Resource Name <i><strong>(Required)</strong></i>:
               <input class="form-control form-control-sm" id="resourceNameOutput" [(ngModel)]="resource.name" />
               <!-- TODO: list all properties -->
               <div>
@@ -91,7 +108,7 @@
                   <li *ngFor="let resourceProp of resource.properties">
                     <div *ngIf="resourceProp.elementType == 'li'">
                       <span><label for="resourceProperty">{{resourceProp.name}}
-                          <i  class="text-muted" [innerHTML]="resourceProp.description"></i></label>
+                          <i class="text-muted" [innerHTML]="resourceProp.description"></i></label>
                         <input class="form-control form-control-sm" id="resourceProperty"
                           [(ngModel)]="resourceProp.value" /></span>
                     </div>
@@ -102,16 +119,6 @@
             {{mainTF.length < 1 ? 'none': '' }}
           </ul>
         </div>
-      </div>
-    </div>
-    <div class="offset-lg-2 col-lg-4">
-      <div *ngIf="showOutput">
-        Terraform json output:
-        <br />
-        <code>{{output | json}}</code>
-      </div>
-      <div *ngIf="!showOutput">
-        <code>Exported code will go here.</code>
       </div>
     </div>
   </div>

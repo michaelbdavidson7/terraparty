@@ -171,6 +171,7 @@ export class FileBuilderComponent implements OnInit {
   // }
 
   open(content) {
+    this.exportTF()
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       // this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
