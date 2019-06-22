@@ -37,7 +37,7 @@
 
         <label for="resourceType">Resource type: </label>
         <select class="form-control form-control-sm" id="resourceType" [(ngModel)]="resourceModel.selectedIndex"
-          #resourceType>
+          #resourceType (change)="resourceTypeOnChange(resourceModel.selectedIndex)">
           <option *ngFor="let typeSelection of resourceTypesMeta; index as i; trackBy: id;" [value]="i">
             {{typeSelection.type}}
           </option>
@@ -63,10 +63,29 @@
                 </div>
 
                 <div *ngIf="resourcePropertyMeta.elementType == 'li'">
-                  <strong>{{resourcePropertyMeta.name}} </strong> <i class="text-muted"
-                    [innerHTML]="resourcePropertyMeta.description"></i>:
-                  <input class="form-control form-control-sm"
-                    [(ngModel)]="resourceModel.properties[resourcePropertyIndex]" />
+                  <strong>{{resourcePropertyMeta.name}} </strong>
+                  <i class="text-muted" [innerHTML]="resourcePropertyMeta.description"></i>:
+
+                  <span>
+                    <select [(ngModel)]="selectedValueOptions[resourcePropertyIndex]"  
+                     [value]="value">
+                      <option *ngFor="let valueOption of valueOptions; index as i; trackBy: id"
+                        [value]="valueOption.name">{{valueOption.displayName}}</option>
+                    </select>
+
+
+                    
+                    <!-- <div *ngIf="selectedValueOptions[resourcePropertyIndex]"> -->
+                    <!-- {{selectedValueOptions[resourcePropertyIndex] | json}} -->
+                    <!-- </div> -->
+                    <span *ngIf="selectedValueOptions[resourcePropertyIndex] == 'newVariable'">
+                        "test"
+                      </span>
+                    <span *ngIf="selectedValueOptions[resourcePropertyIndex] == 'value'">
+                      <input [(ngModel)]="resourceModel.properties[resourcePropertyIndex]"
+                        class="form-control form-control-sm" />
+                    </span>
+                  </span>
                 </div>
               </li>
             </ul>

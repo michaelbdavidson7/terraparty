@@ -1,9 +1,9 @@
-import { Component, OnInit, Input  } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import json from  '../import-fields-scripts/resourcesOutputFile3.json';
+import json from '../import-fields-scripts/resourcesOutputFile3.json';
 console.log(json.length)
 
-@Component({   
+@Component({
   selector: 'myworkspace-file-builder',
   templateUrl: './file-builder.component.html',
   styleUrls: ['./file-builder.component.css']
@@ -16,8 +16,8 @@ export class FileBuilderComponent implements OnInit {
   variableModel = new TFVariable();
   //todo needs to allow object arrays
   showOutput = false;
-  tempOutputString = "Your output will go here"; 
-  output = { "resource": [], "variable":[] }
+  tempOutputString = "Your output will go here";
+  output = { "resource": [], "variable": [] }
 
   resourceTypesMeta = []
   // resourceTypesMeta = [{
@@ -50,28 +50,43 @@ export class FileBuilderComponent implements OnInit {
   //     "value": "",
   //     "dataType": "bool"
   //   }
-      // ,{
-      //   "name": "ami",
-      //   "value": "",
-      //   "dataType": "string"
-      // }
+  // ,{
+  //   "name": "ami",
+  //   "value": "",
+  //   "dataType": "string"
+  // }
   //   ]
   // }]
   model = {};
   mainTF = [];
   variablesTF = [];
   terraformTFVars = [];
+  selectedValueOptions = []
 
-  constructor(private modalService: NgbModal) { 
-  // let myjson = json.sort((a,b) => (a.type > b.type) ? 1 : ((b.type > a.type) ? -1 : 0)); 
-  let myjson = json.sort((a,b)=>a.type.localeCompare(b.type))
-  // let formattedJson = json.sort(function(a, b){return a.type > b.type;})
-  this.resourceTypesMeta = myjson;
-}
+  valueOptions = [{ "id": 1, "name": "value", "displayName": "Value" }, 
+  { "id": 2, "name": "newVariable", "displayName": "New Variable" }, 
+  { "id": 3, "name": "existingVariable", "displayName": "Existing Variable" }, 
+  { "id": 4, "name": "existingResource", "displayName": "Existing Resource" }];
+
+  constructor(private modalService: NgbModal) {
+    // let myjson = json.sort((a,b) => (a.type > b.type) ? 1 : ((b.type > a.type) ? -1 : 0)); 
+    let myjson = json.sort((a, b) => a.type.localeCompare(b.type))
+    // let formattedJson = json.sort(function(a, b){return a.type > b.type;})
+    this.resourceTypesMeta = myjson;
+  }
 
   ngOnInit() {
   }
 
+  resourceTypeOnChange(i){
+    console.log('resourceTypeOnChange. i: ', i)
+    let mySelectedValueOptions = []
+    this.resourceTypesMeta[i].properties.forEach(function(property){
+      // literally just adding one for each
+      mySelectedValueOptions.push("value");
+    })
+    this.selectedValueOptions = mySelectedValueOptions;
+  }
   addVariable() {
     this.variablesTF.push({ "name": this.variableModel.name });
     this.terraformTFVars.push(this.variableModel);
@@ -101,18 +116,18 @@ export class FileBuilderComponent implements OnInit {
   exportTF() {
     this.showOutput = true;
     // this.finalOutput = {};
-    this.output = { "resource": [], "variable":[] }
+    this.output = { "resource": [], "variable": [] }
     let variablesHash = {};
     let resourcesHash = {};
 
     // cycle through variables
-    if(this.terraformTFVars.length > 0){
+    if (this.terraformTFVars.length > 0) {
       this.terraformTFVars.forEach((varr) => {
         let newVar = {};
         newVar[varr.name] = { "default": varr.value }
-  
+
         this.output.variable.push(newVar);
-      });  
+      });
     }
 
     // cycle through resources
@@ -141,7 +156,7 @@ export class FileBuilderComponent implements OnInit {
     }
   }
 
-  
+
   // open(content) {
   //   const modalRef = this.modalService.open(NgbdModalContent);
   //   modalRef.componentInstance.name = 'World';
@@ -149,7 +164,7 @@ export class FileBuilderComponent implements OnInit {
 
   openOutputModal(content) {
     this.exportTF()
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       // this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       // this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -189,6 +204,7 @@ class ResourceProperty {
   name: string;
   value: string;
   type: string;
+  valueOptionType: string;
 }
 
 class ResourceTypesMeta {
