@@ -79,7 +79,19 @@
                           <br />
                           <!-- <br /> -->
                         </div>
-                      </span>
+                    </span>
+                    <span *ngIf="selectedValueOptions[resourcePropertyIndex] == 'existingVariable'">
+                      TODO: variables dropdown
+                      <select>
+                        <option>test</option>
+                      </select>
+                    </span>
+                    <span *ngIf="selectedValueOptions[resourcePropertyIndex] == 'existingResource'">
+                      TODO: resources dropdown
+                      <select>
+                        <option>test</option>
+                      </select>
+                    </span>
                     <span *ngIf="selectedValueOptions[resourcePropertyIndex] == 'value'">
                       <input [(ngModel)]="resourceModel.properties[resourcePropertyIndex]"
                         class="form-control form-control-sm" />
