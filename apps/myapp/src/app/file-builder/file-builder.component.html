@@ -56,39 +56,20 @@
                   <strong>{{resourcePropertyMeta.name}} </strong>
                   <i class="text-muted" [innerHTML]="resourcePropertyMeta.description"></i>:
 
-                  <span>
-                    <select [(ngModel)]="selectedValueOptions[resourcePropertyIndex]"  
-                     [value]="value">
-                      <option *ngFor="let valueOption of valueOptions; index as i; trackBy: id"
-                        [value]="valueOption.name">{{valueOption.displayName}}</option>
-                    </select>
+                  <span class="input-group">
 
 
                     
                     <!-- <div *ngIf="selectedValueOptions[resourcePropertyIndex]"> -->
                     <!-- {{selectedValueOptions[resourcePropertyIndex] | json}} -->
                     <!-- </div> -->
-                    <span *ngIf="selectedValueOptions[resourcePropertyIndex] == 'newVariable'">
-                        <div class="form-group">
-                          <label for="variableModelname">Variable name: </label>
-                          <input class="form-control form-control-sm" id="variableModelname" [(ngModel)]="variableModel.name" />
-                          <label for="variableModelValue">Variable value: </label>
-                          <input class="form-control form-control-sm" id="variableModelValue" [(ngModel)]="variableModel.value" />
-                          <br />
-                          <button class="btn btn-sm btn-primary" (click)="addVariable()">Add variable</button>
-                          <br />
-                          <!-- <br /> -->
-                        </div>
-                    </span>
                     <span *ngIf="selectedValueOptions[resourcePropertyIndex] == 'existingVariable'">
-                      TODO: variables dropdown
-                      <select>
+                      <select class="form-control form-control-sm">
                         <option>test</option>
                       </select>
                     </span>
                     <span *ngIf="selectedValueOptions[resourcePropertyIndex] == 'existingResource'">
-                      TODO: resources dropdown
-                      <select>
+                      <select class="form-control form-control-sm">
                         <option>test</option>
                       </select>
                     </span>
@@ -96,7 +77,27 @@
                       <input [(ngModel)]="resourceModel.properties[resourcePropertyIndex]"
                         class="form-control form-control-sm" />
                     </span>
+
+                    &nbsp;
+
+                    <select [(ngModel)]="selectedValueOptions[resourcePropertyIndex]"  
+                     [value]="value" class="form-control form-control-sm">
+                      <option *ngFor="let valueOption of valueOptions; index as i; trackBy: id"
+                        [value]="valueOption.name">{{valueOption.displayName}}</option>
+                    </select>
                   </span>
+                  <div *ngIf="selectedValueOptions[resourcePropertyIndex] == 'newVariable'">
+                      <div class="form-group">
+                        <label for="variableModelname">Variable name: </label>
+                        <input class="form-control form-control-sm" id="variableModelname" [(ngModel)]="variableModel.name" />
+                        <label for="variableModelValue">Variable value: </label>
+                        <input class="form-control form-control-sm" id="variableModelValue" [(ngModel)]="variableModel.value" />
+                        <br />
+                        <button class="btn btn-sm btn-primary" (click)="addVariable()">Add variable</button>
+                        <br />
+                        <!-- <br /> -->
+                      </div>
+                  </div>
                 </div>
               </li>
             </ul>
