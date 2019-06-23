@@ -59,20 +59,26 @@
                   <span class="input-group">
 
 
-                    
+
                     <!-- <div *ngIf="selectedValueOptions[resourcePropertyIndex]"> -->
                     <!-- {{selectedValueOptions[resourcePropertyIndex] | json}} -->
                     <!-- </div> -->
                     <span *ngIf="selectedValueOptions[resourcePropertyIndex] == 'existingVariable'">
-                      <select class="form-control form-control-sm">
-                        <option>test</option>
-                      </select>
+                      <div *ngIf="terraformTFVars.length < 1">no custom variables set </div>
+                      <div *ngIf="terraformTFVars.length >= 1">
+                        <select class="form-control form-control-sm"  [(ngModel)]="resourceModel.properties[resourcePropertyIndex]">
+                          <option *ngFor="let customVar of terraformTFVars">{{customVar.name}}</option>
+                        </select>
+                      </div>
                     </span>
                     <span *ngIf="selectedValueOptions[resourcePropertyIndex] == 'existingResource'">
-                      <select class="form-control form-control-sm">
-                        <option>test</option>
-                      </select>
-                    </span>
+                      <div *ngIf="mainTF.length < 1">no other resources </div>
+                      <div *ngIf="mainTF.length >= 1">
+                        <select class="form-control form-control-sm"  [(ngModel)]="resourceModel.properties[resourcePropertyIndex]">
+                          <option *ngFor="let customRes of mainTF">{{customRes.name}}</option>
+                        </select>
+                        </div>
+                      </span>
                     <span *ngIf="selectedValueOptions[resourcePropertyIndex] == 'value'">
                       <input [(ngModel)]="resourceModel.properties[resourcePropertyIndex]"
                         class="form-control form-control-sm" />
@@ -80,23 +86,25 @@
 
                     &nbsp;
 
-                    <select [(ngModel)]="selectedValueOptions[resourcePropertyIndex]"  
-                     [value]="value" class="form-control form-control-sm">
+                    <select [(ngModel)]="selectedValueOptions[resourcePropertyIndex]" [value]="value"
+                      class="form-control form-control-sm">
                       <option *ngFor="let valueOption of valueOptions; index as i; trackBy: id"
                         [value]="valueOption.name">{{valueOption.displayName}}</option>
                     </select>
                   </span>
                   <div *ngIf="selectedValueOptions[resourcePropertyIndex] == 'newVariable'">
-                      <div class="form-group">
-                        <label for="variableModelname">Variable name: </label>
-                        <input class="form-control form-control-sm" id="variableModelname" [(ngModel)]="variableModel.name" />
-                        <label for="variableModelValue">Variable value: </label>
-                        <input class="form-control form-control-sm" id="variableModelValue" [(ngModel)]="variableModel.value" />
-                        <br />
-                        <button class="btn btn-sm btn-primary" (click)="addVariable()">Add variable</button>
-                        <br />
-                        <!-- <br /> -->
-                      </div>
+                    <div class="form-group">
+                      <label for="variableModelname">Variable name: </label>
+                      <input class="form-control form-control-sm" id="variableModelname"
+                        [(ngModel)]="variableModel.name" />
+                      <label for="variableModelValue">Variable value: </label>
+                      <input class="form-control form-control-sm" id="variableModelValue"
+                        [(ngModel)]="variableModel.value" />
+                      <br />
+                      <button class="btn btn-sm btn-primary" (click)="addVariable()">Add variable</button>
+                      <br />
+                      <!-- <br /> -->
+                    </div>
                   </div>
                 </div>
               </li>
