@@ -67,7 +67,10 @@
                       <div *ngIf="terraformTFVars.length < 1">no custom variables set </div>
                       <div *ngIf="terraformTFVars.length >= 1">
                         <select class="form-control form-control-sm"  [(ngModel)]="resourceModel.properties[resourcePropertyIndex]">
-                          <option *ngFor="let customVar of terraformTFVars">{{customVar.name}}</option>
+                          <option *ngFor="let customVar of terraformTFVars" 
+                          [value]="'${var.' +  customVar.name + '}'">
+                          {{customVar.name}} 
+                        </option>
                         </select>
                       </div>
                     </span>
@@ -75,7 +78,10 @@
                       <div *ngIf="mainTF.length < 1">no other resources </div>
                       <div *ngIf="mainTF.length >= 1">
                         <select class="form-control form-control-sm"  [(ngModel)]="resourceModel.properties[resourcePropertyIndex]">
-                          <option *ngFor="let customRes of mainTF">{{customRes.name}}</option>
+                          <option *ngFor="let customRes of mainTF"
+                          [value]="'${' + customRes.type + '.' +  customRes.name + '}'">
+                          {{customRes.name}}
+                        </option>
                         </select>
                         </div>
                       </span>
@@ -85,7 +91,7 @@
                     </span>
 
                     &nbsp;
-
+                    <!--- The values vs vars vs resources dropdown-->
                     <select [(ngModel)]="selectedValueOptions[resourcePropertyIndex]" [value]="value"
                       class="form-control form-control-sm">
                       <option *ngFor="let valueOption of valueOptions; index as i; trackBy: id"
