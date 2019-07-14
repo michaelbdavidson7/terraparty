@@ -145,10 +145,10 @@ def getResourceWebpages():
                                     for innerUl in innerUls:
                                         # print(str(innerUl))
                                         for li2 in innerUl.find_all('li'):
-                                            propertyObject = parseLIElements(li2, propertyObject)
+                                            propertyObject = parseLIElements(li2, propertyObject, 2)
                                             resourceObj['properties'].append(propertyObject)
                                 else:
-                                    propertyObject = parseLIElements(li, propertyObject)
+                                    propertyObject = parseLIElements(li, propertyObject, 1)
                                     resourceObj['properties'].append(propertyObject)
                                     # print('li: ', li)
                                     # print(json.dumps(propertyObject))
@@ -192,10 +192,10 @@ def parseDisplayElements(el, propertyObject):
 
     return propertyObject
 
-def parseLIElements(li, propertyObject):
+def parseLIElements(li, propertyObject, listDepth = 1):
 
     # new up prop object again because it only gets newed up on on the next item
-    propertyObject = {'name': "", 'description': '', 'elementType': ''}
+    propertyObject = {'name': "", 'description': '', 'elementType': '', "listDepth": listDepth}
     strLi = str(li)
     # if type(strLi) is not 'string':
 

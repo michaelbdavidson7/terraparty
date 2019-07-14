@@ -55,7 +55,7 @@
                   <br />
                 </div>
 
-                <div *ngIf="resourcePropertyMeta.elementType == 'li'">
+                <div *ngIf="resourcePropertyMeta.elementType == 'li'" [ngClass]="{'depth-two': resourcePropertyMeta.listDepth == 2}">
                   <strong>{{resourcePropertyMeta.name}} </strong>
                   <i class="text-muted" [innerHTML]="resourcePropertyMeta.description"></i>:
 
