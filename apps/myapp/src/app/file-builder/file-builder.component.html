@@ -31,7 +31,7 @@
         <label for="resourceType">Resource type: </label>
         <select class="form-control form-control-sm" id="resourceType" [(ngModel)]="resourceModel.selectedIndex"
           #resourceType (change)="resourceTypeOnChange(resourceModel.selectedIndex)">
-          <option *ngFor="let typeSelection of resourceTypesMeta; index as i; trackBy: id;" [value]="i">
+          <option *ngFor="let typeSelection of resourceTypesMeta; index as i; " [value]="i">
             {{typeSelection.type}}
           </option>
         </select>
