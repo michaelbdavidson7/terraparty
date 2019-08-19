@@ -18,11 +18,33 @@ export class FileBuilderComponent implements OnInit {
   showOutput = false;
   tempOutputString = "Your output will go here";
   output = { "resource": [], "variable": [] }
+  networkStarterKit = {
+    "resource": [
+      { "aws_vpc": { "my_vpc": { "cidr_block": "10.0.0.0/16" } } },
+      {
+        "aws_subnet": {
+          "my_subnet1": { "cidr_block": "10.0.10.0/24", "vpc_id": "${aws_vpc.my_vpc.id}" },
+          "my_subnet2": { "cidr_block": "10.0.11.0/24", "vpc_id": "${aws_vpc.my_vpc.id}" }
+        }
+      },
+      {
+        "aws_internet_gateway":
+          { "my_internet_gateway": { "vpc_id": "${aws_vpc.my_vpc.id}" } }
+      }, {
+        "aws_route_table":
+        {
+          "my_route_table":
+            { "cidr_block": "0.0.0.0/0", "gateway_id": "${aws_internet_gateway.my_internet_gateway.id}" }
+        }
+      }
+    ],
+    "variable": []
+  }
 
   resourceTypesMeta = []
   // resourceTypesMeta = [{
   //   "id": 1,
-  //   "type": "aws_instance",
+  //   "type": "aws_instance", 
   //   "properties": [{
   //     "name": "instance_type",
   //     "value": "",
@@ -63,9 +85,9 @@ export class FileBuilderComponent implements OnInit {
   terraformTFVars = [];
   selectedValueOptions = []
 
-  valueOptions = [{ "id": 1, "name": "value", "displayName": "Value" }, 
-  { "id": 2, "name": "newVariable", "displayName": "New Variable" }, 
-  { "id": 3, "name": "existingVariable", "displayName": "Existing Variable" }, 
+  valueOptions = [{ "id": 1, "name": "value", "displayName": "Value" },
+  { "id": 2, "name": "newVariable", "displayName": "New Variable" },
+  { "id": 3, "name": "existingVariable", "displayName": "Existing Variable" },
   { "id": 4, "name": "existingResource", "displayName": "Existing Resource" }];
 
   constructor(private modalService: NgbModal) {
@@ -78,10 +100,10 @@ export class FileBuilderComponent implements OnInit {
   ngOnInit() {
   }
 
-  resourceTypeOnChange(i){
+  resourceTypeOnChange(i) {
     console.log('resourceTypeOnChange. i: ', i)
     let mySelectedValueOptions = []
-    this.resourceTypesMeta[i].properties.forEach(function(property){
+    this.resourceTypesMeta[i].properties.forEach(function (property) {
       // literally just adding one for each
       mySelectedValueOptions.push("value");
     })
