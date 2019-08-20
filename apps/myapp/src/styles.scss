@@ -1,4 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+html, body{
+    height:100%;
+}
+
 .padding-top-120{
     padding-top: 120px;
 }
+
+#footer{
+    margin: 5em 0;
+}
+
+#page-content {
+    flex: 1 0 auto;
+  }
+  
+  #sticky-footer {
+      padding-top:0.5em;
+      margin-top:0.5em;
+    flex-shrink: none;
+  }
+  
+  .align-center{
+    text-align:center
+  }

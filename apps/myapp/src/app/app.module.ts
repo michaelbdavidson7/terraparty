@@ -17,7 +17,7 @@ const appRoutes: Routes = [
 
   { path: 'homepage', component: HomepageComponent, data: {} },
   { path: 'howto', component: HowToComponent, data: {} },
-  { path: '', component: HomepageComponent, data: {} },
+  { path: '', component: FileBuilderComponent, data: {} },
 
   { path: '**', component: PagenotfoundComponent }
 ]
