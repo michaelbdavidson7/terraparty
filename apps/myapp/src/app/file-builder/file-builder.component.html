@@ -170,7 +170,7 @@
             <span><label for="variableValueDisplay">Variable name: </label> <input class="form-control form-control-sm"
                 id="variableValueDisplay" [(ngModel)]="variable.value" /></span>
           </li>
-          {{terraformTFVars.length < 1 ? 'none': '' }}
+          {{terraformTFVars.length < 1 ? '(none)': '' }}
         </ul>
 
 
@@ -200,7 +200,7 @@
               </ul>
             </div>
           </li>
-          {{mainTF.length < 1 ? 'none': '' }}
+          {{mainTF.length < 1 ? '(none)': '' }}
         </ul>
 
         <button class="pull-right btn btn-info" (click)="openOutputModal(content)">Export </button>
