@@ -74,10 +74,18 @@
                     <i class="text-muted" [innerHTML]="resourcePropertyMeta.description"></i>:
 
                     <span class="input-group">
+                        <!--- The values vs vars vs resources dropdown itself -->
+                        <select [(ngModel)]="selectedValueOptions[resourcePropertyIndex]" [value]="value"
+                          class="form-control form-control-sm col-lg-5">
+                          <option *ngFor="let valueOption of valueOptions; index as i; trackBy: id"
+                            [value]="valueOption.name">{{valueOption.displayName}}</option>
+                        </select>
+                        
+                      &nbsp;
                       <!-- <div *ngIf="selectedValueOptions[resourcePropertyIndex]"> -->
                       <!-- {{selectedValueOptions[resourcePropertyIndex] | json}} -->
                       <!-- </div> -->
-                      <span *ngIf="selectedValueOptions[resourcePropertyIndex] == 'existingVariable'">
+                      <span class="col-lg-7" *ngIf="selectedValueOptions[resourcePropertyIndex] == 'existingVariable'">
                         <div *ngIf="terraformTFVars.length < 1">no custom variables set </div>
                         <div *ngIf="terraformTFVars.length >= 1">
                           <select class="form-control form-control-sm"
@@ -103,18 +111,11 @@
                       </span>
 
                       <!--- main text box -->
-                      <span *ngIf="selectedValueOptions[resourcePropertyIndex] == 'value'">
+                      <span class="col-lg-9"  *ngIf="selectedValueOptions[resourcePropertyIndex] == 'value'">
                         <input [(ngModel)]="resourceModel.properties[resourcePropertyIndex]"
                           class="form-control form-control-sm" />
                       </span>
 
-                      &nbsp;
-                      <!--- The values vs vars vs resources dropdown-->
-                      <select [(ngModel)]="selectedValueOptions[resourcePropertyIndex]" [value]="value"
-                        class="form-control form-control-sm">
-                        <option *ngFor="let valueOption of valueOptions; index as i; trackBy: id"
-                          [value]="valueOption.name">{{valueOption.displayName}}</option>
-                      </select>
                     </span>
 
                     <!-- New variable -->
@@ -136,7 +137,7 @@
                     <!-- Display the output readonly textbox on new line if existing dropdown textbox is selected-->
                     <div *ngIf="selectedValueOptions[resourcePropertyIndex] == 'existingResource'">
                         <input [(ngModel)]="resourceModel.properties[resourcePropertyIndex]"
-                        class="form-control form-control-sm" readonly/>
+                        class="form-control form-control-sm margin-top-5" readonly/>
                     </div>
                   </div>
                 </li>
