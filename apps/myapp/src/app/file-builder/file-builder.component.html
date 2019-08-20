@@ -53,11 +53,12 @@
             <!-- {{resourceModel | json}} -->
             <div *ngIf="resourceModel.selectedIndex">
               <div *ngIf="resourceTypesMeta[resourceModel.selectedIndex].docsUrl">
-                <a [href]="resourceTypesMeta[resourceModel.selectedIndex].docsUrl" target="_blank">Documentation
-                  link</a>
+                <a class="btn btn-sm btn-success margin-top-10" [href]="resourceTypesMeta[resourceModel.selectedIndex].docsUrl" target="_blank">Documentation</a>
               </div>
               <label for="resourceModelName">Custom Resource Name <strong>(Required)</strong>: </label>
-              <input class="form-control form-control-sm" id="resourceModelName" [(ngModel)]="resourceModel.name" />
+              <input class="form-control form-control-sm" id="resourceModelName" 
+              [ngClass]="{'is-invalid': !resourceModel.name}"
+              [(ngModel)]="resourceModel.name" />
               <ul class="no-li-dots">
                 <li
                   *ngFor="let resourcePropertyMeta of resourceTypesMeta[resourceModel.selectedIndex].properties; index as resourcePropertyIndex;">
@@ -179,7 +180,9 @@
           <li *ngFor="let resource of mainTF">
             <!-- {{resource | json}} -->
             Custom Resource Name <i><strong>(Required)</strong></i>:
-            <input class="form-control form-control-sm" id="resourceNameOutput" [(ngModel)]="resource.name" />
+            <input class="form-control form-control-sm" id="resourceNameOutput" 
+            [ngClass]="{'is-invalid': !resource.name}"
+            [(ngModel)]="resource.name" />
             <div>Resource type: {{resource.type}} </div>
             <div class="pull-right"><label class="form-check-label">
                 <input type="checkbox" class="btn btn-sm btn-info" [(ngModel)]="resource.showDetails" />

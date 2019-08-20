@@ -42,43 +42,6 @@ export class FileBuilderComponent implements OnInit {
   }
 
   resourceTypesMeta = []
-  // resourceTypesMeta = [{
-  //   "id": 1,
-  //   "type": "aws_instance", 
-  //   "properties": [{
-  //     "name": "instance_type",
-  //     "value": "",
-  //     "dataType": "string"
-  //   }, {
-  //     "name": "ami",
-  //     "value": "",
-  //     "dataType": "string"
-  //   }
-  //   ]
-  // }, {
-  //   "id": 2,
-  //   "type": "aws_vpc",
-  //   "properties": [{
-  //     "name": "cidr_block",
-  //     "value": "",
-  //     "dataType": "string"
-  //   },
-  //   {
-  //     "name": "enable_dns_hostnames",
-  //     "value": "",
-  //     "dataType": "bool"
-  //   }, {
-  //     "name": "enable_dns_support",
-  //     "value": "",
-  //     "dataType": "bool"
-  //   }
-  // ,{
-  //   "name": "ami",
-  //   "value": "",
-  //   "dataType": "string"
-  // }
-  //   ]
-  // }]
   model = {};
   mainTF = [];
   variablesTF = [];
