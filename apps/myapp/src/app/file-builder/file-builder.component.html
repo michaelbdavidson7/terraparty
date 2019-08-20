@@ -74,9 +74,6 @@
                     <i class="text-muted" [innerHTML]="resourcePropertyMeta.description"></i>:
 
                     <span class="input-group">
-
-
-
                       <!-- <div *ngIf="selectedValueOptions[resourcePropertyIndex]"> -->
                       <!-- {{selectedValueOptions[resourcePropertyIndex] | json}} -->
                       <!-- </div> -->
@@ -98,12 +95,14 @@
                           <select class="form-control form-control-sm"
                             [(ngModel)]="resourceModel.properties[resourcePropertyIndex]">
                             <option *ngFor="let customRes of mainTF"
-                              [value]="'${' + customRes.type + '.' +  customRes.name + '}'">
+                              [value]="'${' + customRes.type + '.' +  customRes.name + '.id}'">
                               {{customRes.name}}
                             </option>
                           </select>
                         </div>
                       </span>
+
+                      <!--- main text box -->
                       <span *ngIf="selectedValueOptions[resourcePropertyIndex] == 'value'">
                         <input [(ngModel)]="resourceModel.properties[resourcePropertyIndex]"
                           class="form-control form-control-sm" />
@@ -117,6 +116,8 @@
                           [value]="valueOption.name">{{valueOption.displayName}}</option>
                       </select>
                     </span>
+
+                    <!-- New variable -->
                     <div *ngIf="selectedValueOptions[resourcePropertyIndex] == 'newVariable'">
                       <div class="form-group">
                         <label for="variableModelname">Variable name: </label>
@@ -130,6 +131,12 @@
                         <br />
                         <!-- <br /> -->
                       </div>
+                    </div>
+
+                    <!-- Display the output readonly textbox on new line if existing dropdown textbox is selected-->
+                    <div *ngIf="selectedValueOptions[resourcePropertyIndex] == 'existingResource'">
+                        <input [(ngModel)]="resourceModel.properties[resourcePropertyIndex]"
+                        class="form-control form-control-sm" readonly/>
                     </div>
                   </div>
                 </li>
