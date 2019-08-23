@@ -53,12 +53,12 @@
             <!-- {{resourceModel | json}} -->
             <div *ngIf="resourceModel.selectedIndex">
               <div *ngIf="resourceTypesMeta[resourceModel.selectedIndex].docsUrl">
-                <a class="btn btn-sm btn-success margin-top-10" [href]="resourceTypesMeta[resourceModel.selectedIndex].docsUrl" target="_blank">Documentation</a>
+                <a class="btn btn-sm btn-success margin-top-10"
+                  [href]="resourceTypesMeta[resourceModel.selectedIndex].docsUrl" target="_blank">Documentation</a>
               </div>
               <label for="resourceModelName">Custom Resource Name <strong>(Required)</strong>: </label>
-              <input class="form-control form-control-sm" id="resourceModelName" 
-              [ngClass]="{'is-invalid': !resourceModel.name}"
-              [(ngModel)]="resourceModel.name" />
+              <input class="form-control form-control-sm" id="resourceModelName"
+                [ngClass]="{'is-invalid': !resourceModel.name}" [(ngModel)]="resourceModel.name" />
               <ul class="no-li-dots">
                 <li
                   *ngFor="let resourcePropertyMeta of resourceTypesMeta[resourceModel.selectedIndex].properties; index as resourcePropertyIndex;">
@@ -75,13 +75,13 @@
                     <i class="text-muted" [innerHTML]="resourcePropertyMeta.description"></i>:
 
                     <span class="input-group">
-                        <!--- The values vs vars vs resources dropdown itself -->
-                        <select [(ngModel)]="selectedValueOptions[resourcePropertyIndex]" [value]="value"
-                          class="form-control form-control-sm col-lg-5">
-                          <option *ngFor="let valueOption of valueOptions; index as i; trackBy: id"
-                            [value]="valueOption.name">{{valueOption.displayName}}</option>
-                        </select>
-                        
+                      <!--- The values vs vars vs resources dropdown itself -->
+                      <select [(ngModel)]="selectedValueOptions[resourcePropertyIndex]" [value]="value"
+                        class="form-control form-control-sm col-lg-5">
+                        <option *ngFor="let valueOption of valueOptions; index as i; trackBy: id"
+                          [value]="valueOption.name">{{valueOption.displayName}}</option>
+                      </select>
+
                       &nbsp;
                       <!-- <div *ngIf="selectedValueOptions[resourcePropertyIndex]"> -->
                       <!-- {{selectedValueOptions[resourcePropertyIndex] | json}} -->
@@ -112,7 +112,7 @@
                       </span>
 
                       <!--- main text box -->
-                      <span class="col-lg-9"  *ngIf="selectedValueOptions[resourcePropertyIndex] == 'value'">
+                      <span class="col-lg-9" *ngIf="selectedValueOptions[resourcePropertyIndex] == 'value'">
                         <input [(ngModel)]="resourceModel.properties[resourcePropertyIndex]"
                           class="form-control form-control-sm" />
                       </span>
@@ -137,8 +137,8 @@
 
                     <!-- Display the output readonly textbox on new line if existing dropdown textbox is selected-->
                     <div *ngIf="selectedValueOptions[resourcePropertyIndex] == 'existingResource'">
-                        <input [(ngModel)]="resourceModel.properties[resourcePropertyIndex]"
-                        class="form-control form-control-sm margin-top-5" readonly/>
+                      <input [(ngModel)]="resourceModel.properties[resourcePropertyIndex]"
+                        class="form-control form-control-sm margin-top-5" readonly />
                     </div>
                   </div>
                 </li>
@@ -158,7 +158,7 @@
       <div class="card-body">
         <div class="card-title">
           <h4 class="mr-auto">Your Terraform model
-        </h4>
+          </h4>
 
         </div>
 
@@ -180,9 +180,8 @@
           <li *ngFor="let resource of mainTF">
             <!-- {{resource | json}} -->
             Custom Resource Name <i><strong>(Required)</strong></i>:
-            <input class="form-control form-control-sm" id="resourceNameOutput" 
-            [ngClass]="{'is-invalid': !resource.name}"
-            [(ngModel)]="resource.name" />
+            <input class="form-control form-control-sm" id="resourceNameOutput"
+              [ngClass]="{'is-invalid': !resource.name}" [(ngModel)]="resource.name" />
             <div>Resource type: {{resource.type}} </div>
             <div class="pull-right"><label class="form-check-label">
                 <input type="checkbox" class="btn btn-sm btn-info" [(ngModel)]="resource.showDetails" />
