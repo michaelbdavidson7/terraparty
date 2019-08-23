@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Observable } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import json from '../import-fields-scripts/resourcesOutputFile3.json';
 console.log(json.length)
 
@@ -18,7 +20,7 @@ export class FileBuilderComponent implements OnInit {
   showOutput = false;
   tempOutputString = "Your output will go here";
   userSettings = {
-    "showLongDescriptions" : false
+    "showLongDescriptions": false
   }
   output = { "resource": [], "variable": [] }
   networkStarterKit = {
@@ -159,6 +161,15 @@ export class FileBuilderComponent implements OnInit {
     });
   }
 
+  resourceTypeTypeahead = (text$: Observable<string>) =>
+    text$.pipe(
+      debounceTime(200),
+      // distinctUntilChanged(),
+      map(term => term.length < 2 ? []
+        : this.resourceTypesMeta.filter(v => v.type.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 20))
+    )
+    
+    resourceTypeTypeaheadFormatter = (x: {type: string}) => x.type;
 
 }
 

@@ -47,7 +47,13 @@
               {{typeSelection.type}}
             </option>
           </select>
-          <!-- {{resourceTypesMeta | json}} -->
+          <ng-template #resourceTypeTypeaheadResultTemplate let-r="result" let-t="term">
+              <!-- <img [src]="'https://upload.wikimedia.org/wikipedia/commons/thumb/' + r['flag']" class="mr-1" style="width: 16px"> -->
+              <ngb-highlight [result]="r.type" [term]="t"></ngb-highlight>
+            </ng-template>
+          <input id="typeahead-basic" type="text" class="form-control" placeholder="Search resource types"
+            [(ngModel)]="model" [ngbTypeahead]="resourceTypeTypeahead" [inputFormatter]="resourceTypeTypeaheadFormatter" [resultTemplate]="resourceTypeTypeaheadResultTemplate"/>
+          <hr>
           <div>
 
             <!-- {{resourceModel | json}} -->
@@ -219,7 +225,7 @@
                           class="badge badge-light"><i>{{resourceProp.description.indexOf('Required') > 0 ? 'Required ': 'Optional '}}</i>
                         </span>
                       </span>
-                      
+
                       <!-- Value input -->
                       <input class="form-control form-control-sm" id="resourceProperty"
                         [(ngModel)]="resourceProp.value" />
