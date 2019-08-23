@@ -81,6 +81,9 @@
                       </ng-template>
                       <span class="badge badge-info shortDescriptionMargins"
                         [ngbTooltip]="resourcePropertyMetaDescription"> Info</span>
+                      <span
+                        class="badge badge-light"><i>{{resourcePropertyMeta.description.indexOf('Required') > 0 ? 'Required ': 'Optional '}}</i>
+                      </span>
                     </span>
 
                     <span class="input-group">
@@ -203,6 +206,8 @@
                 <li *ngFor="let resourceProp of resource.properties">
                   <div *ngIf="resourceProp.elementType == 'li'">
                     <span><label for="resourceProperty">{{resourceProp.name}}&nbsp;</label>
+
+                      <!-- Description -->
                       <span *ngIf="userSettings.showLongDescriptions"><i class="text-muted"
                           [innerHTML]="resourceProp.description"></i>:</span>
                       <span *ngIf="!userSettings.showLongDescriptions">
@@ -210,10 +215,16 @@
                         </ng-template>
                         <span class="badge badge-info shortDescriptionMargins"
                           [ngbTooltip]="resourcePropDescription">Info</span>
+                        <span
+                          class="badge badge-light"><i>{{resourceProp.description.indexOf('Required') > 0 ? 'Required ': 'Optional '}}</i>
+                        </span>
                       </span>
+                      
+                      <!-- Value input -->
                       <input class="form-control form-control-sm" id="resourceProperty"
                         [(ngModel)]="resourceProp.value" />
                     </span>
+
                   </div>
                 </li>
               </ul>
