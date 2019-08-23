@@ -19,3 +19,7 @@
 .pull-right{
     text-align:right;
 }
+
+.shortDescriptionMargins {
+    margin: 6px 0px;
+}

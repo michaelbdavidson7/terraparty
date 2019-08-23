@@ -72,7 +72,12 @@
                   <div *ngIf="resourcePropertyMeta.elementType == 'li'"
                     [ngClass]="{'depth-two': resourcePropertyMeta.listDepth == 2}">
                     <strong>{{resourcePropertyMeta.name}} </strong>
-                    <i class="text-muted" [innerHTML]="resourcePropertyMeta.description"></i>:
+
+                    <span *ngIf="userSettings.showLongDescriptions"><i class="text-muted"
+                        [innerHTML]="resourcePropertyMeta.description"></i>:</span>
+                    <ng-template #resourcePropertyMetaDescription><span [innerHTML]="resourcePropertyMeta.description"></span></ng-template>
+                    <span *ngIf="!userSettings.showLongDescriptions" class="badge badge-info shortDescriptionMargins"
+                      [ngbTooltip]="resourcePropertyMetaDescription"> Info</span>
 
                     <span class="input-group">
                       <!--- The values vs vars vs resources dropdown itself -->
@@ -193,8 +198,13 @@
               <ul class="no-li-dots">
                 <li *ngFor="let resourceProp of resource.properties">
                   <div *ngIf="resourceProp.elementType == 'li'">
-                    <span><label for="resourceProperty">{{resourceProp.name}}
-                        <i class="text-muted" [innerHTML]="resourceProp.description"></i></label>
+                    <span><label for="resourceProperty">{{resourceProp.name}}&nbsp;</label>
+                      <span *ngIf="userSettings.showLongDescriptions"><i class="text-muted"
+                          [innerHTML]="resourceProp.description"></i>:</span>
+                      <ng-template #resourcePropDescription><span [innerHTML]="resourceProp.description"></span></ng-template>
+                      <span *ngIf="!userSettings.showLongDescriptions" class="badge badge-info shortDescriptionMargins"
+                        [ngbTooltip]="resourcePropDescription">Info</span>
+
                       <input class="form-control form-control-sm" id="resourceProperty"
                         [(ngModel)]="resourceProp.value" /></span>
                   </div>

@@ -17,6 +17,9 @@ export class FileBuilderComponent implements OnInit {
   //todo needs to allow object arrays
   showOutput = false;
   tempOutputString = "Your output will go here";
+  userSettings = {
+    "showLongDescriptions" : false
+  }
   output = { "resource": [], "variable": [] }
   networkStarterKit = {
     "resource": [
