@@ -70,6 +70,7 @@ export class FileBuilderComponent implements OnInit {
 
   resourceTypeOnChange(i) {
     console.log('resourceTypeOnChange. i: ', i)
+    this.model = {};
     let mySelectedValueOptions = []
     this.resourceTypesMeta[i].properties.forEach(function (property) {
       // literally just adding one for each
@@ -170,6 +171,11 @@ export class FileBuilderComponent implements OnInit {
     )
     
     resourceTypeTypeaheadFormatter = (x: {type: string}) => x.type;
+
+    resourceTypeaheadChangeEvent = (model) => {
+      console.log(model)
+      this.resourceModel.selectedIndex = model.id;
+    }
 
 }
 
