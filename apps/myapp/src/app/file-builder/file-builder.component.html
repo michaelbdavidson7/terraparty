@@ -58,15 +58,39 @@
                 <!-- <img [src]="'https://upload.wikimedia.org/wikipedia/commons/thumb/' + r['flag']" class="mr-1" style="width: 16px"> -->
                 <ngb-highlight [result]="r.type" [term]="t"></ngb-highlight>
               </ng-template>
-              <input id="typeahead-basic" type="text" class="form-control form-control-sm" placeholder="Search" [(ngModel)]="model"
+              <input id="typeahead-basic" type="text" class="form-control form-control-sm" placeholder="Search" [(ngModel)]="modelFromSearch"
                 [ngbTypeahead]="resourceTypeTypeahead" [inputFormatter]="resourceTypeTypeaheadFormatter"
-                (change)="resourceTypeaheadChangeEvent(model)" [resultTemplate]="resourceTypeTypeaheadResultTemplate" />
+                [resultTemplate]="resourceTypeTypeaheadResultTemplate"
+                (selectItem)="setIndex($event)"
+                />
             </div>
+
+            <input id="typeahead-format" type="text" class="form-control" [(ngModel)]="statesmodel" [ngbTypeahead]="search" [resultFormatter]="formatter" 
+            (mouseup)="consoleLogger('mouseup')"
+            (select)="consoleLogger('mouseup')"
+            (change)="consoleLogger('change')"
+            (selectstart)="consoleLogger('selectstart')"
+            (show)="consoleLogger('show')"
+            (close)="consoleLogger('close')"
+            (ended)="consoleLogger('ended')"
+            (input)="consoleLogger('input')"
+            (load)="consoleLogger('load')"
+            (blur)="consoleLogger('blur')"
+            (cancel)="consoleLogger('cancel')"
+            (close)="consoleLogger('close')"
+            (focus)="consoleLogger('focus')"
+            (message)="consoleLogger('message')"
+            (paste)="consoleLogger('paste')"
+            (reset)="consoleLogger('reset')"
+            (selectItem)="consoleLogger('selectItem')"
+            />
+            {{tmpResourceModelSelectedIndex}}
             <hr>
           </div>
+
           <div>
 
-            <!-- {{resourceModel | json}} -->
+            {{resourceModel | json}}
             <div *ngIf="resourceModel.selectedIndex">
               <div *ngIf="resourceTypesMeta[resourceModel.selectedIndex].docsUrl">
                 <a class="btn btn-sm btn-success margin-top-10"

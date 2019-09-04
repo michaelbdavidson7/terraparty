@@ -16,8 +16,21 @@ export class FileBuilderComponent implements OnInit {
 
   resourceModel = new TFResource();
   variableModel = new TFVariable();
+  statesmodel = "new search"
+  states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado',
+    'Connecticut', 'Delaware', 'District Of Columbia', 'Federated States Of Micronesia', 'Florida', 'Georgia',
+    'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine',
+    'Marshall Islands', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana',
+    'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
+    'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico', 'Rhode Island',
+    'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virgin Islands', 'Virginia',
+    'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+  states2 = [{ "name": "texas" }, { 'name': "alabama" }]
+
   //todo needs to allow object arrays
   showOutput = false;
+  tmpResourceModelSelectedIndex = 0;
+  modelFromSearch = {};
   tempOutputString = "Your output will go here";
   userSettings = {
     "showLongDescriptions": false
@@ -169,13 +182,53 @@ export class FileBuilderComponent implements OnInit {
       map(term => term.length < 2 ? []
         : this.resourceTypesMeta.filter(v => v.type.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 20))
     )
-    
-    resourceTypeTypeaheadFormatter = (x: {type: string}) => x.type;
 
-    resourceTypeaheadChangeEvent = (model) => {
-      console.log(model)
-      this.resourceModel.selectedIndex = model.id;
+  resourceTypeTypeaheadFormatter = function (x) {
+    console.log('resourceTypeTypeaheadFormatter', x, x.type)
+    // this.resourceModel.selectedIndex = this.resourceTypesMeta.filter(y => y.id.indexOf(1))
+    // this.resourceModel.selectedIndex = 1;
+    // this.tmpResourceModelSelectedIndex = 1;
+    if (!this.resourceModel) {
+      console.log('no RM', this)
+    } else {
+      console.log(this.resourceModel)
     }
+    return x.type;
+  };
+
+
+  resourceTypeaheadChangeEvent = (model) => {
+    console.log('model', model)
+    // this.resourceModel.selectedIndex = model.id - 1 >= 0 ? model.id - 1 : 0;
+    // console.log(' this.resourceModel.selectedIndex ', this.resourceModel.selectedIndex)
+  }
+  setIndex = (event) => {
+    console.log('SETINDEX', event)
+    this.resourceModel.selectedIndex = event.item.id;
+    return true
+  }
+  consoleLogger = (name) => {
+    console.log('consoleLogger', name)
+    return true
+  }
+
+
+  formatter = function (x: { name: string }) {
+    return x.name
+  };
+
+  testResultFormatter = () => {
+    return 1;
+  }
+
+  search = (text$: Observable<string>) =>
+
+    this.consoleLogger('search') && text$.pipe(
+      debounceTime(200),
+      distinctUntilChanged(),
+      map(term => term === '' ? []
+        : this.states2.filter(v => v.name.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 1))
+    )
 
 }
 
