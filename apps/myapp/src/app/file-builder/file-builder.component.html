@@ -64,13 +64,12 @@
                 (selectItem)="setIndex($event)"
                 />
             </div>
-            <hr>
           </div>
 
           <div>
 
             <!-- {{resourceModel | json}} -->
-            <div *ngIf="resourceModel.selectedIndex">
+            <div *ngIf="resourceModel.selectedIndex || resourceModel.selectedIndex == 0">
               <div *ngIf="resourceTypesMeta[resourceModel.selectedIndex].docsUrl">
                 <a class="btn btn-sm btn-success margin-top-10"
                   [href]="resourceTypesMeta[resourceModel.selectedIndex].docsUrl" target="_blank">Documentation</a>
