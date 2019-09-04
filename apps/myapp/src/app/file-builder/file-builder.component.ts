@@ -211,25 +211,6 @@ export class FileBuilderComponent implements OnInit {
     console.log('consoleLogger', name)
     return true
   }
-
-
-  formatter = function (x: { name: string }) {
-    return x.name
-  };
-
-  testResultFormatter = () => {
-    return 1;
-  }
-
-  search = (text$: Observable<string>) =>
-
-    this.consoleLogger('search') && text$.pipe(
-      debounceTime(200),
-      distinctUntilChanged(),
-      map(term => term === '' ? []
-        : this.states2.filter(v => v.name.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 1))
-    )
-
 }
 
 
