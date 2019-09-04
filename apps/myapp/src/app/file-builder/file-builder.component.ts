@@ -202,11 +202,21 @@ export class FileBuilderComponent implements OnInit {
     // this.resourceModel.selectedIndex = model.id - 1 >= 0 ? model.id - 1 : 0;
     // console.log(' this.resourceModel.selectedIndex ', this.resourceModel.selectedIndex)
   }
+
   setIndex = (event) => {
     console.log('SETINDEX', event)
-    this.resourceModel.selectedIndex = event.item.id;
+    let desiredIndex = 0;
+    let x = this.resourceTypesMeta.forEach(function(typeObj, index){
+      if(typeObj.id == event.item.id){
+        desiredIndex = index;
+        return false
+      }
+    });
+    // console.log(x)
+    this.resourceModel.selectedIndex = desiredIndex;
     return true
   }
+
   consoleLogger = (name) => {
     console.log('consoleLogger', name)
     return true
