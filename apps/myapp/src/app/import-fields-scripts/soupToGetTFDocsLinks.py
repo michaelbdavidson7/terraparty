@@ -7,13 +7,17 @@ import time
 
 
 # Change these for different providers, as well as the web parser below
-providerName = "aws"
+providerName = "vcd"
 url = "https://www.terraform.io/docs/providers/"+providerName+"/index.html"
 
 soupedDocsLinksFolder = "souped-documentation-links"
-docsLinksFileName = soupedDocsLinksFolder + "/" + providerName + "_" + "tfDocsLinks.txt"
-docsLinksFileNameParsed = soupedDocsLinksFolder + "/" +  providerName + "_" + "tfDocsLinksParsed.txt"
-resourcesOutputFile = soupedDocsLinksFolder + "/" + providerName + "_" + "resourcesOutputFile.json"
+soupedProviderOutputsFolder = "souped-provider-outputs"
+soupedProviderFailuresFolder = "souped-provider-failures"
+
+docsLinksFileName = soupedDocsLinksFolder + "/" + providerName + "_tfDocsLinks.txt"
+docsLinksFileNameParsed = soupedDocsLinksFolder + "/" +  providerName + "_tfDocsLinksParsed.txt"
+resourcesOutputFile = soupedProviderOutputsFolder + "/" + providerName + "_resourcesOutputFile.json"
+resourceOutputFailuresFileName = soupedProviderFailuresFolder + "/" + providerName + "_resourceOutputFailures.txt"
 objectToExport = []
 
 def main():
@@ -22,6 +26,7 @@ def main():
     # providers = [Provider(**x, base_url=config['base_url']) for x in config['providers']]
     # providers[0].get_resource_pages()
     getAllLinks()
+    getResourceWebpages()
 
 
 
@@ -47,7 +52,7 @@ def getAllLinks():
 
 
 def improveLinks():
-    validLinks = []
+    validDocsLinksList = []
     with open(docsLinksFileName) as f:
         data = f.read()
         lines = data.split('\n')
@@ -60,7 +65,7 @@ def improveLinks():
             for line in lines:
                 # data resources: line.startswith('/docs/providers/aws/d/')
                 if line.startswith('/docs/providers/'+ providerName + '/r/'):
-                    validLinks.append(line)
+                    validDocsLinksList.append(line)
                     print(line, file=parsedListFile)
 
 def getResourceWebpages():
@@ -174,7 +179,7 @@ def getResourceWebpages():
                     time.sleep(1)
                 except Exception as e:
                     print(e)
-                    with open('resourceOutputFailures.txt', 'a') as resourceOutputFailuresFile:
+                    with open(resourceOutputFailuresFileName, 'a') as resourceOutputFailuresFile:
                         print(e, file=resourceOutputFailuresFile)
                         failMsg = 'Failed on ' + \
                             resourceObj['type'] + \
