@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import os
 import json
 import time
-print("hellow world")
+
 
 # Change these for different providers, as well as the web parser below
 providerName = "aws"
@@ -15,6 +15,14 @@ docsLinksFileName = soupedDocsLinksFolder + "/" + providerName + "_" + "tfDocsLi
 docsLinksFileNameParsed = soupedDocsLinksFolder + "/" +  providerName + "_" + "tfDocsLinksParsed.txt"
 resourcesOutputFile = soupedDocsLinksFolder + "/" + providerName + "_" + "resourcesOutputFile.json"
 objectToExport = []
+
+def main():
+    print("running program ..")
+    # config = get_config(CONFIG_FILE_PATH)
+    # providers = [Provider(**x, base_url=config['base_url']) for x in config['providers']]
+    # providers[0].get_resource_pages()
+    getAllLinks()
+
 
 
 # todo get all the sidebar resources links to go through
@@ -225,9 +233,9 @@ def parseLIElements(li, propertyObject, listDepth = 1):
         for index, c in enumerate(li.contents):
             if index > 1:
                 descStr = descStr + str(c)
-        print('yes its A', len(li.contents))
+        # print('yes its A', len(li.contents))
     else:
-        print('no', str(li))
+        # print('no', str(li))
         descStr = strLi
     
     # format description string a bit
@@ -246,5 +254,5 @@ def parseLIElements(li, propertyObject, listDepth = 1):
 
     return propertyObject
 
-
-getAllLinks()
+if __name__ == '__main__':
+    main()
