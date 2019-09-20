@@ -6,17 +6,19 @@ import json
 import time
 print("hellow world")
 
-# import urllib2
+# Change these for different providers, as well as the web parser below
+providerName = "aws"
+url = "https://www.terraform.io/docs/providers/"+providerName+"/index.html"
 
-docsLinksFileName = "tfDocsLinks.txt"
-docsLinksFileNameParsed = "tfDocsLinksParsed.txt"
-resourcesOutputFile = "resourcesOutputFile3.json"
+soupedDocsLinksFolder = "souped-documentation-links"
+docsLinksFileName = soupedDocsLinksFolder + "/" + providerName + "_" + "tfDocsLinks.txt"
+docsLinksFileNameParsed = soupedDocsLinksFolder + "/" +  providerName + "_" + "tfDocsLinksParsed.txt"
+resourcesOutputFile = soupedDocsLinksFolder + "/" + providerName + "_" + "resourcesOutputFile.json"
 objectToExport = []
 
 
 # todo get all the sidebar resources links to go through
 def getAllLinks():
-    url = "https://www.terraform.io/docs/providers/aws/index.html"
 
     content = urllib.request.urlopen(url).read()
 
@@ -39,6 +41,7 @@ def getAllLinks():
     # os.startfile("./TestFile.txt", "print")
 
     # print(soup.prettify())
+    improveLinks()
 
 
 def improveLinks():
@@ -51,9 +54,10 @@ def improveLinks():
             os.remove(docsLinksFileNameParsed)
 
         with open(docsLinksFileNameParsed, "a") as parsedListFile:
+            lines = list(dict.fromkeys(lines))
             for line in lines:
                 # data resources: line.startswith('/docs/providers/aws/d/')
-                if line.startswith('/docs/providers/aws/r/'):
+                if line.startswith('/docs/providers/'+ providerName + '/r/'):
                     validLinks.append(line)
                     print(line, file=parsedListFile)
 
@@ -243,4 +247,4 @@ def parseLIElements(li, propertyObject, listDepth = 1):
     return propertyObject
 
 
-getResourceWebpages()
+getAllLinks()
