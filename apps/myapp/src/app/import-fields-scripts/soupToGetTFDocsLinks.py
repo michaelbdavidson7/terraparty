@@ -7,7 +7,7 @@ import time
 
 
 # Change these for different providers, as well as the web parser below
-providerName = "vcd"
+providerName = "azurerm"
 url = "https://www.terraform.io/docs/providers/"+providerName+"/index.html"
 
 soupedDocsLinksFolder = "souped-documentation-links"
@@ -129,7 +129,7 @@ def getResourceWebpages():
                         # print(el, type(el), el.name, el.attrs)
                         # start at argument reference id and end at attribute reference or import
                         if 'id' in el.attrs and (el.attrs['id'] == 'attribute-reference' or el.attrs['id'] == 'attributes-reference' or el.attrs['id'] == 'import'):
-                            print('FOUND IT - ' + el.attrs['id'])
+                            print('FOUND AN ELEMENT ID TO EXIT THE RESOURCE - ' + el.attrs['id'])
                             break
                         if 'id' in el.attrs:
                             print('id: ' + el.attrs['id'])
