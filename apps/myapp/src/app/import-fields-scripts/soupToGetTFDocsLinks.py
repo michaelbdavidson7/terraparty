@@ -7,7 +7,7 @@ import time
 
 
 # Change these for different providers, as well as the web parser below
-providerName = "azurerm"
+providerName = "vcd"
 url = "https://www.terraform.io/docs/providers/"+providerName+"/index.html"
 
 soupedDocsLinksFolder = "souped-documentation-links"
@@ -78,6 +78,10 @@ def getResourceWebpages():
         with open(docsLinksFileNameParsed) as f:
             data = f.read()
             lines = data.split('\n')
+
+            # remove the last list item, which is a blank created from the \n on the last line
+            lines.pop()
+
             for lineno, line in enumerate(lines):
                 try:
                     print('#' + str(lineno + 1) + " of " + str(len(lines)))
