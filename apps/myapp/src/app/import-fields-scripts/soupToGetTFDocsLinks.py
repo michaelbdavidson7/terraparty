@@ -43,12 +43,6 @@ def getAllLinks():
             linkConverted = str(link.get('href'))
             if linkConverted not in SymbolExcludeArray and linkConverted[0] != '#':
                 print(link.get('href'), file=f)
-
-        # print("Hello stackoverflow!", file=f)
-        # print("I have a question.", file=f)
-    # os.startfile("./TestFile.txt", "print")
-
-    # print(soup.prettify())
     improveLinks()
 
 
@@ -69,10 +63,8 @@ def improveLinks():
                     validLinks.append(line)
                     print(line, file=parsedListFile)
 
-    # print(validLinks)
-
 def getResourceWebpages():
-    jsonOutput = []
+    # jsonOutput = []
     failureList = []
 
     if os.path.isfile(resourcesOutputFile):
