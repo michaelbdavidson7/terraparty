@@ -25,13 +25,14 @@ export class FileBuilderComponent implements OnInit {
   userSettings = {
     "showLongDescriptions": false
   }
-  output = { "resource": [], "variable": [] }
-  selectedProvider = "";
+  output = new TFOutput();
+  selectedProvider = "aws";
   providerList = [{ "displayName": "Google Cloud Platform", "providerName": "google" },
   { "displayName": "AWS", "providerName": "aws" },
   { "displayName": "Azure", "providerName": "azurerm" },
   { "displayName": "F5 BIG-IP", "providerName": "bigip" },
   { "displayName": "VMware vCloud Director", "providerName": "vcd" }];
+  usedProviders = { "aws": true };
   networkStarterKit = {
     "resource": [
       { "aws_vpc": { "my_vpc": { "cidr_block": "10.0.0.0/16" } } },
@@ -92,8 +93,11 @@ export class FileBuilderComponent implements OnInit {
             return z[key];
           })
           let test = JSON.parse(JSON.stringify(arr));
-          console.log(test);
           this.resourceTypesMeta = test;
+
+          // Add it to the TF providers output list
+          this.usedProviders[provider] = true;
+          console.log(this.resourceTypesMeta, this.usedProviders)
         });
       } catch (e) {
         console.log('failed to import', e);
@@ -141,12 +145,19 @@ export class FileBuilderComponent implements OnInit {
   exportTF() {
     this.showOutput = true;
     // this.finalOutput = {};
-    this.output = { "resource": [], "variable": [] }
+    this.output = new TFOutput()
     let variablesHash = {};
     let resourcesHash = {};
 
+    // cyle through providers
+    // EDIT - NOT SURE THIS IS NECESSSARY
+    // Object.keys(this.usedProviders).forEach((providerName) => {
+    //   this.output.provider.push(providerName);
+    // });
+
     // cycle through variables
     if (this.terraformTFVars.length > 0) {
+      this.output.variable = [];
       this.terraformTFVars.forEach((varr) => {
         let newVar = {};
         newVar[varr.name] = { "default": varr.value }
@@ -157,6 +168,7 @@ export class FileBuilderComponent implements OnInit {
 
     // cycle through resources
     if (this.mainTF.length > 0) {
+      this.output.resource = [];
       this.mainTF.forEach((resource) => {
         if (!resourcesHash[resource.type]) {
           resourcesHash[resource.type] = {};
@@ -254,6 +266,12 @@ class TFResource {
   // subType = "";
   // policy = "";
   // role = "";
+}
+
+class TFOutput { 
+  resource: any;
+  variable?: any;
+  provider?: any;
 }
 
 class ResourceProperty {
