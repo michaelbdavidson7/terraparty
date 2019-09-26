@@ -7,7 +7,7 @@ import time
 
 
 # Change these for different providers, as well as the web parser below
-providerName = "vcd"
+providerName = "aws"
 url = "https://www.terraform.io/docs/providers/"+providerName+"/index.html"
 
 soupedDocsLinksFolder = "souped-documentation-links"
@@ -184,7 +184,9 @@ def getResourceWebpages():
                         # .find_all('ul').find_all('li')
 
                     resourceObjJson = json.dumps(resourceObj) 
-                    if int(linenoStr) is not int(totalLinesStr):
+                    if int(linenoStr) == int(totalLinesStr):
+                        print('skipping comma')
+                    else:
                         resourceObjJson = resourceObjJson + ','
                     print(resourceObjJson, file=jsonOutputFile)
                     time.sleep(1)

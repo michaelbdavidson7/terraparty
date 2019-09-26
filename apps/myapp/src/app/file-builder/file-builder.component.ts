@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
-import json from '../import-fields-scripts/resourcesOutputFile3.json';
+import json from '../import-fields-scripts/souped-provider-outputs/aws_resourcesOutputFile.json';
 console.log(json.length)
 
 @Component({
@@ -26,6 +26,8 @@ export class FileBuilderComponent implements OnInit {
     "showLongDescriptions": false
   }
   output = new TFOutput();
+  
+  // provider stuff
   selectedProvider = "aws";
   providerList = [{ "displayName": "Google Cloud Platform", "providerName": "google" },
   { "displayName": "AWS", "providerName": "aws" },
@@ -33,6 +35,8 @@ export class FileBuilderComponent implements OnInit {
   { "displayName": "F5 BIG-IP", "providerName": "bigip" },
   { "displayName": "VMware vCloud Director", "providerName": "vcd" }];
   usedProviders = { "aws": true };
+
+
   networkStarterKit = {
     "resource": [
       { "aws_vpc": { "my_vpc": { "cidr_block": "10.0.0.0/16" } } },
@@ -80,10 +84,9 @@ export class FileBuilderComponent implements OnInit {
 
   importProvider(provider) {
     console.log('importProvider', provider);
-    const providerList = ["google", "aws", "azurerm", "bigip", "vcd"];
     let location = '../import-fields-scripts/souped-provider-outputs/' + provider + '_resourcesOutputFile.json'
 
-    if (providerList.includes(provider)) {
+    if (this.providerList.map((x) => x.providerName).includes(provider)) {
       try {
         import('../import-fields-scripts/souped-provider-outputs/' + provider + '_resourcesOutputFile.json').then((z) => {
           console.log('successful import', typeof z, z)
