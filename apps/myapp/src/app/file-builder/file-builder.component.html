@@ -38,8 +38,17 @@
         <h4 class="card-title">
           Providers
         </h4>
-        <div class="form-group">
-          <button class="btn btn-sm btn-info" (click)="importProvider($event)">Change provider</button>
+        <div class="form-group row">
+          <div class="col-lg-8">
+            <select class="form-control form-control-sm" [(ngModel)]="selectedProvider">
+              <option *ngFor="let provider of providerList; index as i; " [value]="provider.providerName">
+                {{provider.displayName}}
+              </option>
+            </select>
+          </div>
+          <div class="col-lg-4">
+            <button class="btn btn-sm btn-info" (click)="importProvider(selectedProvider)">Change provider</button>
+          </div>
         </div>
         <h4 class="card-title">
           Add a resource

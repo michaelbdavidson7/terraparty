@@ -26,6 +26,12 @@ export class FileBuilderComponent implements OnInit {
     "showLongDescriptions": false
   }
   output = { "resource": [], "variable": [] }
+  selectedProvider = "";
+  providerList = [{ "displayName": "Google Cloud Platform", "providerName": "google" },
+  { "displayName": "AWS", "providerName": "aws" },
+  { "displayName": "Azure", "providerName": "azurerm" },
+  { "displayName": "F5 BIG-IP", "providerName": "bigip" },
+  { "displayName": "VMware vCloud Director", "providerName": "vcd" }];
   networkStarterKit = {
     "resource": [
       { "aws_vpc": { "my_vpc": { "cidr_block": "10.0.0.0/16" } } },
@@ -71,12 +77,8 @@ export class FileBuilderComponent implements OnInit {
   ngOnInit() {
   }
 
-  importProvider(x) {
-    console.log('importProvider', x);
-    const prefix = "../import-fields-scripts/souped-provider-outputs/";
-    const suffix = "_resourcesOutputFile.json";
-    const providerJsonLocation = prefix + "google" + suffix;
-    const provider = "google";
+  importProvider(provider) {
+    console.log('importProvider', provider);
     const providerList = ["google", "aws", "azurerm", "bigip", "vcd"];
     let location = '../import-fields-scripts/souped-provider-outputs/' + provider + '_resourcesOutputFile.json'
 
@@ -199,7 +201,7 @@ export class FileBuilderComponent implements OnInit {
       debounceTime(200),
       // distinctUntilChanged(),
       map(term => term.length < 2 ? []
-        : this.resourceTypesMeta.filter(v => v.type.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 20))
+        : this.resourceTypesMeta.filter(v => v.type.trim().toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 20))
     )
 
   resourceTypeTypeaheadFormatter = function (x) {
