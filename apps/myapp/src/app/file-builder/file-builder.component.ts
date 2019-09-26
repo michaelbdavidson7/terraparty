@@ -86,17 +86,13 @@ export class FileBuilderComponent implements OnInit {
       try {
         import('../import-fields-scripts/souped-provider-outputs/' + provider + '_resourcesOutputFile.json').then((z) => {
           console.log('successful import', typeof z, z)
-          let arr = Object.keys(z).map(function (key) {
+          let arr = Object.keys(z.default).map(function (key) {
             // item.type = item.type.toString();
+            z[key]['type'] = z[key]['type'].trim();
             return z[key];
           })
           let test = JSON.parse(JSON.stringify(arr));
-          console.log(test)
-          // test = test.map(function(item){
-          //   item.type = item.type.toString();
-          //   return item;
-          // })
-          console.log(test)
+          console.log(test);
           this.resourceTypesMeta = test;
         });
       } catch (e) {
