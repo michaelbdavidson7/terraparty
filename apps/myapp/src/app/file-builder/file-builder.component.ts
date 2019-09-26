@@ -71,6 +71,38 @@ export class FileBuilderComponent implements OnInit {
   ngOnInit() {
   }
 
+  importProvider(x) {
+    console.log('importProvider', x);
+    const prefix = "../import-fields-scripts/souped-provider-outputs/";
+    const suffix = "_resourcesOutputFile.json";
+    const providerJsonLocation = prefix + "google" + suffix;
+    const provider = "google";
+    const providerList = ["google", "aws", "azurerm", "bigip", "vcd"];
+    let location = '../import-fields-scripts/souped-provider-outputs/' + provider + '_resourcesOutputFile.json'
+
+    if (providerList.includes(provider)) {
+      try {
+        import('../import-fields-scripts/souped-provider-outputs/' + provider + '_resourcesOutputFile.json').then((z) => {
+          console.log('successful import', typeof z, z)
+          let arr = Object.keys(z).map(function (key) {
+            // item.type = item.type.toString();
+            return z[key];
+          })
+          let test = JSON.parse(JSON.stringify(arr));
+          console.log(test)
+          // test = test.map(function(item){
+          //   item.type = item.type.toString();
+          //   return item;
+          // })
+          console.log(test)
+          this.resourceTypesMeta = test;
+        });
+      } catch (e) {
+        console.log('failed to import', e);
+      }
+    }
+  }
+
   resourceTypeOnChange(i) {
     console.log('resourceTypeOnChange. i: ', i)
     this.model = {};
@@ -81,6 +113,7 @@ export class FileBuilderComponent implements OnInit {
     })
     this.selectedValueOptions = mySelectedValueOptions;
   }
+
   addVariable() {
     this.variablesTF.push({ "name": this.variableModel.name });
     this.terraformTFVars.push(this.variableModel);
@@ -150,12 +183,6 @@ export class FileBuilderComponent implements OnInit {
     }
   }
 
-
-  // open(content) {
-  //   const modalRef = this.modalService.open(NgbdModalContent);
-  //   modalRef.componentInstance.name = 'World';
-  // }
-
   openOutputModal(content) {
     this.exportTF()
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
@@ -164,6 +191,8 @@ export class FileBuilderComponent implements OnInit {
       // this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
+
+
 
   resourceTypeTypeahead = (text$: Observable<string>) =>
     text$.pipe(
@@ -175,9 +204,6 @@ export class FileBuilderComponent implements OnInit {
 
   resourceTypeTypeaheadFormatter = function (x) {
     console.log('resourceTypeTypeaheadFormatter', x, x.type)
-    // this.resourceModel.selectedIndex = this.resourceTypesMeta.filter(y => y.id.indexOf(1))
-    // this.resourceModel.selectedIndex = 1;
-    // this.tmpResourceModelSelectedIndex = 1;
     if (!this.resourceModel) {
       console.log('no RM', this)
     } else {
@@ -185,13 +211,6 @@ export class FileBuilderComponent implements OnInit {
     }
     return x.type;
   };
-
-
-  resourceTypeaheadChangeEvent = (model) => {
-    console.log('model', model)
-    // this.resourceModel.selectedIndex = model.id - 1 >= 0 ? model.id - 1 : 0;
-    // console.log(' this.resourceModel.selectedIndex ', this.resourceModel.selectedIndex)
-  }
 
   setIndex = (event) => {
     console.log('SETINDEX', event)

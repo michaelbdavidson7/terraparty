@@ -76,6 +76,9 @@ def getResourceWebpages():
         os.remove(resourcesOutputFile)
     with open(resourcesOutputFile, 'a') as jsonOutputFile:
         with open(docsLinksFileNameParsed) as f:
+            # open the array 
+            print("[", file=jsonOutputFile)
+
             data = f.read()
             lines = data.split('\n')
 
@@ -84,7 +87,9 @@ def getResourceWebpages():
 
             for lineno, line in enumerate(lines):
                 try:
-                    print('#' + str(lineno + 1) + " of " + str(len(lines)))
+                    linenoStr = str(lineno + 1)
+                    totalLinesStr = str(len(lines))
+                    print('#' + linenoStr + " of " + totalLinesStr)
 
                     if not line:
                         raise ValueError("Line doesn't exist")
@@ -178,7 +183,9 @@ def getResourceWebpages():
                         #     print(el, el.Tag)
                         # .find_all('ul').find_all('li')
 
-                    resourceObjJson = json.dumps(resourceObj) + ','
+                    resourceObjJson = json.dumps(resourceObj) 
+                    if int(linenoStr) is not int(totalLinesStr):
+                        resourceObjJson = resourceObjJson + ','
                     print(resourceObjJson, file=jsonOutputFile)
                     time.sleep(1)
                 except Exception as e:
@@ -190,6 +197,9 @@ def getResourceWebpages():
                             ' - full resource: ' + str(resourceObj)
                         print(failMsg, file=resourceOutputFailuresFile)
                         failureList.append(failMsg)
+        print("]", file=jsonOutputFile)
+
+        # print failure list to console
         print('failure list: ' + str(failureList))
 
 

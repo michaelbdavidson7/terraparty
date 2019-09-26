@@ -36,6 +36,12 @@
     <div class="col-lg-5 card border-secondary mb-3">
       <div class="card-body">
         <h4 class="card-title">
+          Providers
+        </h4>
+        <div class="form-group">
+          <button class="btn btn-sm btn-info" (click)="importProvider($event)">Change provider</button>
+        </div>
+        <h4 class="card-title">
           Add a resource
         </h4>
         <div class="form-group">
@@ -58,11 +64,10 @@
                 <!-- <img [src]="'https://upload.wikimedia.org/wikipedia/commons/thumb/' + r['flag']" class="mr-1" style="width: 16px"> -->
                 <ngb-highlight [result]="r.type" [term]="t"></ngb-highlight>
               </ng-template>
-              <input id="typeahead-basic" type="text" class="form-control form-control-sm" placeholder="Search" [(ngModel)]="modelFromSearch"
-                [ngbTypeahead]="resourceTypeTypeahead" [inputFormatter]="resourceTypeTypeaheadFormatter"
-                [resultTemplate]="resourceTypeTypeaheadResultTemplate"
-                (selectItem)="setIndex($event)"
-                />
+              <input id="typeahead-basic" type="text" class="form-control form-control-sm" placeholder="Search"
+                [(ngModel)]="modelFromSearch" [ngbTypeahead]="resourceTypeTypeahead"
+                [inputFormatter]="resourceTypeTypeaheadFormatter" [resultTemplate]="resourceTypeTypeaheadResultTemplate"
+                (selectItem)="setIndex($event)" />
             </div>
           </div>
 
