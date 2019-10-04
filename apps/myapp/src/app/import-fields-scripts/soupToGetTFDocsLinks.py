@@ -7,7 +7,7 @@ import time
 
 
 # Change these for different providers, as well as the web parser below
-providerName = "aws"
+providerName = "do"
 url = "https://www.terraform.io/docs/providers/"+providerName+"/index.html"
 
 soupedDocsLinksFolder = "souped-documentation-links"

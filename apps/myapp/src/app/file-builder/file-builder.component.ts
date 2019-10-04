@@ -33,7 +33,8 @@ export class FileBuilderComponent implements OnInit {
   { "displayName": "AWS", "providerName": "aws" },
   { "displayName": "Azure", "providerName": "azurerm" },
   { "displayName": "F5 BIG-IP", "providerName": "bigip" },
-  { "displayName": "VMware vCloud Director", "providerName": "vcd" }];
+  { "displayName": "VMware vCloud Director", "providerName": "vcd" },
+  { "displayName": "Digital Ocean", "providerName": "do" }];
   usedProviders = { "aws": true };
 
 
