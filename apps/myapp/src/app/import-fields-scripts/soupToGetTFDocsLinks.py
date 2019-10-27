@@ -17,7 +17,7 @@ soupedDocsLinksFolder = "souped-documentation-links"
 soupedProviderOutputsFolder = "souped-provider-outputs"
 soupedProviderFailuresFolder = "souped-provider-failures"
 
-providerLinksFileName = "./fetchedProvidersList.json"
+providerLinksFileName = "./soupToGetTFDocsSettings.json"
 docsLinksFileName = soupedDocsLinksFolder + "/" + providerName + "_tfDocsLinks.txt"
 docsLinksFileNameParsed = soupedDocsLinksFolder + "/" +  providerName + "_tfDocsLinksParsed.txt"
 resourcesOutputFile = soupedProviderOutputsFolder + "/" + providerName + "_resourcesOutputFile.json"
@@ -48,12 +48,13 @@ def getAllProviderLinks():
         providerName = listItem.find_all('a')[0].contents[0]
         providerLink = listItem.find_all('a')[0].get('href')
         providerShortName = providerLink.split('/docs/providers/')[1].split('/index.html')[0]
-        providerObj = {"providerName": providerName, "providerLink": providerLink, "providerShortName": providerShortName, "lastProviderListFetch": str(now), "lastProviderUpdate": ""}
+        providerObj = {"providerName": providerName, "providerLink": providerLink, "providerShortName": providerShortName, "lastProviderOutputUpdate": ""}
         # print('listItem', providerObj)
         allProvidersObjList.append(providerObj)
+    settings = {"providers": allProvidersObjList, "lastProviderListFetch": str(now), "numberOfProviders": str(len(allProvidersObjList))}
     
     # add to file
-    throwItInAFile(json.dumps(allProvidersObjList), providerLinksFileName)
+    throwItInAFile(json.dumps(settings), providerLinksFileName)
     print('Provider list refreshed and written to file')
 
 
