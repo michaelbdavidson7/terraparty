@@ -93,7 +93,7 @@ def getAllLinks(providerShortName = "do"):
             linkConverted = str(link.get('href'))
             if linkConverted not in SymbolExcludeArray and linkConverted[0] != '#':
                 print(link.get('href'), file=f)
-    improveLinks()
+    improveLinks(providerShortName)
 
 
 def improveLinks(providerShortName = "do"):
