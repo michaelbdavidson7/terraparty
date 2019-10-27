@@ -67,11 +67,10 @@ def processEachProvider():
         getAllLinks(provider['providerShortName'])
             
         # overwrite lastProviderOutputUpdate when provider updates
-        provider['lastProviderOutputUpdate'] = datetime.datetime.now()
+        provider['lastProviderOutputUpdate'] = str(datetime.datetime.now())
         settings['providers'][index] = provider
         
-        with open(providerLinksFileName, 'a') as providerLinksFile:
-            print(json.dumps(settings), file=providerLinksFile)
+        throwItInAFile(json.dumps(settings), providerLinksFileName)
         
 
 
@@ -119,6 +118,7 @@ def improveLinks(providerShortName = "do"):
 def getResourceWebpages(providerShortName):
     # jsonOutput = []
     failureList = []
+    print('Getting resources from webpage for the ' + providerShortName + ' provider')
     docsLinksFileName = soupedDocsLinksFolder + "/" + providerShortName + "_tfDocsLinks.txt"
     docsLinksFileNameParsed = soupedDocsLinksFolder + "/" +  providerShortName + "_tfDocsLinksParsed.txt"
     resourcesOutputFile = soupedProviderOutputsFolder + "/" + providerShortName + "_resourcesOutputFile.json"

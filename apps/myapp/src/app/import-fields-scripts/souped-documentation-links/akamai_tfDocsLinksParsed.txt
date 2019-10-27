@@ -1,0 +1,6 @@
+/docs/providers/akamai/r/dns_record.html
+/docs/providers/akamai/r/dns_zone.html
+/docs/providers/akamai/r/edge_hostname.html
+/docs/providers/akamai/r/property.html
+/docs/providers/akamai/r/property_activation.html
+/docs/providers/akamai/r/property_variables.html

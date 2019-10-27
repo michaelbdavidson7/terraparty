@@ -1,0 +1,2 @@
+/docs/providers/acme/r/registration.html
+/docs/providers/acme/r/certificate.html
