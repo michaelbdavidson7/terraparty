@@ -10,18 +10,12 @@ now = datetime.datetime.now()
 
 # Settings
 # Change these for different providers, as well as the web parser below
-providerName = "do"
-url = "https://www.terraform.io/docs/providers/"+providerName+"/index.html"
 
 soupedDocsLinksFolder = "souped-documentation-links"
 soupedProviderOutputsFolder = "souped-provider-outputs"
 soupedProviderFailuresFolder = "souped-provider-failures"
 
 providerLinksFileName = "./soupToGetTFDocsSettings.json"
-docsLinksFileName = soupedDocsLinksFolder + "/" + providerName + "_tfDocsLinks.txt"
-docsLinksFileNameParsed = soupedDocsLinksFolder + "/" +  providerName + "_tfDocsLinksParsed.txt"
-resourcesOutputFile = soupedProviderOutputsFolder + "/" + providerName + "_resourcesOutputFile.json"
-resourceOutputFailuresFileName = soupedProviderFailuresFolder + "/" + providerName + "_resourceOutputFailures.txt"
 objectToExport = []
 
 def main():
@@ -32,6 +26,7 @@ def main():
     # getAllLinks()
     # getResourceWebpages()
     getAllProviderLinks()
+    processEachProvider()
 
 def getAllProviderLinks():
     allProvidersUrl = "https://www.terraform.io/docs/providers/index.html"
@@ -58,9 +53,31 @@ def getAllProviderLinks():
     print('Provider list refreshed and written to file')
 
 
-# todo get all the sidebar resources links to go through
-def getAllLinks():
+def processEachProvider():
+    print('starting processEachProvider ..')
+    
+    # get settings file
+    with open(providerLinksFileName) as providerLinksFile:
+        settingsFile = providerLinksFile.read()
+        
+    settings = json.loads(settingsFile)
+    providers = settings['providers']
+    for index, provider in enumerate(providers):
+        # get docs for each provider
+        getAllLinks(provider['providerShortName'])
+            
+        # overwrite lastProviderOutputUpdate when provider updates
+        provider['lastProviderOutputUpdate'] = datetime.datetime.now()
+        settings['providers'][index] = provider
+        
+        with open(providerLinksFileName, 'a') as providerLinksFile:
+            print(json.dumps(settings), file=providerLinksFile)
+        
 
+
+def getAllLinks(providerShortName = "do"):
+    url = "https://www.terraform.io/docs/providers/"+providerShortName+"/index.html"
+    docsLinksFileName = soupedDocsLinksFolder + "/" + providerShortName + "_tfDocsLinks.txt"
     content = urllib.request.urlopen(url).read()
 
     soup = BeautifulSoup(content, features="html.parser")
@@ -79,8 +96,10 @@ def getAllLinks():
     improveLinks()
 
 
-def improveLinks():
+def improveLinks(providerShortName = "do"):
     validDocsLinksList = []
+    docsLinksFileName = soupedDocsLinksFolder + "/" + providerShortName + "_tfDocsLinks.txt"
+    docsLinksFileNameParsed = soupedDocsLinksFolder + "/" +  providerShortName + "_tfDocsLinksParsed.txt"
     with open(docsLinksFileName) as f:
         data = f.read()
         lines = data.split('\n')
@@ -92,14 +111,19 @@ def improveLinks():
             lines = list(dict.fromkeys(lines))
             for line in lines:
                 # data resources: line.startswith('/docs/providers/aws/d/')
-                if line.startswith('/docs/providers/'+ providerName + '/r/'):
+                if line.startswith('/docs/providers/'+ providerShortName + '/r/'):
                     validDocsLinksList.append(line)
                     print(line, file=parsedListFile)
+    getResourceWebpages(providerShortName)
 
-def getResourceWebpages():
+def getResourceWebpages(providerShortName):
     # jsonOutput = []
     failureList = []
-
+    docsLinksFileName = soupedDocsLinksFolder + "/" + providerShortName + "_tfDocsLinks.txt"
+    docsLinksFileNameParsed = soupedDocsLinksFolder + "/" +  providerShortName + "_tfDocsLinksParsed.txt"
+    resourcesOutputFile = soupedProviderOutputsFolder + "/" + providerShortName + "_resourcesOutputFile.json"
+    resourceOutputFailuresFileName = soupedProviderFailuresFolder + "/" + providerShortName + "_resourceOutputFailures.txt"
+    
     if os.path.isfile(resourcesOutputFile):
         os.remove(resourcesOutputFile)
     with open(resourcesOutputFile, 'a') as jsonOutputFile:
