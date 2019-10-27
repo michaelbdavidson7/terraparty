@@ -32,6 +32,13 @@ def getAllProviderLinks():
     allProvidersUrl = "https://www.terraform.io/docs/providers/index.html"
     allProvidersObjList = []
     
+    # first we need to get the old settings list
+    
+    with open(providerLinksFileName) as providerLinksFile:
+        settingsFile = providerLinksFile.read()
+        
+    settings = json.loads(settingsFile)
+    
     content = urllib.request.urlopen(allProvidersUrl).read()
 
     soup = BeautifulSoup(content, features="html.parser")
@@ -43,13 +50,20 @@ def getAllProviderLinks():
         providerName = listItem.find_all('a')[0].contents[0]
         providerLink = listItem.find_all('a')[0].get('href')
         providerShortName = providerLink.split('/docs/providers/')[1].split('/index.html')[0]
-        providerObj = {"providerName": providerName, "providerLink": providerLink, "providerShortName": providerShortName, "lastProviderOutputUpdate": ""}
-        # print('listItem', providerObj)
+        providerObj = {"providerName": providerName, "providerLink": providerLink, "providerShortName": providerShortName, "lastProviderOutputUpdate": "never"}
+
+        # see if we have it before, to make sure we don't override the updated field
+        for existingProvider in settings['providers']:
+            if existingProvider['providerShortName'] == providerShortName:
+                providerObj['lastProviderOutputUpdate'] = existingProvider['lastProviderOutputUpdate']
+                break
+                
+        
         allProvidersObjList.append(providerObj)
-    settings = {"providers": allProvidersObjList, "lastProviderListFetch": str(now), "numberOfProviders": str(len(allProvidersObjList))}
+    newSettings = {"providers": allProvidersObjList, "lastProviderListFetch": str(now), "numberOfProviders": str(len(allProvidersObjList))}
     
     # add to file
-    throwItInAFile(json.dumps(settings), providerLinksFileName)
+    throwItInAFile(json.dumps(newSettings), providerLinksFileName)
     print('Provider list refreshed and written to file')
 
 
@@ -64,13 +78,18 @@ def processEachProvider():
     providers = settings['providers']
     for index, provider in enumerate(providers):
         # get docs for each provider
-        getAllLinks(provider['providerShortName'])
+        print('provider', provider)
+        print("provider['lastProviderOutputUpdate']", provider['lastProviderOutputUpdate'], type(provider['lastProviderOutputUpdate']))
+        # print(datetime.datetime.strftime(provider['lastProviderOutputUpdate']))
+        #  and provider['lastProviderOutputUpdate'] == datetime.datetime.strftime(provider['lastProviderOutputUpdate'])
+        if (provider['lastProviderOutputUpdate'] == "never") or (type(provider['lastProviderOutputUpdate']) == datetime and datetime.datetime.strftime(provider['lastProviderOutputUpdate'].month != datetime.datetime.now().month)):
+            getAllLinks(provider['providerShortName'])
             
-        # overwrite lastProviderOutputUpdate when provider updates
-        provider['lastProviderOutputUpdate'] = str(datetime.datetime.now())
-        settings['providers'][index] = provider
-        
-        throwItInAFile(json.dumps(settings), providerLinksFileName)
+            # overwrite lastProviderOutputUpdate when provider updates
+            provider['lastProviderOutputUpdate'] = str(datetime.datetime.now())
+            settings['providers'][index] = provider
+            
+            throwItInAFile(json.dumps(settings), providerLinksFileName)
         
 
 
