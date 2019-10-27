@@ -1,0 +1,3 @@
+/docs/providers/influxdb/r/database.html
+/docs/providers/influxdb/r/user.html
+/docs/providers/influxdb/r/continuous_query.html

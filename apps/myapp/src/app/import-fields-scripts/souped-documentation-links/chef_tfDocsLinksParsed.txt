@@ -1,0 +1,5 @@
+/docs/providers/chef/r/data_bag.html
+/docs/providers/chef/r/data_bag_item.html
+/docs/providers/chef/r/environment.html
+/docs/providers/chef/r/node.html
+/docs/providers/chef/r/role.html

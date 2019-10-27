@@ -1,0 +1,6 @@
+/docs/providers/icinga2/r/checkcommands.html
+/docs/providers/icinga2/r/host.html
+/docs/providers/icinga2/r/hostgroup.html
+/docs/providers/icinga2/r/notification.html
+/docs/providers/icinga2/r/service.html
+/docs/providers/icinga2/r/user.html

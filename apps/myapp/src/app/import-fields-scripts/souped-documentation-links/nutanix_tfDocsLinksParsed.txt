@@ -1,0 +1,7 @@
+/docs/providers/nutanix/r/virtual_machine.html
+/docs/providers/nutanix/r/volume_group.html
+/docs/providers/nutanix/r/subnet.html
+/docs/providers/nutanix/r/image.html
+/docs/providers/nutanix/r/category_key.html
+/docs/providers/nutanix/r/category_value.html
+/docs/providers/nutanix/r/network_security_rule.html

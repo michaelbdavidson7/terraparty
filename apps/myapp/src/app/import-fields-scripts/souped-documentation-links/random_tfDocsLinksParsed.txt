@@ -1,0 +1,7 @@
+/docs/providers/random/r/id.html
+/docs/providers/random/r/integer.html
+/docs/providers/random/r/password.html
+/docs/providers/random/r/pet.html
+/docs/providers/random/r/shuffle.html
+/docs/providers/random/r/string.html
+/docs/providers/random/r/uuid.html

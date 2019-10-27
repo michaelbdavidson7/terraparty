@@ -1,0 +1,5 @@
+/docs/providers/rundeck/r/acl_policy.html
+/docs/providers/rundeck/r/job.html
+/docs/providers/rundeck/r/project.html
+/docs/providers/rundeck/r/private_key.html
+/docs/providers/rundeck/r/public_key.html

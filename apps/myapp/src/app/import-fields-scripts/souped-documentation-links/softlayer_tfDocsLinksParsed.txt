@@ -1,0 +1,2 @@
+/docs/providers/softlayer/r/virtual_guest.html
+/docs/providers/softlayer/r/ssh_key.html

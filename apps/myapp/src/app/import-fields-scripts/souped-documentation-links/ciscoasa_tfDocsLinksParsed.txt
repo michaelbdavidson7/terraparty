@@ -1,0 +1,7 @@
+/docs/providers/ciscoasa/r/access_in_rules.html
+/docs/providers/ciscoasa/r/access_out_rules.html
+/docs/providers/ciscoasa/r/acl.html
+/docs/providers/ciscoasa/r/network_object_group.html
+/docs/providers/ciscoasa/r/network_object.html
+/docs/providers/ciscoasa/r/network_service_group.html
+/docs/providers/ciscoasa/r/static_route.html

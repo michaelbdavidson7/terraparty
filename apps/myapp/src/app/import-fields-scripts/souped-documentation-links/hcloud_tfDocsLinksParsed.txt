@@ -1,0 +1,11 @@
+/docs/providers/hcloud/r/server.html
+/docs/providers/hcloud/r/server_network.html
+/docs/providers/hcloud/r/volume.html
+/docs/providers/hcloud/r/volume_attachment.html
+/docs/providers/hcloud/r/network.html
+/docs/providers/hcloud/r/network_route.html
+/docs/providers/hcloud/r/network_subnet.html
+/docs/providers/hcloud/r/ssh_key.html
+/docs/providers/hcloud/r/floating_ip.html
+/docs/providers/hcloud/r/floating_ip_assignment.html
+/docs/providers/hcloud/r/rdns.html

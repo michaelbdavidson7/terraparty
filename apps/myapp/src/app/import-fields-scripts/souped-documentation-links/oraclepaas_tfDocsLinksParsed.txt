@@ -1,0 +1,7 @@
+/docs/providers/oraclepaas/r/oraclepaas_application_container.html
+/docs/providers/oraclepaas/r/oraclepaas_database_service_instance.html
+/docs/providers/oraclepaas/r/oraclepaas_java_service_instance.html
+/docs/providers/oraclepaas/r/oraclepaas_mysql_service_instance.html
+/docs/providers/oraclepaas/r/oraclepaas_database_access_rule.html
+/docs/providers/oraclepaas/r/oraclepaas_java_access_rule.html
+/docs/providers/oraclepaas/r/oraclepaas_mysql_access_rule.html

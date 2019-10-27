@@ -1,0 +1,5 @@
+/docs/providers/clc/r/server.html
+/docs/providers/clc/r/group.html
+/docs/providers/clc/r/public_ip.html
+/docs/providers/clc/r/load_balancer.html
+/docs/providers/clc/r/load_balancer_pool.html

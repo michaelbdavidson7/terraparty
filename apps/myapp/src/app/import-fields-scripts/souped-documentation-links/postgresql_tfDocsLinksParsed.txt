@@ -1,0 +1,6 @@
+/docs/providers/postgresql/r/postgresql_database.html
+/docs/providers/postgresql/r/postgresql_default_privileges.html
+/docs/providers/postgresql/r/postgresql_extension.html
+/docs/providers/postgresql/r/postgresql_grant.html
+/docs/providers/postgresql/r/postgresql_role.html
+/docs/providers/postgresql/r/postgresql_schema.html

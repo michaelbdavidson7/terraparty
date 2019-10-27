@@ -1,0 +1,2 @@
+/docs/providers/mailgun/r/domain.html
+/docs/providers/mailgun/r/route.html

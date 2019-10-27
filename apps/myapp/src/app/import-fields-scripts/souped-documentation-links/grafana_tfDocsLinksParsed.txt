@@ -1,0 +1,5 @@
+/docs/providers/grafana/r/alert_notification.html
+/docs/providers/grafana/r/dashboard.html
+/docs/providers/grafana/r/data_source.html
+/docs/providers/grafana/r/folder.html
+/docs/providers/grafana/r/organization.html

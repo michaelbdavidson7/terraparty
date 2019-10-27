@@ -1,0 +1,5 @@
+/docs/providers/ultradns/r/dirpool.html
+/docs/providers/ultradns/r/probe_http.html
+/docs/providers/ultradns/r/probe_ping.html
+/docs/providers/ultradns/r/record.html
+/docs/providers/ultradns/r/tcpool.html

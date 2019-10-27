@@ -1,0 +1,9 @@
+/docs/providers/ncloud/r/server.html
+/docs/providers/ncloud/r/block_storage.html
+/docs/providers/ncloud/r/block_storage_snapshot.html
+/docs/providers/ncloud/r/public_ip.html
+/docs/providers/ncloud/r/login_key.html
+/docs/providers/ncloud/r/nas_volume.html
+/docs/providers/ncloud/r/port_forwarding_rule.html
+/docs/providers/ncloud/r/load_balancer.html
+/docs/providers/ncloud/r/load_balancer_ssl_certificate.html

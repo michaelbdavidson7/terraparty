@@ -1,0 +1,2 @@
+'NoneType' object has no attribute 'contents'
+Failed on  - full resource: {'id': 20, 'type': '', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/datadog/r/examples/monitors.html', 'docType': ''}

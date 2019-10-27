@@ -1,0 +1,5 @@
+/docs/providers/runscope/r/bucket.html
+/docs/providers/runscope/r/environment.html
+/docs/providers/runscope/r/test.html
+/docs/providers/runscope/r/schedule.html
+/docs/providers/runscope/r/step.html

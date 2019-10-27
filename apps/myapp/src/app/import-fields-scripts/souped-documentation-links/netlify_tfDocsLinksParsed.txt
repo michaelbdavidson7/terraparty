@@ -1,0 +1,4 @@
+/docs/providers/netlify/r/netlify_build_hook.html
+/docs/providers/netlify/r/netlify_deploy_key.html
+/docs/providers/netlify/r/netlify_hook.html
+/docs/providers/netlify/r/netlify_site.html

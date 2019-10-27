@@ -1,0 +1,6 @@
+/docs/providers/gridscale/r/ipv4.html
+/docs/providers/gridscale/r/ipv6.html
+/docs/providers/gridscale/r/network.html
+/docs/providers/gridscale/r/server.html
+/docs/providers/gridscale/r/sshkey.html
+/docs/providers/gridscale/r/storage.html

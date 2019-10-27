@@ -1,0 +1,5 @@
+/docs/providers/mysql/r/database.html
+/docs/providers/mysql/r/grant.html
+/docs/providers/mysql/r/role.html
+/docs/providers/mysql/r/user.html
+/docs/providers/mysql/r/user_password.html

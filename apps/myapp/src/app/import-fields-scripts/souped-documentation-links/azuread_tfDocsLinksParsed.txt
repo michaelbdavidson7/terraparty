@@ -1,0 +1,7 @@
+/docs/providers/azuread/r/application.html
+/docs/providers/azuread/r/application_password.html
+/docs/providers/azuread/r/group.html
+/docs/providers/azuread/r/group_member.html
+/docs/providers/azuread/r/service_principal.html
+/docs/providers/azuread/r/service_principal_password.html
+/docs/providers/azuread/r/user.html

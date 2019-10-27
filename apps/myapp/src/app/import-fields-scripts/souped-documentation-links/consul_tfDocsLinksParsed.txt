@@ -1,0 +1,16 @@
+/docs/providers/consul/r/acl_auth_method.html
+/docs/providers/consul/r/acl_binding_rule.html
+/docs/providers/consul/r/acl_policy.html
+/docs/providers/consul/r/acl_role.html
+/docs/providers/consul/r/acl_token.html
+/docs/providers/consul/r/acl_token_policy_attachment.html
+/docs/providers/consul/r/agent_service.html
+/docs/providers/consul/r/autopilot_config.html
+/docs/providers/consul/r/catalog_entry.html
+/docs/providers/consul/r/config_entry.html
+/docs/providers/consul/r/intention.html
+/docs/providers/consul/r/keys.html
+/docs/providers/consul/r/key_prefix.html
+/docs/providers/consul/r/node.html
+/docs/providers/consul/r/prepared_query.html
+/docs/providers/consul/r/service.html

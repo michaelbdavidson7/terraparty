@@ -1,0 +1,12 @@
+/docs/providers/oneandone/r/instance_size.html
+/docs/providers/oneandone/r/block_storage.html
+/docs/providers/oneandone/r/firewall_policy.html
+/docs/providers/oneandone/r/loadbalancer.html
+/docs/providers/oneandone/r/monitoring_policy.html
+/docs/providers/oneandone/r/private_network.html
+/docs/providers/oneandone/r/public_ip.html
+/docs/providers/oneandone/r/server.html
+/docs/providers/oneandone/r/baremetal.html
+/docs/providers/oneandone/r/shared_storage.html
+/docs/providers/oneandone/r/ssh_key.html
+/docs/providers/oneandone/r/vpn.html

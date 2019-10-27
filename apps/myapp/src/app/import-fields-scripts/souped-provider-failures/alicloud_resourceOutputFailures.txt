@@ -1,0 +1,6 @@
+'NoneType' object has no attribute 'find_next_siblings'
+Failed on   alicloud_container_cluster - full resource: {'id': 23, 'type': '  alicloud_container_cluster', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/alicloud/r/container_cluster.html', 'docType': ''}
+'NoneType' object has no attribute 'find_next_siblings'
+Failed on   alicloud_ess_schedule - full resource: {'id': 61, 'type': '  alicloud_ess_schedule', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/alicloud/r/ess_schedule.html', 'docType': ''}
+'NoneType' object has no attribute 'find_next_siblings'
+Failed on   alicloud_ram_alias - full resource: {'id': 100, 'type': '  alicloud_ram_alias', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/alicloud/r/ram_alias.html', 'docType': ''}

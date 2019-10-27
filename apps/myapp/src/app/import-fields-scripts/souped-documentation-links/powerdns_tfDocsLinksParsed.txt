@@ -1,0 +1,2 @@
+/docs/providers/powerdns/r/record.html
+/docs/providers/powerdns/r/zone.html

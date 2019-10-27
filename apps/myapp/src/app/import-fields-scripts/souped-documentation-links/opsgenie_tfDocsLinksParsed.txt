@@ -1,0 +1,10 @@
+/docs/providers/opsgenie/r/user.html
+/docs/providers/opsgenie/r/user_contact.html
+/docs/providers/opsgenie/r/team.html
+/docs/providers/opsgenie/r/api_integration.html
+/docs/providers/opsgenie/r/email_integration.html
+/docs/providers/opsgenie/r/heartbeat.html
+/docs/providers/opsgenie/r/escalation.html
+/docs/providers/opsgenie/r/schedule.html
+/docs/providers/opsgenie/r/schedule_rotation.html
+/docs/providers/opsgenie/r/maintenance.html

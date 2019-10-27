@@ -63,6 +63,7 @@ https://github.com/hashicorp/terraform
 /docs/providers/azurerm/d/application_security_group.html
 /docs/providers/azurerm/d/app_service.html
 /docs/providers/azurerm/d/app_service_plan.html
+/docs/providers/azurerm/d/app_service_certificate.html
 /docs/providers/azurerm/d/application_insights.html
 /docs/providers/azurerm/d/automation_variable_bool.html
 /docs/providers/azurerm/d/automation_variable_datetime.html
@@ -111,6 +112,7 @@ https://github.com/hashicorp/terraform
 /docs/providers/azurerm/d/notification_hub_namespace.html
 /docs/providers/azurerm/d/platform_image.html
 /docs/providers/azurerm/d/policy_definition.html
+/docs/providers/azurerm/d/public_ip_prefix.html
 /docs/providers/azurerm/d/public_ip.html
 /docs/providers/azurerm/d/public_ips.html
 /docs/providers/azurerm/d/recovery_services_vault.html
@@ -128,6 +130,7 @@ https://github.com/hashicorp/terraform
 /docs/providers/azurerm/d/stream_analytics_job.html
 /docs/providers/azurerm/d/storage_account.html
 /docs/providers/azurerm/d/storage_account_sas.html
+/docs/providers/azurerm/d/storage_management_policy.html
 /docs/providers/azurerm/d/subnet.html
 /docs/providers/azurerm/d/subscription.html
 /docs/providers/azurerm/d/subscriptions.html
@@ -170,6 +173,7 @@ https://github.com/hashicorp/terraform
 /docs/providers/azurerm/r/function_app.html
 /docs/providers/azurerm/r/application_insights.html
 /docs/providers/azurerm/r/application_insights_api_key.html
+/docs/providers/azurerm/r/application_insights_analytics_item.html
 /docs/providers/azurerm/r/application_insights_web_tests.html
 /docs/providers/azurerm/r/role_assignment.html
 /docs/providers/azurerm/r/role_definition.html
@@ -192,8 +196,11 @@ https://github.com/hashicorp/terraform
 /docs/providers/azurerm/r/batch_application.html
 /docs/providers/azurerm/r/batch_certificate.html
 /docs/providers/azurerm/r/batch_pool.html
+/docs/providers/azurerm/r/bot_channel_email.html
+/docs/providers/azurerm/r/bot_channel_slack.html
 /docs/providers/azurerm/r/bot_channels_registration.html
 /docs/providers/azurerm/r/bot_connection.html
+/docs/providers/azurerm/r/bot_web_app.html
 /docs/providers/azurerm/r/cdn_endpoint.html
 /docs/providers/azurerm/r/cdn_profile.html
 /docs/providers/azurerm/r/cognitive_account.html
@@ -315,6 +322,7 @@ https://github.com/hashicorp/terraform
 /docs/providers/azurerm/r/eventgrid_topic.html
 /docs/providers/azurerm/r/eventhub.html
 /docs/providers/azurerm/r/eventhub_authorization_rule.html
+/docs/providers/azurerm/r/eventhub_namespace_disaster_recovery_config.html
 /docs/providers/azurerm/r/eventhub_consumer_group.html
 /docs/providers/azurerm/r/eventhub_namespace.html
 /docs/providers/azurerm/r/eventhub_namespace_authorization_rule.html
@@ -388,6 +396,7 @@ https://github.com/hashicorp/terraform
 /docs/providers/azurerm/r/policy_assignment.html
 /docs/providers/azurerm/r/policy_definition.html
 /docs/providers/azurerm/r/policy_set_definition.html
+/docs/providers/azurerm/r/dashboard.html
 /docs/providers/azurerm/r/private_dns_a_record.html
 /docs/providers/azurerm/r/private_dns_cname_record.html
 /docs/providers/azurerm/r/private_dns_zone.html
@@ -416,6 +425,8 @@ https://github.com/hashicorp/terraform
 /docs/providers/azurerm/r/storage_account.html
 /docs/providers/azurerm/r/storage_blob.html
 /docs/providers/azurerm/r/storage_container.html
+/docs/providers/azurerm/r/storage_data_lake_gen2_filesystem.html
+/docs/providers/azurerm/r/storage_management_policy.html
 /docs/providers/azurerm/r/storage_queue.html
 /docs/providers/azurerm/r/storage_share.html
 /docs/providers/azurerm/r/storage_share_directory.html

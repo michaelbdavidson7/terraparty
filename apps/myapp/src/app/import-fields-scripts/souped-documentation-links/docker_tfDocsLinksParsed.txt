@@ -1,0 +1,7 @@
+/docs/providers/docker/r/container.html
+/docs/providers/docker/r/image.html
+/docs/providers/docker/r/network.html
+/docs/providers/docker/r/volume.html
+/docs/providers/docker/r/config.html
+/docs/providers/docker/r/secret.html
+/docs/providers/docker/r/service.html

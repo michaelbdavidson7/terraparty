@@ -1,0 +1,5 @@
+/docs/providers/pureport/r/network.html
+/docs/providers/pureport/r/aws_connection.html
+/docs/providers/pureport/r/azure_connection.html
+/docs/providers/pureport/r/google_cloud_connection.html
+/docs/providers/pureport/r/site_vpn_connection.html

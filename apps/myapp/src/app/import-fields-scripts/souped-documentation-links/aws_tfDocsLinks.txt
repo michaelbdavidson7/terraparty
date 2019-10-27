@@ -491,6 +491,7 @@ https://learn.hashicorp.com/terraform/?track=aws#aws
 /docs/providers/aws/r/pinpoint_sms_channel.html
 /docs/providers/aws/d/pricing_product.html
 /docs/providers/aws/r/quicksight_group.html
+/docs/providers/aws/r/quicksight_user.html
 /docs/providers/aws/d/ram_resource_share.html
 /docs/providers/aws/r/ram_principal_association.html
 /docs/providers/aws/r/ram_resource_association.html
@@ -685,10 +686,10 @@ https://learn.hashicorp.com/terraform/?track=aws#aws
 /docs/providers/aws/r/vpn_gateway.html
 /docs/providers/aws/r/vpn_gateway_attachment.html
 /docs/providers/aws/r/vpn_gateway_route_propagation.html
-/docs/providers/aws/d/waf_rule.html
 /docs/providers/aws/d/waf_web_acl.html
 /docs/providers/aws/d/waf_ipset.html
 /docs/providers/aws/d/waf_rule.html
+/docs/providers/aws/d/waf_rate_based_rule.html
 /docs/providers/aws/r/waf_byte_match_set.html
 /docs/providers/aws/r/waf_geo_match_set.html
 /docs/providers/aws/r/waf_ipset.html
@@ -704,6 +705,7 @@ https://learn.hashicorp.com/terraform/?track=aws#aws
 /docs/providers/aws/d/wafregional_ipset.html
 /docs/providers/aws/d/wafregional_rule.html
 /docs/providers/aws/d/wafregional_web_acl.html
+/docs/providers/aws/d/wafregional_rate_based_rule.html
 /docs/providers/aws/r/wafregional_byte_match_set.html
 /docs/providers/aws/r/wafregional_geo_match_set.html
 /docs/providers/aws/r/wafregional_ipset.html

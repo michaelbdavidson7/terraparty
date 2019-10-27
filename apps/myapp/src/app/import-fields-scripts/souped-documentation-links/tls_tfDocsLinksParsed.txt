@@ -1,0 +1,4 @@
+/docs/providers/tls/r/private_key.html
+/docs/providers/tls/r/self_signed_cert.html
+/docs/providers/tls/r/locally_signed_cert.html
+/docs/providers/tls/r/cert_request.html

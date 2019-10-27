@@ -1,0 +1,9 @@
+/docs/providers/rancher/r/certificate.html
+/docs/providers/rancher/r/environment.html
+/docs/providers/rancher/r/host.html
+/docs/providers/rancher/r/registration_token.html
+/docs/providers/rancher/r/registry_credential.html
+/docs/providers/rancher/r/registry.html
+/docs/providers/rancher/r/secret.html
+/docs/providers/rancher/r/stack.html
+/docs/providers/rancher/r/volume.html

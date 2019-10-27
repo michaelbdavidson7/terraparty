@@ -1,0 +1,8 @@
+/docs/providers/launchdarkly/r/project.html
+/docs/providers/launchdarkly/r/environment.html
+/docs/providers/launchdarkly/r/feature_flag.html
+/docs/providers/launchdarkly/r/feature_flag_environment.html
+/docs/providers/launchdarkly/r/segment.html
+/docs/providers/launchdarkly/r/webhook.html
+/docs/providers/launchdarkly/r/custom_role.html
+/docs/providers/launchdarkly/r/team_member.html

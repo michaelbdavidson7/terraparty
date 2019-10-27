@@ -1,0 +1,12 @@
+/docs/providers/pagerduty/r/addon.html
+/docs/providers/pagerduty/r/escalation_policy.html
+/docs/providers/pagerduty/r/event_rule.html
+/docs/providers/pagerduty/r/extension.html
+/docs/providers/pagerduty/r/maintenance_window.html
+/docs/providers/pagerduty/r/schedule.html
+/docs/providers/pagerduty/r/service.html
+/docs/providers/pagerduty/r/service_integration.html
+/docs/providers/pagerduty/r/team.html
+/docs/providers/pagerduty/r/team_membership.html
+/docs/providers/pagerduty/r/user.html
+/docs/providers/pagerduty/r/user_contact_method.html

@@ -1,0 +1,12 @@
+/docs/providers/exoscale/r/affinity.html
+/docs/providers/exoscale/r/compute.html
+/docs/providers/exoscale/r/domain.html
+/docs/providers/exoscale/r/domain_record.html
+/docs/providers/exoscale/r/ipaddress.html
+/docs/providers/exoscale/r/network.html
+/docs/providers/exoscale/r/nic.html
+/docs/providers/exoscale/r/security_group.html
+/docs/providers/exoscale/r/security_group_rule.html
+/docs/providers/exoscale/r/security_group_rules.html
+/docs/providers/exoscale/r/secondary_ipaddress.html
+/docs/providers/exoscale/r/ssh_keypair.html

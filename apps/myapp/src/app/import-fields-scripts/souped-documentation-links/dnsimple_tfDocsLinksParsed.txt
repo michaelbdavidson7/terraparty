@@ -1,0 +1,1 @@
+/docs/providers/dnsimple/r/record.html

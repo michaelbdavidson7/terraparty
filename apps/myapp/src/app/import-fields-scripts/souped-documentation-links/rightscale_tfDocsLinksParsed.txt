@@ -1,0 +1,14 @@
+/docs/providers/rightscale/r/cm_credential.html
+/docs/providers/rightscale/r/cm_deployment.html
+/docs/providers/rightscale/r/cm_instance.html
+/docs/providers/rightscale/r/cm_network_gateway.html
+/docs/providers/rightscale/r/cm_network.html
+/docs/providers/rightscale/r/cm_route_table.html
+/docs/providers/rightscale/r/cm_route.html
+/docs/providers/rightscale/r/cm_security_group_rule.html
+/docs/providers/rightscale/r/cm_security_group.html
+/docs/providers/rightscale/r/cm_server_array.html
+/docs/providers/rightscale/r/cm_server.html
+/docs/providers/rightscale/r/cm_ssh_key.html
+/docs/providers/rightscale/r/cm_subnet.html
+/docs/providers/rightscale/r/cwf_process.html

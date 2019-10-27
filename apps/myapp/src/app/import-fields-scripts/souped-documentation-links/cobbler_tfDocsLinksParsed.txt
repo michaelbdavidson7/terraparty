@@ -1,0 +1,6 @@
+/docs/providers/cobbler/r/distro.html
+/docs/providers/cobbler/r/kickstart_file.html
+/docs/providers/cobbler/r/repo.html
+/docs/providers/cobbler/r/profile.html
+/docs/providers/cobbler/r/snippet.html
+/docs/providers/cobbler/r/system.html

@@ -1,0 +1,10 @@
+/docs/providers/mongodbatlas/r/database_user.html
+/docs/providers/mongodbatlas/r/project_ip_whitelist.html
+/docs/providers/mongodbatlas/r/cluster.html
+/docs/providers/mongodbatlas/r/network_container.html
+/docs/providers/mongodbatlas/r/project.html
+/docs/providers/mongodbatlas/r/cloud_provider_snapshot.html
+/docs/providers/mongodbatlas/r/cloud_provider_snapshot_restore_job.html
+/docs/providers/mongodbatlas/r/encryption_at_rest.html
+/docs/providers/mongodbatlas/r/network_peering.html
+/docs/providers/mongodbatlas/r/private_ip_mode.html

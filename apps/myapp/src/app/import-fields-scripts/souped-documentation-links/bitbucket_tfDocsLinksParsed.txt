@@ -1,0 +1,3 @@
+/docs/providers/bitbucket/r/default_reviewers.html
+/docs/providers/bitbucket/r/hook.html
+/docs/providers/bitbucket/r/repository.html

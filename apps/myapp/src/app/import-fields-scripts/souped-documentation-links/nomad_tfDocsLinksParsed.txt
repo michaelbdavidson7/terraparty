@@ -1,0 +1,6 @@
+/docs/providers/nomad/r/acl_policy.html
+/docs/providers/nomad/r/acl_token.html
+/docs/providers/nomad/r/job.html
+/docs/providers/nomad/r/namespace.html
+/docs/providers/nomad/r/quota_specification.html
+/docs/providers/nomad/r/sentinel_policy.html

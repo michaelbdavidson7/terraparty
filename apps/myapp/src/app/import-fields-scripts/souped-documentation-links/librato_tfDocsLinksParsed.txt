@@ -1,0 +1,5 @@
+/docs/providers/librato/r/alert.html
+/docs/providers/librato/r/metric.html
+/docs/providers/librato/r/service.html
+/docs/providers/librato/r/space.html
+/docs/providers/librato/r/space_chart.html

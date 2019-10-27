@@ -1,0 +1,15 @@
+/docs/providers/vultr/r/bare_metal_server.html
+/docs/providers/vultr/r/block_storage.html
+/docs/providers/vultr/r/dns_domain.html
+/docs/providers/vultr/r/dns_record.html
+/docs/providers/vultr/r/firewall_group.html
+/docs/providers/vultr/r/firewall_rule.html
+/docs/providers/vultr/r/iso.html
+/docs/providers/vultr/r/network.html
+/docs/providers/vultr/r/reserved_ip.html
+/docs/providers/vultr/r/server.html
+/docs/providers/vultr/r/snapshot_from_url.html
+/docs/providers/vultr/r/snapshot.html
+/docs/providers/vultr/r/ssh_key.html
+/docs/providers/vultr/r/startup_script.html
+/docs/providers/vultr/r/user.html

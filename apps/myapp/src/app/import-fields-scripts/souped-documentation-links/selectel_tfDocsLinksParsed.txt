@@ -1,0 +1,9 @@
+/docs/providers/selectel/r/vpc_floatingip_v2.html
+/docs/providers/selectel/r/vpc_keypair_v2.html
+/docs/providers/selectel/r/vpc_license_v2.html
+/docs/providers/selectel/r/vpc_project_v2.html
+/docs/providers/selectel/r/vpc_role_v2.html
+/docs/providers/selectel/r/vpc_subnet_v2.html
+/docs/providers/selectel/r/vpc_token_v2.html
+/docs/providers/selectel/r/vpc_user_v2.html
+/docs/providers/selectel/r/vpc_vrrp_subnet_v2.html

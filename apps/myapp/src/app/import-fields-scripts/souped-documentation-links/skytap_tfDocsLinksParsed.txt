@@ -1,0 +1,4 @@
+/docs/providers/skytap/r/project.html
+/docs/providers/skytap/r/environment.html
+/docs/providers/skytap/r/network.html
+/docs/providers/skytap/r/vm.html

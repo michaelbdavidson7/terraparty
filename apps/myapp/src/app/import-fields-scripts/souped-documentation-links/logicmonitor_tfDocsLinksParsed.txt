@@ -1,0 +1,4 @@
+/docs/providers/logicmonitor/r/collector.html
+/docs/providers/logicmonitor/r/collectorgroup.html
+/docs/providers/logicmonitor/r/device.html
+/docs/providers/logicmonitor/r/devicegroup.html

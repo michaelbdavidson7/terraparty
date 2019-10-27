@@ -1,0 +1,7 @@
+/docs/providers/rabbitmq/r/binding.html
+/docs/providers/rabbitmq/r/exchange.html
+/docs/providers/rabbitmq/r/permissions.html
+/docs/providers/rabbitmq/r/policy.html
+/docs/providers/rabbitmq/r/queue.html
+/docs/providers/rabbitmq/r/user.html
+/docs/providers/rabbitmq/r/vhost.html

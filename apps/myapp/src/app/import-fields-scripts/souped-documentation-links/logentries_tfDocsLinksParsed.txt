@@ -1,0 +1,2 @@
+/docs/providers/logentries/r/log.html
+/docs/providers/logentries/r/logset.html

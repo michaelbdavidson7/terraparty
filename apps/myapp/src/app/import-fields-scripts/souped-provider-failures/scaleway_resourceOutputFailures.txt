@@ -1,0 +1,26 @@
+'NoneType' object has no attribute 'find_next_siblings'
+Failed on   scaleway_account_ssh_key - full resource: {'id': 1, 'type': '  scaleway_account_ssh_key', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/scaleway/r/account_ssh_key.html', 'docType': ''}
+'NoneType' object has no attribute 'find_next_siblings'
+Failed on   scaleway_instance_ip - full resource: {'id': 2, 'type': '  scaleway_instance_ip', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/scaleway/r/instance_ip.html', 'docType': ''}
+'NoneType' object has no attribute 'find_next_siblings'
+Failed on   scaleway_instance_placement_group - full resource: {'id': 3, 'type': '  scaleway_instance_placement_group', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/scaleway/r/instance_placement_group.html', 'docType': ''}
+'NoneType' object has no attribute 'find_next_siblings'
+Failed on   scaleway_instance_server - full resource: {'id': 4, 'type': '  scaleway_instance_server', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/scaleway/r/instance_security_group.html', 'docType': ''}
+'NoneType' object has no attribute 'find_next_siblings'
+Failed on   scaleway_instance_server - full resource: {'id': 5, 'type': '  scaleway_instance_server', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/scaleway/r/instance_server.html', 'docType': ''}
+'NoneType' object has no attribute 'find_next_siblings'
+Failed on   scaleway_instance_volume - full resource: {'id': 6, 'type': '  scaleway_instance_volume', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/scaleway/r/instance_volume.html', 'docType': ''}
+'NoneType' object has no attribute 'find_next_siblings'
+Failed on   scaleway_object_bucket - full resource: {'id': 7, 'type': '  scaleway_object_bucket', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/scaleway/r/object_bucket.html', 'docType': ''}
+'NoneType' object has no attribute 'find_next_siblings'
+Failed on   scaleway_baremetal_server_beta - full resource: {'id': 8, 'type': '  scaleway_baremetal_server_beta', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/scaleway/r/baremetal_server_beta.html', 'docType': ''}
+'NoneType' object has no attribute 'find_next_siblings'
+Failed on   scaleway_k8s_cluster_beta - full resource: {'id': 9, 'type': '  scaleway_k8s_cluster_beta', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/scaleway/r/k8s_cluster_beta.html', 'docType': ''}
+'NoneType' object has no attribute 'find_next_siblings'
+Failed on   scaleway_k8s_pool_beta - full resource: {'id': 10, 'type': '  scaleway_k8s_pool_beta', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/scaleway/r/k8s_pool_beta.html', 'docType': ''}
+'NoneType' object has no attribute 'find_next_siblings'
+Failed on   scaleway_lb_beta - full resource: {'id': 11, 'type': '  scaleway_lb_beta', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/scaleway/r/lb_beta.html', 'docType': ''}
+'NoneType' object has no attribute 'find_next_siblings'
+Failed on   scaleway_lb_backend_beta - full resource: {'id': 12, 'type': '  scaleway_lb_backend_beta', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/scaleway/r/lb_backend_beta.html', 'docType': ''}
+'NoneType' object has no attribute 'find_next_siblings'
+Failed on   scaleway_lb_frontend_beta - full resource: {'id': 13, 'type': '  scaleway_lb_frontend_beta', 'properties': [], 'docsUrl': 'https://www.terraform.io/docs/providers/scaleway/r/lb_frontend_beta.html', 'docType': ''}

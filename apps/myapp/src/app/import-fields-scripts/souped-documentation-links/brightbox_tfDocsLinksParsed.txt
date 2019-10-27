@@ -1,0 +1,8 @@
+/docs/providers/brightbox/r/cloudip.html
+/docs/providers/brightbox/r/orbit_container.html
+/docs/providers/brightbox/r/database_server.html
+/docs/providers/brightbox/r/firewall_policy.html
+/docs/providers/brightbox/r/firewall_rule.html
+/docs/providers/brightbox/r/load_balancer.html
+/docs/providers/brightbox/r/server.html
+/docs/providers/brightbox/r/server_group.html

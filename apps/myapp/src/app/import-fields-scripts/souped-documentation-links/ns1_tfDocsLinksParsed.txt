@@ -1,0 +1,9 @@
+/docs/providers/ns1/r/zone.html
+/docs/providers/ns1/r/record.html
+/docs/providers/ns1/r/monitoringjob.html
+/docs/providers/ns1/r/notifylist.html
+/docs/providers/ns1/r/datasource.html
+/docs/providers/ns1/r/datafeed.html
+/docs/providers/ns1/r/apikey.html
+/docs/providers/ns1/r/team.html
+/docs/providers/ns1/r/user.html

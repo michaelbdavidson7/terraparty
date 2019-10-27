@@ -343,6 +343,7 @@
 /docs/providers/aws/r/pinpoint_gcm_channel.html
 /docs/providers/aws/r/pinpoint_sms_channel.html
 /docs/providers/aws/r/quicksight_group.html
+/docs/providers/aws/r/quicksight_user.html
 /docs/providers/aws/r/ram_principal_association.html
 /docs/providers/aws/r/ram_resource_association.html
 /docs/providers/aws/r/ram_resource_share.html

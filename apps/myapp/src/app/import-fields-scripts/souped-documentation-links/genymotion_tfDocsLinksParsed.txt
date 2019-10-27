@@ -1,0 +1,1 @@
+/docs/providers/genymotion/r/genymotion_cloud.html

@@ -1,0 +1,8 @@
+/docs/providers/triton/r/triton_fabric.html
+/docs/providers/triton/r/triton_firewall_rule.html
+/docs/providers/triton/r/triton_instance_template.html
+/docs/providers/triton/r/triton_key.html
+/docs/providers/triton/r/triton_machine.html
+/docs/providers/triton/r/triton_service_group.html
+/docs/providers/triton/r/triton_snapshot.html
+/docs/providers/triton/r/triton_vlan.html

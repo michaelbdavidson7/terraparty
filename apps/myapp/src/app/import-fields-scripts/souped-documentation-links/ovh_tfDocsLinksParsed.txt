@@ -1,0 +1,16 @@
+/docs/providers/ovh/r/cloud_network_private.html
+/docs/providers/ovh/r/cloud_network_private_subnet.html
+/docs/providers/ovh/r/cloud_user.html
+/docs/providers/ovh/r/publiccloud_private_network.html
+/docs/providers/ovh/r/publiccloud_private_network_subnet.html
+/docs/providers/ovh/r/publiccloud_user.html
+/docs/providers/ovh/r/ovh_domain_zone_record.html
+/docs/providers/ovh/r/ovh_domain_zone_redirection.html
+/docs/providers/ovh/r/ip_reverse.html
+/docs/providers/ovh/r/iploadbalancing_tcp_farm.html
+/docs/providers/ovh/r/iploadbalancing_tcp_farm_server.html
+/docs/providers/ovh/r/iploadbalancing_tcp_frontend.html
+/docs/providers/ovh/r/iploadbalancing_http_route.html
+/docs/providers/ovh/r/iploadbalancing_http_route_rule.html
+/docs/providers/ovh/r/vrack_cloudproject.html
+/docs/providers/ovh/r/vrack_publiccloud_attachment.html

@@ -1,0 +1,4 @@
+/docs/providers/cloudscale/r/server.html
+/docs/providers/cloudscale/r/server_group.html
+/docs/providers/cloudscale/r/volume.html
+/docs/providers/cloudscale/r/floating_ip.html

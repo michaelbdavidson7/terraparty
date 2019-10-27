@@ -1,0 +1,10 @@
+/docs/providers/newrelic/r/alert_channel.html
+/docs/providers/newrelic/r/alert_condition.html
+/docs/providers/newrelic/r/alert_policy.html
+/docs/providers/newrelic/r/alert_policy_channel.html
+/docs/providers/newrelic/r/nrql_alert_condition.html
+/docs/providers/newrelic/r/infra_alert_condition.html
+/docs/providers/newrelic/r/synthetics_alert_condition.html
+/docs/providers/newrelic/r/synthetics_monitor.html
+/docs/providers/newrelic/r/synthetics_monitor_script.html
+/docs/providers/newrelic/r/dashboard.html

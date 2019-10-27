@@ -1,0 +1,4 @@
+/docs/providers/hedvig/r/access.html
+/docs/providers/hedvig/r/lun.html
+/docs/providers/hedvig/r/mount.html
+/docs/providers/hedvig/r/vdisk.html

@@ -1,0 +1,14 @@
+/docs/providers/packet/r/bgp_session.html
+/docs/providers/packet/r/connect.html
+/docs/providers/packet/r/device.html
+/docs/providers/packet/r/ip_attachment.html
+/docs/providers/packet/r/organization.html
+/docs/providers/packet/r/port_vlan_attachment.html
+/docs/providers/packet/r/project.html
+/docs/providers/packet/r/project_ssh_key.html
+/docs/providers/packet/r/reserved_ip_block.html
+/docs/providers/packet/r/ssh_key.html
+/docs/providers/packet/r/spot_market_request.html
+/docs/providers/packet/r/vlan.html
+/docs/providers/packet/r/volume.html
+/docs/providers/packet/r/volume_attachment.html

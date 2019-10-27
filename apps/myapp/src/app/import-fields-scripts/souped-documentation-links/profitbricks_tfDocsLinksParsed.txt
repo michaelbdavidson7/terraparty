@@ -1,0 +1,13 @@
+/docs/providers/profitbricks/r/profitbricks_datacenter.html
+/docs/providers/profitbricks/r/profitbricks_firewall.html
+/docs/providers/profitbricks/r/profitbricks_group.html
+/docs/providers/profitbricks/r/profitbricks_ipblock.html
+/docs/providers/profitbricks/r/profitbricks_ipfailover.html
+/docs/providers/profitbricks/r/profitbricks_lan.html
+/docs/providers/profitbricks/r/profitbricks_loadbalancer.html
+/docs/providers/profitbricks/r/profitbricks_nic.html
+/docs/providers/profitbricks/r/profitbricks_server.html
+/docs/providers/profitbricks/r/profitbricks_share.html
+/docs/providers/profitbricks/r/profitbricks_snapshot.html
+/docs/providers/profitbricks/r/profitbricks_user.html
+/docs/providers/profitbricks/r/profitbricks_volume.html

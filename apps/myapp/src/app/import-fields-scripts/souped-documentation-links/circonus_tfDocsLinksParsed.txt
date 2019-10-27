@@ -1,0 +1,7 @@
+/docs/providers/circonus/r/check.html
+/docs/providers/circonus/r/contact_group.html
+/docs/providers/circonus/r/graph.html
+/docs/providers/circonus/r/metric.html
+/docs/providers/circonus/r/metric_cluster.html
+/docs/providers/circonus/r/rule_set.html
+/docs/providers/circonus/r/worksheet.html
