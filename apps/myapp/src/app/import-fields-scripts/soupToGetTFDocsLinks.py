@@ -4,8 +4,11 @@ from bs4 import BeautifulSoup
 import os
 import json
 import time
+import datetime
 
+now = datetime.datetime.now()
 
+# Settings
 # Change these for different providers, as well as the web parser below
 providerName = "do"
 url = "https://www.terraform.io/docs/providers/"+providerName+"/index.html"
@@ -25,9 +28,27 @@ def main():
     # config = get_config(CONFIG_FILE_PATH)
     # providers = [Provider(**x, base_url=config['base_url']) for x in config['providers']]
     # providers[0].get_resource_pages()
-    getAllLinks()
-    getResourceWebpages()
+    # getAllLinks()
+    # getResourceWebpages()
+    getAllProviderLinks()
 
+def getAllProviderLinks():
+    allProvidersUrl = "https://www.terraform.io/docs/providers/index.html"
+    allProvidersObjList = []
+    
+    content = urllib.request.urlopen(allProvidersUrl).read()
+
+    soup = BeautifulSoup(content, features="html.parser")
+    providersSoup = soup.find(id='inner').find_all("div")[0].find_all("ul")[0].find_all('li')
+    if len(providersSoup) < 100:
+        raise ValueError('Soup is looking in the wrong area of the providers page for the providers')
+    print(providersSoup)
+    for listItem in providersSoup:
+        providerName = listItem.find_all('a')[0].contents[0]
+        providerLink = listItem.find_all('a')[0].get('href')
+        providerObj = {"providerName": providerName, "providerLink": providerLink, "lastProviderListQuery": str(now)}
+        print('listItem', type(listItem), providerObj)
+        allProvidersObjList.append(providerObj)
 
 
 # todo get all the sidebar resources links to go through
