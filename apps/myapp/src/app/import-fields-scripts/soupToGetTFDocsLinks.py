@@ -17,6 +17,7 @@ soupedDocsLinksFolder = "souped-documentation-links"
 soupedProviderOutputsFolder = "souped-provider-outputs"
 soupedProviderFailuresFolder = "souped-provider-failures"
 
+providerLinksFileName = "./fetchedProvidersList.json"
 docsLinksFileName = soupedDocsLinksFolder + "/" + providerName + "_tfDocsLinks.txt"
 docsLinksFileNameParsed = soupedDocsLinksFolder + "/" +  providerName + "_tfDocsLinksParsed.txt"
 resourcesOutputFile = soupedProviderOutputsFolder + "/" + providerName + "_resourcesOutputFile.json"
@@ -42,13 +43,18 @@ def getAllProviderLinks():
     providersSoup = soup.find(id='inner').find_all("div")[0].find_all("ul")[0].find_all('li')
     if len(providersSoup) < 100:
         raise ValueError('Soup is looking in the wrong area of the providers page for the providers')
-    print(providersSoup)
+    # print(providersSoup)
     for listItem in providersSoup:
         providerName = listItem.find_all('a')[0].contents[0]
         providerLink = listItem.find_all('a')[0].get('href')
-        providerObj = {"providerName": providerName, "providerLink": providerLink, "lastProviderListQuery": str(now)}
-        print('listItem', type(listItem), providerObj)
+        providerShortName = providerLink.split('/docs/providers/')[1].split('/index.html')[0]
+        providerObj = {"providerName": providerName, "providerLink": providerLink, "providerShortName": providerShortName, "lastProviderListFetch": str(now), "lastProviderUpdate": ""}
+        # print('listItem', providerObj)
         allProvidersObjList.append(providerObj)
+    
+    # add to file
+    throwItInAFile(json.dumps(allProvidersObjList), providerLinksFileName)
+    print('Provider list refreshed and written to file')
 
 
 # todo get all the sidebar resources links to go through
@@ -287,6 +293,13 @@ def parseLIElements(li, propertyObject, listDepth = 1):
             print('Converted ' + propertyObject[prop] + ' to a string')
 
     return propertyObject
+
+def throwItInAFile(obj, path):
+    if os.path.isfile(path):
+        os.remove(path)
+        
+    with open(path, "a") as f:
+        print(obj, file=f)
 
 if __name__ == '__main__':
     main()
