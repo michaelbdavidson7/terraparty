@@ -3,6 +3,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import json from '../import-fields-scripts/souped-provider-outputs/aws_resourcesOutputFile.json';
+import providerSettings from '../import-fields-scripts/soupToGetTFDocsSettings.json';
 console.log(json.length)
 
 @Component({
@@ -29,12 +30,13 @@ export class FileBuilderComponent implements OnInit {
   
   // provider stuff
   selectedProvider = "aws";
-  providerList = [{ "displayName": "Google Cloud Platform", "providerName": "google" },
-  { "displayName": "AWS", "providerName": "aws" },
-  { "displayName": "Azure", "providerName": "azurerm" },
-  { "displayName": "F5 BIG-IP", "providerName": "bigip" },
-  { "displayName": "VMware vCloud Director", "providerName": "vcd" },
-  { "displayName": "Digital Ocean", "providerName": "do" }];
+  // providerList = [{ "displayName": "Google Cloud Platform", "providerShortName": "google" },
+  // { "displayName": "AWS", "providerShortName": "aws" },
+  // { "displayName": "Azure", "providerShortName": "azurerm" },
+  // { "displayName": "F5 BIG-IP", "providerShortName": "bigip" },
+  // { "displayName": "VMware vCloud Director", "providerShortName": "vcd" },
+  // { "displayName": "Digital Ocean", "providerShortName": "do" }];
+  providerList = providerSettings.providers;
   usedProviders = { "aws": true };
 
 
@@ -87,7 +89,7 @@ export class FileBuilderComponent implements OnInit {
     console.log('importProvider', provider);
     let location = '../import-fields-scripts/souped-provider-outputs/' + provider + '_resourcesOutputFile.json'
 
-    if (this.providerList.map((x) => x.providerName).includes(provider)) {
+    if (this.providerList.map((x) => x.providerShortName).includes(provider)) {
       try {
         import('../import-fields-scripts/souped-provider-outputs/' + provider + '_resourcesOutputFile.json').then((z) => {
           console.log('successful import', typeof z, z)
@@ -155,8 +157,8 @@ export class FileBuilderComponent implements OnInit {
 
     // cyle through providers
     // EDIT - NOT SURE THIS IS NECESSSARY
-    // Object.keys(this.usedProviders).forEach((providerName) => {
-    //   this.output.provider.push(providerName);
+    // Object.keys(this.usedProviders).forEach((providerShortName) => {
+    //   this.output.provider.push(providerShortName);
     // });
 
     // cycle through variables

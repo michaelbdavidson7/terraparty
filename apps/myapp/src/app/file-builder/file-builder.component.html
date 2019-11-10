@@ -41,8 +41,8 @@
         <div class="form-group row">
           <div class="col-lg-8">
             <select class="form-control form-control-sm" [(ngModel)]="selectedProvider">
-              <option *ngFor="let provider of providerList; index as i; " [value]="provider.providerName">
-                {{provider.displayName}}
+              <option *ngFor="let provider of providerList; index as i; " [value]="provider.providerShortName">
+                {{provider.providerName}}
               </option>
             </select>
           </div>
